@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="es.avifer.abp.feature.blockchain.ui.view.fragment.HomeFragment">
+    tools:context="es.gresybano.gresybano.feature.blockchain.ui.view.fragment.HomeFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_home__toolbar__toolbar"

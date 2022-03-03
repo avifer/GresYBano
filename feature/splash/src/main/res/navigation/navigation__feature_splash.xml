@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation__feature_splash__splash_fragment"
-        android:name="es.avifer.abp.feature.splash.ui.view.fragment.SplashFragment"
+        android:name="es.gresybano.gresybano.feature.splash.ui.view.fragment.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash">
 
