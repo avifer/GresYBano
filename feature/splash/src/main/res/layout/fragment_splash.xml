@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="es.avifer.abp.feature.splash.ui.view.fragment.SplashFragment">
+    tools:context="es.gresybano.gresybano.feature.splash.ui.view.fragment.SplashFragment">
 
     <ImageView
         android:id="@+id/fragment_splash__img__splash_logo"

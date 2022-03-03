@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/navigation__feature_blockchain__home_fragment"
-        android:name="es.avifer.abp.feature.blockchain.ui.view.fragment.HomeFragment" />
+        android:name="es.gresybano.gresybano.feature.blockchain.ui.view.fragment.HomeFragment" />
 
 </navigation>

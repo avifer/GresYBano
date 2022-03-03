@@ -1,4 +1,4 @@
-rootProject.name = "Android Base Project"
+rootProject.name = "GresYBano"
 include(
     ":app",
     ":common",
