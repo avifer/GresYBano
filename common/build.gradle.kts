@@ -27,6 +27,8 @@ dependencies {
     implementation(Dependencies.Androidx.APPCOMPAT)
     implementation(Dependencies.Androidx.FRAGMENT)
 
+    implementation(Dependencies.Google.FIREBASE_CONFIG)
+
     implementation(Dependencies.Androidx.NAVIGATION_FRAGMENT_KOTLIN)
     implementation(Dependencies.Androidx.NAVIGATION_UI_KOTLIN)
 }

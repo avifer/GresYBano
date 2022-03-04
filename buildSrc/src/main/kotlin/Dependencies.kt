@@ -44,6 +44,7 @@ object Dependencies {
         const val HILT_ANDROID_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.Google.HILT_ANDROID_COMPILER}"
         const val FIREBASE_CRASHLYTICS = "com.google.firebase:firebase-crashlytics-ktx:${Versions.Google.FIREBASE_CRASHLYTICS}"
         const val FIREBASE_ANALYTICS = "com.google.firebase:firebase-analytics-ktx:${Versions.Google.FIREBASE_ANALYTICS}"
+        const val FIREBASE_CONFIG = "com.google.firebase:firebase-config-ktx:${Versions.Google.FIREBASE_CONFIG}"
     }
 
 }

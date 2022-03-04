@@ -89,6 +89,7 @@ dependencies {
 
     implementation(Dependencies.Google.FIREBASE_CRASHLYTICS)
     implementation(Dependencies.Google.FIREBASE_ANALYTICS)
+    implementation(Dependencies.Google.FIREBASE_CONFIG)
 
     implementation(Dependencies.Androidx.ROOM_RUNTIME)
     implementation(Dependencies.Androidx.ROOM_KTX)
