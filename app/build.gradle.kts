@@ -3,6 +3,7 @@ import FunctionsGradle.getFileStore
 import FunctionsGradle.getKeyAlias
 import FunctionsGradle.getKeyPassword
 import FunctionsGradle.getStorePassword
+import FunctionsGradle.getVersionCode
 
 plugins {
     id(Plugins.ANDROID_APPLICATION)
@@ -22,7 +23,7 @@ android {
         applicationId = ConfigApp.APPLICATION_ID
         minSdk = ConfigApp.MIN_SDK
         targetSdk = ConfigApp.TARGET_SDK
-        versionCode = ConfigApp.VERSION_CODE
+        versionCode = getVersionCode()
         versionName = ConfigApp.VERSION_NAME
 
         vectorDrawables {
