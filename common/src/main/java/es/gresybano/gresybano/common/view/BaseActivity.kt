@@ -14,6 +14,14 @@ abstract class BaseActivity : AppCompatActivity() {
         private const val INIT_PROGRESS_BAR = 0
     }
 
+    val versionName: String by lazy {
+        try {
+            packageManager.getPackageInfo(packageName, 0).versionName
+        } catch (e: Exception) {
+            ""
+        }
+    }
+
     abstract var viewLoading: ConstraintLayout?
     abstract var progressBarLoading: ProgressBar?
 
