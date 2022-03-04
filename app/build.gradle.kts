@@ -1,4 +1,4 @@
-import FunctionsGradle.SignConfig.RELEASE
+import FunctionsGradle.BuildType.RELEASE
 import FunctionsGradle.getFileStore
 import FunctionsGradle.getKeyAlias
 import FunctionsGradle.getKeyPassword
@@ -41,6 +41,7 @@ android {
         getByName("debug") {
             isMinifyEnabled = false
             isDebuggable = true
+            manifestPlaceholders["crashlyticsCollectionEnabled"] = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -50,6 +51,7 @@ android {
         getByName("release") {
             isMinifyEnabled = false
             isDebuggable = false
+            manifestPlaceholders["crashlyticsCollectionEnabled"] = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
