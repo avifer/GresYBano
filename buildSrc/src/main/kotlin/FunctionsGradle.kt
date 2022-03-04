@@ -11,7 +11,7 @@ object FunctionsGradle {
     private const val KEY_ALIAS = "KEY_ALIAS"
     private const val KEY_PASSWORD = "KEY_PASSWORD"
 
-    enum class SignConfig {
+    enum class BuildType {
         RELEASE, DEBUG;
 
         fun getPathFile() =
@@ -21,23 +21,23 @@ object FunctionsGradle {
 
     private fun getAbsolutePath() = System.getProperty("user.dir")
 
-    private fun getPropertiesFile(signConfig: SignConfig): Properties =
-        Properties().apply { load(File(signConfig.getPathFile()).inputStream()) }
+    private fun getPropertiesFile(buildType: BuildType): Properties =
+        Properties().apply { load(File(buildType.getPathFile()).inputStream()) }
 
-    fun getFileStore(signConfig: SignConfig): File =
+    fun getFileStore(buildType: BuildType): File =
         File(
-            getAbsolutePath() + "/" + DIR_PRIVATE_DATA + "/" + getPropertiesFile(signConfig).getProperty(
+            getAbsolutePath() + "/" + DIR_PRIVATE_DATA + "/" + getPropertiesFile(buildType).getProperty(
                 PATH_FILE
             )
         )
 
-    fun getStorePassword(signConfig: SignConfig): String =
-        getPropertiesFile(signConfig).getProperty(STORE_PASSWORD)
+    fun getStorePassword(buildType: BuildType): String =
+        getPropertiesFile(buildType).getProperty(STORE_PASSWORD)
 
-    fun getKeyAlias(signConfig: SignConfig): String =
-        getPropertiesFile(signConfig).getProperty(KEY_ALIAS)
+    fun getKeyAlias(buildType: BuildType): String =
+        getPropertiesFile(buildType).getProperty(KEY_ALIAS)
 
-    fun getKeyPassword(signConfig: SignConfig): String =
-        getPropertiesFile(signConfig).getProperty(KEY_PASSWORD)
+    fun getKeyPassword(buildType: BuildType): String =
+        getPropertiesFile(buildType).getProperty(KEY_PASSWORD)
 
 }
