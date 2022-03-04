@@ -1,4 +1,6 @@
 import java.io.File
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 object FunctionsGradle {
@@ -39,5 +41,8 @@ object FunctionsGradle {
 
     fun getKeyPassword(buildType: BuildType): String =
         getPropertiesFile(buildType).getProperty(KEY_PASSWORD)
+
+    fun getVersionCode(): Int =
+        LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHH")).toInt()
 
 }
