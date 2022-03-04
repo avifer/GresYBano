@@ -1,5 +1,8 @@
 package es.gresybano.gresybano.common.view
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.StringRes
@@ -7,11 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import es.gresybano.gresybano.common.extensions.hide
 import es.gresybano.gresybano.common.extensions.show
+import es.gresybano.gresybano.common.view.BaseActivity.Companion.URL_INTENT_MARKET
+import es.gresybano.gresybano.common.view.BaseActivity.Companion.URL_INTENT_PLAY_STORE
 
 abstract class BaseActivity : AppCompatActivity() {
 
     companion object {
         private const val INIT_PROGRESS_BAR = 0
+        const val URL_INTENT_PLAY_STORE = "https://play.google.com/store/apps/details?id="
+        const val URL_INTENT_MARKET = "market://details?id="
     }
 
     val versionName: String by lazy {
@@ -54,4 +61,22 @@ fun BaseActivity.toast(
         getString(idString),
         duration
     ).show()
+}
+
+fun BaseActivity.openAppInGooglePlay() {
+    try {
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse(URL_INTENT_MARKET + packageName)
+            )
+        )
+    } catch (e: ActivityNotFoundException) {
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse(URL_INTENT_PLAY_STORE + packageName)
+            )
+        )
+    }
 }
