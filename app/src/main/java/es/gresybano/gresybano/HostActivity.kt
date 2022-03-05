@@ -1,8 +1,9 @@
 package es.gresybano.gresybano
 
 import android.os.Bundle
-import android.widget.ProgressBar
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieDrawable
 import dagger.hilt.android.AndroidEntryPoint
 import es.gresybano.gresybano.common.view.BaseActivity
 import es.gresybano.gresybano.common.view.toast
@@ -11,14 +12,24 @@ import es.gresybano.gresybano.common.view.toast
 class HostActivity : BaseActivity() {
 
     override var viewLoading: ConstraintLayout? = null
-    override var progressBarLoading: ProgressBar? = null
+    override var lottieAnimation: LottieAnimationView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_host)
         viewLoading = findViewById(R.id.activity_host__view__loading)
-        progressBarLoading = findViewById(R.id.loading_screen__progress_bar__loading)
+        lottieAnimation = findViewById(R.id.loading_screen__lottie_animation__loading)
+        configureAnimation()
         toast(R.string.app_name)
+    }
+
+    private fun configureAnimation() {
+        lottieAnimation?.let {
+            with(it) {
+                setAnimation(R.raw.animation_build_home)
+                repeatCount = LottieDrawable.INFINITE
+            }
+        }
     }
 
 }

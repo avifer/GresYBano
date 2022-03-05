@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="loading_screen__progress_bar__loading__size">80dp</dimen>
+    <dimen name="loading_screen__lottie_animation__loading__size">300dp</dimen>
 </resources>

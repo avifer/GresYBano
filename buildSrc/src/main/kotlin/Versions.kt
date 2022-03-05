@@ -48,4 +48,8 @@ object Versions {
         const val FIREBASE_CONFIG = "21.0.1"
     }
 
+    object Airbnb{
+        const val LOTTIE = "5.0.2"
+    }
+
 }
