@@ -5,7 +5,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import dagger.hilt.android.HiltAndroidApp
-import es.avifer.abp.common.extensions.getDefaultValues
+import es.gresybano.gresybano.common.extensions.getDefaultValues
 import java.util.concurrent.TimeUnit.MINUTES
 
 
