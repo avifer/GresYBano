@@ -43,6 +43,7 @@ android {
             isMinifyEnabled = false
             isDebuggable = true
             manifestPlaceholders["crashlyticsCollectionEnabled"] = false
+            manifestPlaceholders["analyticsCollectionEnabled"] = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -53,6 +54,7 @@ android {
             isMinifyEnabled = false
             isDebuggable = false
             manifestPlaceholders["crashlyticsCollectionEnabled"] = true
+            manifestPlaceholders["analyticsCollectionEnabled"] = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
