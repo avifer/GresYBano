@@ -3,11 +3,11 @@ package es.gresybano.gresybano.common.view
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.airbnb.lottie.LottieAnimationView
 import es.gresybano.gresybano.common.extensions.hide
 import es.gresybano.gresybano.common.extensions.show
 import es.gresybano.gresybano.common.view.BaseActivity.Companion.URL_INTENT_MARKET
@@ -30,16 +30,16 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     abstract var viewLoading: ConstraintLayout?
-    abstract var progressBarLoading: ProgressBar?
+    abstract var lottieAnimation: LottieAnimationView?
 
     private fun showLoading() {
         viewLoading?.show()
-        progressBarLoading?.startNestedScroll(INIT_PROGRESS_BAR)
+        lottieAnimation?.playAnimation()
     }
 
     private fun hideLoading() {
         viewLoading?.hide()
-        progressBarLoading?.stopNestedScroll()
+        lottieAnimation?.pauseAnimation()
     }
 
     fun visibilityLoading(visible: Boolean) {

@@ -4,13 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:alpha="0.7"
-    android:background="@color/black">
+    android:background="@color/white">
 
-    <ProgressBar
-        android:id="@+id/loading_screen__progress_bar__loading"
-        android:layout_width="@dimen/loading_screen__progress_bar__loading__size"
-        android:layout_height="@dimen/loading_screen__progress_bar__loading__size"
-        android:indeterminate="true"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_screen__lottie_animation__loading"
+        android:layout_width="@dimen/loading_screen__lottie_animation__loading__size"
+        android:layout_height="@dimen/loading_screen__lottie_animation__loading__size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

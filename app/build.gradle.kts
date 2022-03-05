@@ -96,6 +96,8 @@ dependencies {
     implementation(Dependencies.Google.FIREBASE_ANALYTICS)
     implementation(Dependencies.Google.FIREBASE_CONFIG)
 
+    implementation(Dependencies.Airbnb.LOTTIE)
+
     implementation(Dependencies.Androidx.ROOM_RUNTIME)
     implementation(Dependencies.Androidx.ROOM_KTX)
     kapt(Dependencies.Androidx.ROOM_COMPILER)

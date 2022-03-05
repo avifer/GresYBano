@@ -47,4 +47,8 @@ object Dependencies {
         const val FIREBASE_CONFIG = "com.google.firebase:firebase-config-ktx:${Versions.Google.FIREBASE_CONFIG}"
     }
 
+    object Airbnb{
+        const val LOTTIE = "com.airbnb.android:lottie:${Versions.Airbnb.LOTTIE}"
+    }
+
 }
