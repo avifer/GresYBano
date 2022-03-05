@@ -6,7 +6,6 @@ import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
 import dagger.hilt.android.AndroidEntryPoint
 import es.gresybano.gresybano.common.view.BaseActivity
-import es.gresybano.gresybano.common.view.toast
 
 @AndroidEntryPoint
 class HostActivity : BaseActivity() {
@@ -20,7 +19,6 @@ class HostActivity : BaseActivity() {
         viewLoading = findViewById(R.id.activity_host__view__loading)
         lottieAnimation = findViewById(R.id.loading_screen__lottie_animation__loading)
         configureAnimation()
-        toast(R.string.app_name)
     }
 
     private fun configureAnimation() {

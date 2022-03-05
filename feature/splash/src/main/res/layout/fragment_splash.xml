@@ -11,7 +11,7 @@
         android:layout_width="@dimen/fragment_splash__img__splash_logo__size"
         android:layout_height="@dimen/fragment_splash__img__splash_logo__size"
         android:contentDescription="@string/fragment_splash__img__splash_logo__description"
-        android:src="@drawable/bitcoin"
+        android:src="@drawable/logo_gres_y_bano"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
