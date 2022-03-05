@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="fragment_splash__img__splash_logo__size">200dp</dimen>
+    <dimen name="fragment_splash__img__splash_logo__size">350dp</dimen>
 </resources>
