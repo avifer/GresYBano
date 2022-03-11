@@ -1,7 +1,0 @@
-<resources>
-    <string name="fragment_home__label__online_price__text">Precio actual</string>
-    <string name="fragment_home__label__local_price__text">Ultimo precio</string>
-    <string name="fragment_home__toolbar__toolbar__title">Blockchain</string>
-    <string name="icon_money">%s €</string>
-    <string name="icon_dolar">%s $</string>
-</resources>

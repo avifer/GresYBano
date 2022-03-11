@@ -10,9 +10,9 @@ class SplashFragmentViewModel : BaseViewModel() {
         private const val DELAY_SPLASH = 1500L
     }
 
-    fun goToBlockchain() {
+    fun goToOnBoarding() {
         runDelayMain(DELAY_SPLASH) {
-            navigate(SplashFragmentDirections.navigateFromSplashFeatureToBlockchainFeature())
+            navigate(SplashFragmentDirections.navigateFromSplashFeatureToOnboardingFeature())
         }
     }
 

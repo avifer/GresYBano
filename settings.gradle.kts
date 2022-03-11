@@ -4,7 +4,6 @@ include(
     ":common",
     ":data",
     ":domain",
-    ":feature:blockchain",
     ":feature:splash",
     ":feature:onboarding",
     ":navigation",

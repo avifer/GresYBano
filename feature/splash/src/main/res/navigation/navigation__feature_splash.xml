@@ -12,13 +12,13 @@
         tools:layout="@layout/fragment_splash">
 
         <action
-            android:id="@+id/navigate_from_splash_feature_to_blockchain_feature"
-            app:destination="@id/navigation__feature_blockchain"
+            android:id="@+id/navigate_from_splash_feature_to_onboarding_feature"
+            app:destination="@id/navigation__feature_onboarding"
             app:popUpTo="@id/navigation__feature_splash__splash_fragment"
             app:popUpToInclusive="true" />
 
     </fragment>
 
-    <include app:graph="@navigation/navigation__feature_blockchain" />
+    <include app:graph="@navigation/navigation__feature_onboarding" />
 
 </navigation>

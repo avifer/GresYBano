@@ -80,7 +80,6 @@ dependencies {
     implementation(project(Modules.DOMAIN))
     implementation(project(Modules.NAVIGATION))
     implementation(project(Modules.FEATURE_SPLASH))
-    implementation(project(Modules.FEATURE_BLOCKCHAIN))
 
     implementation(Dependencies.Androidx.CORE_KOTLIN)
 
