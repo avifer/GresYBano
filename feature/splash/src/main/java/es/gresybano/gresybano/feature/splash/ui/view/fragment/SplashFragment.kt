@@ -18,7 +18,7 @@ class SplashFragment : BaseFragment() {
         FragmentSplashBinding.inflate(inflater, container, false)
 
     override fun onViewReady(savedInstanceState: Bundle?) {
-        viewModel.goToBlockchain()
+        viewModel.goToOnBoarding()
     }
 
 }
