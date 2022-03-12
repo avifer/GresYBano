@@ -4,4 +4,7 @@
     <string name="unknown_host_error">No se ha encontrado el destino</string>
     <string name="socket_time_out_error">Agotado el tiempo de espera</string>
     <string name="unknown_network_error">Error desconocido</string>
+    <string name="unknown_error">Error desconocido</string>
+
+    <string name="no_network">No dispone de conexión a internet. Revise la conexión</string>
 </resources>

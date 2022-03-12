@@ -14,6 +14,7 @@ fun ExceptionInfo.getStringError(): Int {
         CodeExceptions.SOCKET_TIME_OUT_EXCEPTION -> R.string.socket_time_out_error
         CodeExceptions.UNKNOWN_NETWORK_EXCEPTION -> R.string.unknown_network_error
         CodeExceptions.DATABASE_ROOM_ERROR -> R.string.unknown_network_error
+        CodeExceptions.UNKNOWN -> R.string.unknown_error
         null -> R.string.unknown_network_error
     }
 }

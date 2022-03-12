@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import es.gresybano.gresybano.data.remote.blockchain.api.ExchangeApi
+import es.gresybano.gresybano.data.remote.category.api.CategoryApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -47,13 +47,13 @@ class RemoteDataModule {
 
     @Provides
     @Singleton
-    fun provideExchangeApi(okHttpClient: OkHttpClient, gson: GsonConverterFactory): ExchangeApi {
+    fun provideCategoryApi(okHttpClient: OkHttpClient, gson: GsonConverterFactory): CategoryApi {
         return Retrofit.Builder()
             .baseUrl(BASE_URL_API_EXCHANGE)
             .addConverterFactory(gson)
             .client(okHttpClient)
             .build()
-            .create(ExchangeApi::class.java)
+            .create(CategoryApi::class.java)
     }
 
 }

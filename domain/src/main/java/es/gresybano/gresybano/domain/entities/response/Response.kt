@@ -19,3 +19,17 @@ fun <T> Response<T>.isError() = (this is Response.Error)
 fun <T> Response<T>.isWaiting() = (this is Response.Loading)
 
 fun <T> Response.Error<T>.getStringError() = error.getStringError()
+
+fun <T, O> Response<T>.defaultResponse(block: (int: T?) -> O): Response<O> {
+    return when (this) {
+        is Response.Successful -> {
+            Response.Successful(block(this.data))
+        }
+        is Response.Error -> {
+            Response.Error(this.error)
+        }
+        is Response.Loading -> {
+            Response.Loading(this.loading)
+        }
+    }
+}

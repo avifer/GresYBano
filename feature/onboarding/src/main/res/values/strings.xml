@@ -1,0 +1,7 @@
+<resources>
+    <string name="fragment_info_with_image__label__title__text">Estamos encantados de verte por aquí</string>
+    <string name="fragment_info_with_image__label__subtitle__text">Usando nuestra app podrás ver nuestros trabajos en cualquier momento, ver los materiales de los que disponemos e incluso guardar en favoritos los que más te gusten.</string>
+    <string name="fragment_select_favorite__label__title__text">Elige tus categorias favoritas</string>
+    <string name="fragment_select_favorite__label__subtitle__text">Así podrás guardarla en favoritos y recibir actualizaciones cuando haya nuevas publicaciones.</string>
+    <string name="error_chargin_categories">Ha ocurrido un error al cargar las categorias. Intentalo más tarde.</string>
+</resources>

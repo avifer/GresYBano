@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke
+        android:width="@dimen/row_favorite_category__background_selected__width"
+        android:color="@color/secondary_color_dark" />
+    <corners android:radius="@dimen/row_favorite_category__background_selected__radius" />
+</shape>
