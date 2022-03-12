@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="row_favorite_category__img__category__width">150dp</dimen>
+    <dimen name="row_favorite_category__img__category__height">130dp</dimen>
+    <dimen name="row_favorite_category__label__name_category__margin_horizontal">8dp</dimen>
+    <dimen name="row_favorite_category__card__parent__margin">8dp</dimen>
+    <dimen name="row_favorite_category__card__parent__card_corner_radius">8dp</dimen>
+    <dimen name="row_favorite_category__card__parent__card_elevation">2dp</dimen>
+    <dimen name="row_favorite_category__label__name_category__margin_vertical">4dp</dimen>
+    <dimen name="row_favorite_category__label__name_category__text_size">14sp</dimen>
+
+    <dimen name="row_favorite_category__background_selected__width">3dp</dimen>
+    <dimen name="row_favorite_category__background_selected__radius">8dp</dimen>
+
+    <dimen name="fragment_info_with_image__label__title__text_size">20sp</dimen>
+    <dimen name="fragment_info_with_image__label__subtitle__margin_horizontal">40dp</dimen>
+    <dimen name="fragment_info_with_image__label__subtitle__margin_top">20dp</dimen>
+    <dimen name="fragment_info_with_image__label__subtitle__text_size">16sp</dimen>
+
+    <dimen name="fragment_on_boarding__img__go_back__size">24dp</dimen>
+    <dimen name="fragment_on_boarding__img__go_back__margin_start">24dp</dimen>
+    <dimen name="fragment_on_boarding__linear__indicator__margin_start">24dp</dimen>
+    <dimen name="fragment_on_boarding__img__go_forward__margin_end">24dp</dimen>
+    <dimen name="fragment_on_boarding__img__go_forward__size">24dp</dimen>
+
+    <dimen name="fragment_select_favorite__label__title__margin_horizontal">20dp</dimen>
+    <dimen name="fragment_select_favorite__label__title__margin_top">20dp</dimen>
+    <dimen name="fragment_select_favorite__label__title__text_size">24sp</dimen>
+    <dimen name="fragment_select_favorite__label__subtitle__margin_horizontal">40dp</dimen>
+    <dimen name="fragment_select_favorite__label__subtitle__margin_top">10dp</dimen>
+    <dimen name="fragment_select_favorite__label__subtitle__text_size">14sp</dimen>
+    <dimen name="fragment_select_favorite__list__favorites__margin">20dp</dimen>
+
+    <item name="fragment_info_with_image__guideline__top_animation__percent" type="dimen" format="float">0.3</item>
+    <item name="fragment_info_with_image__guideline__bottom_animation__percent" type="dimen" format="float">0.5</item>
+    <item name="fragment_info_with_image__guideline__start_animation__percent" type="dimen" format="float">0.2</item>
+    <item name="fragment_info_with_image__guideline__end_animation__percent" type="dimen" format="float">0.8</item>
+
+    <item name="fragment_on_boarding__guideline__top_separator__percent" type="dimen" format="float">0.07</item>
+    <item name="fragment_on_boarding__guideline__bottom_separator__percent" type="dimen" format="float">0.93</item>
+</resources>

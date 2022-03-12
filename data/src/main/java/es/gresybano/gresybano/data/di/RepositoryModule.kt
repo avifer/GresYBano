@@ -4,14 +4,14 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import es.gresybano.gresybano.data.local.blockchain.dao.BlockchainDao
-import es.gresybano.gresybano.data.local.blockchain.datasource.BlockchainLocalDataSource
-import es.gresybano.gresybano.data.local.blockchain.datasource.BlockchainLocalDataSourceImpl
-import es.gresybano.gresybano.data.remote.blockchain.api.ExchangeApi
-import es.gresybano.gresybano.data.remote.blockchain.datasource.BlockchainRemoteDataSource
-import es.gresybano.gresybano.data.remote.blockchain.datasource.BlockchainRemoteDataSourceImpl
-import es.gresybano.gresybano.data.repository.RepositoryBlockchainImpl
-import es.gresybano.gresybano.domain.blockchain.repository.RepositoryBlockchain
+import es.gresybano.gresybano.data.local.category.dao.CategoryDao
+import es.gresybano.gresybano.data.local.category.datasource.CategoryLocalDataSource
+import es.gresybano.gresybano.data.local.category.datasource.CategoryLocalDataSourceImpl
+import es.gresybano.gresybano.data.remote.category.api.CategoryApi
+import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteDataSource
+import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteDataSourceImp
+import es.gresybano.gresybano.data.repository.RepositoryCategoryImpl
+import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
 import javax.inject.Singleton
 
 @Module
@@ -19,22 +19,22 @@ import javax.inject.Singleton
 class RepositoryModule {
 
     @Provides
-    fun getBlockchainRemoteDataSource(exchangeApi: ExchangeApi): BlockchainRemoteDataSource {
-        return BlockchainRemoteDataSourceImpl(exchangeApi)
+    fun getCategoryRemoteDataSource(categoryApi: CategoryApi): CategoryRemoteDataSource {
+        return CategoryRemoteDataSourceImp(categoryApi)
     }
 
     @Provides
-    fun getBlockchainLocalDataSource(blockchainDao: BlockchainDao): BlockchainLocalDataSource {
-        return BlockchainLocalDataSourceImpl(blockchainDao)
+    fun getRepositoryRemoteDataSource(categoryDao: CategoryDao): CategoryLocalDataSource {
+        return CategoryLocalDataSourceImpl(categoryDao)
     }
 
     @Singleton
     @Provides
-    fun getRepositoryBlockchainImpl(
-        blockchainRemoteDataSource: BlockchainRemoteDataSource,
-        blockchainLocalDataSource: BlockchainLocalDataSource
-    ): RepositoryBlockchain {
-        return RepositoryBlockchainImpl(blockchainRemoteDataSource, blockchainLocalDataSource)
+    fun getRepositoryCategoryImpl(
+        categoryRemoteDataSource: CategoryRemoteDataSource,
+        categoryLocalDataSource: CategoryLocalDataSource
+    ): RepositoryCategory {
+        return RepositoryCategoryImpl(categoryRemoteDataSource, categoryLocalDataSource)
     }
 
 }

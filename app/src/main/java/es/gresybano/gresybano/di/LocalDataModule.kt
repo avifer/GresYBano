@@ -8,7 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import es.gresybano.gresybano.data.local.DatabaseApp
-import es.gresybano.gresybano.data.local.blockchain.dao.BlockchainDao
+import es.gresybano.gresybano.data.local.category.dao.CategoryDao
 import javax.inject.Singleton
 
 @Module
@@ -17,14 +17,14 @@ class LocalDataModule {
 
     @Singleton
     @Provides
-    fun provideAppDatabase(@ApplicationContext context: Context): DatabaseApp =
+    fun getDatabaseApp(@ApplicationContext context: Context): DatabaseApp =
         Room.databaseBuilder(context, DatabaseApp::class.java, DatabaseApp.DATABASE_NAME)
             .fallbackToDestructiveMigration().build()
 
 
     @Singleton
     @Provides
-    fun provideBlockchainDao(database: DatabaseApp):
-            BlockchainDao = database.blockchainDao()
+    fun getCategoryDao(database: DatabaseApp):
+            CategoryDao = database.categoryDao()
 
 }

@@ -2,11 +2,6 @@ object Dependencies {
 
     object Androidx{
         const val CORE_KOTLIN = "androidx.core:core-ktx:${Versions.Androidx.CORE_KOTLIN}"
-        const val COMPOSE_MATERIAL = "androidx.compose.material:material:${Versions.Androidx.COMPOSE_MATERIAL}"
-        const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.Androidx.COMPOSE_UI}"
-        const val COMPOSE_UI_TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.Androidx.COMPOSE_UI_TOOLING_PREVIEW}"
-        const val COMPOSE_UI_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.Androidx.COMPOSE_UI_TOOLING}"
-        const val ACTIVITY_COMPOSE = "androidx.activity:activity-compose:${Versions.Androidx.ACTIVITY_COMPOSE}"
 
         const val LIFECYCLE_RUNTIME_KOTLIN = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Androidx.LIFECYCLE_RUNTIME_KOTLIN}"
 
@@ -18,9 +13,6 @@ object Dependencies {
 
         const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.Androidx.CONSTRAINT_LAYOUT}"
         const val SWIPE_REFRESH = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.Androidx.SWIPE_REFRESH}"
-
-
-        const val DATA_STORAGE_PREFERENCES = "androidx.datastore:datastore-preferences:${Versions.Androidx.DATA_STORAGE_PREFERENCES}"
 
         const val ROOM_RUNTIME = "androidx.room:room-runtime:${Versions.Androidx.ROOM_RUNTIME}"
         const val ROOM_COMPILER = "androidx.room:room-compiler:${Versions.Androidx.ROOM_COMPILER}"
@@ -49,6 +41,10 @@ object Dependencies {
 
     object Airbnb{
         const val LOTTIE = "com.airbnb.android:lottie:${Versions.Airbnb.LOTTIE}"
+    }
+
+    object Github{
+        const val GLIDE = "com.github.bumptech.glide:glide:${Versions.Github.GLIDE}"
     }
 
 }

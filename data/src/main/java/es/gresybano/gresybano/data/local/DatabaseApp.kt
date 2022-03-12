@@ -2,21 +2,23 @@ package es.gresybano.gresybano.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import es.gresybano.gresybano.data.local.blockchain.model.CryptoDbo
-import es.gresybano.gresybano.data.local.blockchain.dao.BlockchainDao
+import es.gresybano.gresybano.data.local.category.dao.CategoryDao
+import es.gresybano.gresybano.data.local.category.model.CategoryDbo
 
-@Database(entities = [CryptoDbo::class], version = 1)
+@Database(entities = [CategoryDbo::class], version = 1)
 abstract class DatabaseApp : RoomDatabase() {
 
-    abstract fun blockchainDao(): BlockchainDao
+    abstract fun categoryDao(): CategoryDao
 
     companion object {
-        const val DATABASE_NAME = "blockchainDB"
+        const val DATABASE_NAME = "GresYBanoArahalDataBase"
 
-        //CryptoDbo
-        const val TABLE_CRYPTO_DBO = "cryptos"
-        const val KEY_CRYPTO_CRYPTO_DBO = "key_crypto"
-        const val LAST_PRICE_CRYPTO_DBO = "last_price"
+        //Categories
+        const val TABLE_CATEGORIES_DBO = "categories"
+        const val KEY_CATEGORY_DBO = "id"
+        const val NAME_CATEGORY_DBO = "name"
+        const val URL_CATEGORY_DBO = "url"
+        const val FAVORITE_CATEGORY_DBO = "favorite"
 
     }
 }

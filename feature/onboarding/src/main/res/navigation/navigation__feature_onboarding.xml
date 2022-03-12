@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation__feature_onboarding"
+    app:startDestination="@id/navigation__feature_onboarding__onboarding_fragment">
+
+    <fragment
+        android:id="@+id/navigation__feature_onboarding__onboarding_fragment"
+        android:name="es.gresybano.gresybano.feature.onboarding.ui.view.fragment.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding" />
+
+</navigation>

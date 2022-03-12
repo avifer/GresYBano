@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.fragment.SelectFavoriteFragment">
+
+    <TextView
+        android:id="@+id/fragment_select_favorite__label__title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/fragment_select_favorite__label__title__margin_horizontal"
+        android:layout_marginTop="@dimen/fragment_select_favorite__label__title__margin_top"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:maxLines="1"
+        android:text="@string/fragment_select_favorite__label__title__text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/fragment_select_favorite__label__title__text_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/fragment_select_favorite__label__subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/fragment_select_favorite__label__subtitle__margin_horizontal"
+        android:layout_marginTop="@dimen/fragment_select_favorite__label__subtitle__margin_top"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:maxLines="3"
+        android:text="@string/fragment_select_favorite__label__subtitle__text"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/fragment_select_favorite__label__subtitle__text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_select_favorite__label__title" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/fragment_select_favorite__lottie__animation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_select_favorite__list__favorites"
+        app:layout_constraintEnd_toEndOf="@id/fragment_select_favorite__list__favorites"
+        app:layout_constraintStart_toStartOf="@id/fragment_select_favorite__list__favorites"
+        app:layout_constraintTop_toTopOf="@id/fragment_select_favorite__list__favorites" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_select_favorite__list__favorites"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/fragment_select_favorite__list__favorites__margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_select_favorite__label__subtitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
