@@ -81,6 +81,7 @@ dependencies {
     implementation(project(Modules.NAVIGATION))
     implementation(project(Modules.FEATURE_SPLASH))
     implementation(project(Modules.FEATURE_ONBOARDING))
+    implementation(project(Modules.FEATURE_APPLICATION))
 
     implementation(Dependencies.Androidx.CORE_KOTLIN)
 

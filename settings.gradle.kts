@@ -6,5 +6,6 @@ include(
     ":domain",
     ":feature:splash",
     ":feature:onboarding",
+    ":feature:application",
     ":navigation",
 )
