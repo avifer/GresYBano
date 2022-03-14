@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation__feature_application"
+    app:startDestination="@id/navigation__feature_application__home_fragment">
+
+    <fragment
+        android:id="@+id/navigation__feature_application__home_fragment"
+        android:name="es.gresybano.gresybano.feature.application.view.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation__feature_application__settings_fragment"
+        android:name="es.gresybano.gresybano.feature.application.view.fragment.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/navigation__feature_application__favorite_posts_fragment"
+        android:name="es.gresybano.gresybano.feature.application.view.fragment.FavoritePostsFragment"
+        android:label="fragment_favorite_posts"
+        tools:layout="@layout/fragment_favorite_posts" />
+
+    <action
+        android:id="@+id/navigate_to_navigation__feature_application__favorite_posts_fragment"
+        app:destination="@id/navigation__feature_application__favorite_posts_fragment" />
+
+    <action
+        android:id="@+id/navigate_to_navigation__feature_application__home_fragment"
+        app:destination="@id/navigation__feature_application__home_fragment" />
+
+    <action
+        android:id="@+id/navigate_to_navigation__feature_application__settings_fragment"
+        app:destination="@id/navigation__feature_application__settings_fragment" />
+
+</navigation>

@@ -22,7 +22,7 @@ class SplashFragmentViewModel @Inject constructor(
 
     fun goToHome(delay: Long = 0) {
         runDelayMain(delay) {
-            //TODO
+            navigate(SplashFragmentDirections.navigateFromSplashFeatureToApplicationFeature())
         }
     }
 

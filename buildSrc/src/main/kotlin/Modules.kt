@@ -6,5 +6,6 @@ object Modules {
     const val DOMAIN = ":domain"
     const val FEATURE_SPLASH = ":feature:splash"
     const val FEATURE_ONBOARDING = ":feature:onboarding"
+    const val FEATURE_APPLICATION = ":feature:application"
     const val NAVIGATION = ":navigation"
 }
