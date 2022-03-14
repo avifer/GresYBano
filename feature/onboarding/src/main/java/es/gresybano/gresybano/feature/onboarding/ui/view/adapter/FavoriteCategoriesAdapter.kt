@@ -35,7 +35,7 @@ class FavoriteCategoriesAdapter(private val listenerClickElement: () -> Unit) :
         }
 
         private fun RowFavoriteCategoryBinding.setOnClickParent(action: () -> Boolean) {
-            root.setOnClickListener {
+            rowFavoriteCategoryCardParent.setOnClickListener {
                 if (action()) {
                     selectRow()
 
@@ -47,7 +47,7 @@ class FavoriteCategoriesAdapter(private val listenerClickElement: () -> Unit) :
 
         private fun RowFavoriteCategoryBinding.selectRow() {
             with(root.context) {
-                root.backgroundTintList =
+                rowFavoriteCategoryCardParent.backgroundTintList =
                     getColorState(es.gresybano.gresybano.common.R.color.secondary_color)
 
                 rowFavoriteCategoryViewSelected.background =
@@ -56,7 +56,7 @@ class FavoriteCategoriesAdapter(private val listenerClickElement: () -> Unit) :
         }
 
         private fun RowFavoriteCategoryBinding.unselectRow() {
-            root.backgroundTintList =
+            rowFavoriteCategoryCardParent.backgroundTintList =
                 root.context.getColorState(es.gresybano.gresybano.common.R.color.white)
 
             rowFavoriteCategoryViewSelected.background = null
