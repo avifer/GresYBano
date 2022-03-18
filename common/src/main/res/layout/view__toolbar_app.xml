@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/view__toolbar_app__height"
+    android:background="@color/primary_color">
+
+    <ImageView
+        android:id="@+id/view__toolbar_app__img__go_back"
+        android:layout_width="@dimen/view__toolbar_app__img__go_back__size"
+        android:layout_height="@dimen/view__toolbar_app__img__go_back__size"
+        android:layout_marginStart="@dimen/view__toolbar_app__img__go_back__margin_start"
+        android:contentDescription="@string/view__toolbar_app__img__go_back__description"
+        android:src="@drawable/icon_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view__toolbar_app__view__search_bar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/view__toolbar_app__view__search_bar__height"
+        android:layout_marginStart="@dimen/view__toolbar_app__view__search_bar__margin_horizontal"
+        android:background="@drawable/background__view__toolbar_app__view__search_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view__toolbar_app__guideline__separator_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/view__toolbar_app__img__search"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/view__toolbar_app__img__search__margin_end"
+        android:contentDescription="@string/view__toolbar_app__img__search__description"
+        android:src="@drawable/icon_search"
+        app:layout_constraintBottom_toBottomOf="@id/view__toolbar_app__view__search_bar"
+        app:layout_constraintEnd_toEndOf="@id/view__toolbar_app__view__search_bar"
+        app:layout_constraintTop_toTopOf="@id/view__toolbar_app__view__search_bar" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/view__toolbar_app__guideline__separator_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="@dimen/view__toolbar_app__guideline__separator_search__percent" />
+
+    <ImageView
+        android:id="@+id/view__toolbar_app__img__scan_qr"
+        android:layout_width="@dimen/view__toolbar_app__img__scan_qr__size"
+        android:layout_height="@dimen/view__toolbar_app__img__scan_qr__size"
+        android:src="@drawable/icon_qr_scan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view__toolbar_app__img__notification"
+        app:layout_constraintStart_toStartOf="@id/view__toolbar_app__guideline__separator_search"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/view__toolbar_app__img__notification"
+        android:layout_width="@dimen/view__toolbar_app__img__notification__size"
+        android:layout_height="@dimen/view__toolbar_app__img__notification__size"
+        android:contentDescription="@string/view__toolbar_app__img__notification__description"
+        android:src="@drawable/icon_notification_off"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view__toolbar_app__img__scan_qr"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/view__toolbar_app__label__amount_notifications"
+        android:layout_width="@dimen/view__toolbar_app__label__amount_notifications__size"
+        android:layout_height="@dimen/view__toolbar_app__label__amount_notifications__size"
+        android:background="@drawable/background__total_notifications__toolbar"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/view__toolbar_app__label__amount_notifications__text_size"
+        app:layout_constraintBottom_toBottomOf="@id/view__toolbar_app__img__notification"
+        app:layout_constraintEnd_toEndOf="@id/view__toolbar_app__img__notification"
+        tools:text="9+" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

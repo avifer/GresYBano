@@ -4,12 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <es.gresybano.gresybano.common.view.ToolbarGresYBano
+        android:id="@+id/activity_host__toolbar__app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/activity_host__fragment_container__host"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_host__toolbar__app"
         app:navGraph="@navigation/navigation__feature_splash" />
 
     <include

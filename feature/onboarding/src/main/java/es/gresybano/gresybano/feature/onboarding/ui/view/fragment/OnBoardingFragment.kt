@@ -38,6 +38,7 @@ class OnBoardingFragment : BaseFragment() {
     override fun onViewReady(savedInstanceState: Bundle?) {
         getBindingCast()?.initActionButtons()
         initViewPager()
+        hideToolbar()
     }
 
     private fun initViewPager() {

@@ -81,6 +81,22 @@ abstract class BaseFragment : Fragment() {
         super.onDestroyView()
     }
 
+    fun hideToolbar() {
+        getHostActivity()?.hideToolbar()
+    }
+
+    fun showToolbarDefault(amount: Int = 0) {
+        getHostActivity()?.showToolbarDefault(amount)
+    }
+
+    fun showToolbarGoBack() {
+        getHostActivity()?.showToolbarGoBack()
+    }
+
+    fun setToolbarAmountNotifications(amount: Int) {
+        getHostActivity()?.setToolbarAmountNotifications(amount)
+    }
+
 }
 
 fun BaseFragment.toast(

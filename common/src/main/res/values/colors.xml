@@ -9,4 +9,6 @@
 
     <color name="secondary_color_dark">#74A8D2</color>
     <color name="secondary_color">#BFD7EA</color>
+
+    <color name="color_amount_notifications">#fb6376</color>
 </resources>
