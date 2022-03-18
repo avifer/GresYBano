@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="view__toolbar_app__img__go_back__size">24dp</dimen>
+    <dimen name="view__toolbar_app__img__go_back__margin_start">12dp</dimen>
+    <dimen name="view__toolbar_app__view__search_bar__height">32dp</dimen>
+    <dimen name="view__toolbar_app__view__search_bar__margin_horizontal">24dp</dimen>
+    <dimen name="view__toolbar_app__img__scan_qr__size">28dp</dimen>
+    <dimen name="view__toolbar_app__img__notification__size">28dp</dimen>
+    <dimen name="view__toolbar_app__label__amount_notifications__size">16dp</dimen>
+    <dimen name="view__toolbar_app__label__amount_notifications__text_size">10sp</dimen>
+    <dimen name="view__toolbar_app__height">56dp</dimen>
+    <dimen name="view__toolbar_app__img__search__margin_end">12dp</dimen>
+
+    <dimen name="background__view__toolbar_app__width_stroke">4dp</dimen>
+    <dimen name="background__view__toolbar_app__radius">4dp</dimen>
+
+    <dimen name="background__total_notifications__toolbar__stroke_radius">1000dp</dimen>
+    <dimen name="background__total_notifications__toolbar__stroke_width">4dp</dimen>
+
+    <item name="view__toolbar_app__guideline__separator_search__percent" format="float" type="dimen">0.75</item>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/background__view__toolbar_app__radius" />
+    <solid android:color="@color/white" />
+    <stroke
+        android:width="@dimen/background__view__toolbar_app__width_stroke"
+        android:color="@color/white" />
+</shape>

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="default_error">Ha ocurrido un error inesperado. Intentelo más tarde.</string>
+    <string name="view__toolbar_app__img__go_back__description">Botón de atrás</string>
+    <string name="view__toolbar_app__img__search__description">Icono de buscar</string>
+    <string name="view__toolbar_app__img__notification__description">Icono de notificaciones</string>
 </resources>

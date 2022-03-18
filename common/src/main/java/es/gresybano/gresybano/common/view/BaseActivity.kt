@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.airbnb.lottie.LottieAnimationView
 import es.gresybano.gresybano.common.extensions.hide
+import es.gresybano.gresybano.common.extensions.invisible
 import es.gresybano.gresybano.common.extensions.show
 import es.gresybano.gresybano.common.view.BaseActivity.Companion.URL_INTENT_MARKET
 import es.gresybano.gresybano.common.view.BaseActivity.Companion.URL_INTENT_PLAY_STORE
@@ -16,7 +17,6 @@ import es.gresybano.gresybano.common.view.BaseActivity.Companion.URL_INTENT_PLAY
 abstract class BaseActivity : AppCompatActivity() {
 
     companion object {
-        private const val INIT_PROGRESS_BAR = 0
         const val URL_INTENT_PLAY_STORE = "https://play.google.com/store/apps/details?id="
         const val URL_INTENT_MARKET = "market://details?id="
     }
@@ -30,7 +30,10 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     abstract var viewLoading: ConstraintLayout?
+
     abstract var lottieAnimation: LottieAnimationView?
+
+    abstract var toolbar: ToolbarGresYBano?
 
     private fun showLoading() {
         viewLoading?.show()
@@ -45,9 +48,40 @@ abstract class BaseActivity : AppCompatActivity() {
     fun visibilityLoading(visible: Boolean) {
         if (visible) {
             showLoading()
+
         } else {
             hideLoading()
         }
+    }
+
+    fun hideToolbar() {
+        toolbar?.invisible()
+    }
+
+    fun showToolbarDefault(amount: Int = 0) {
+        toolbar?.showToolbarDefault(amount)
+    }
+
+    fun showToolbarGoBack() {
+        toolbar?.showToolbarGoBack()
+    }
+
+    fun initToolbarActions(
+        actionBack: () -> Unit,
+        actionClickScanQR: () -> Unit,
+        actionClickIconNotification: () -> Unit,
+        actionClickSearchView: () -> Unit
+    ) {
+        toolbar?.initToolbarActions(
+            actionBack,
+            actionClickScanQR,
+            actionClickIconNotification,
+            actionClickSearchView
+        )
+    }
+
+    fun setToolbarAmountNotifications(amount: Int) {
+        toolbar?.setAmountNotifications(amount)
     }
 
 }
