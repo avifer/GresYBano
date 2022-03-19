@@ -43,7 +43,6 @@ class HostActivity : BaseActivity() {
             es.gresybano.gresybano.feature.application.R.id.navigate_to_navigation__feature_application__home_fragment
         val navigationSettings =
             es.gresybano.gresybano.feature.application.R.id.navigate_to_navigation__feature_application__settings_fragment
-        val navController = findNavController(R.id.activity_host__fragment_container__host)
 
         bottomNavigationBar?.let {
             with(it) {
@@ -52,15 +51,15 @@ class HostActivity : BaseActivity() {
                 setOnItemSelectedListener { menuItem ->
                     when (menuItem.itemId) {
                         es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__favorite_posts -> {
-                            navController.navigate(navigationFavoritePosts)
+                            findNavController(R.id.activity_host__fragment_container__host).navigate(navigationFavoritePosts)
                             true
                         }
                         es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__home -> {
-                            navController.navigate(navigationHome)
+                            findNavController(R.id.activity_host__fragment_container__host).navigate(navigationHome)
                             true
                         }
                         es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__settings -> {
-                            navController.navigate(navigationSettings)
+                            findNavController(R.id.activity_host__fragment_container__host).navigate(navigationSettings)
                             true
                         }
                         else -> false

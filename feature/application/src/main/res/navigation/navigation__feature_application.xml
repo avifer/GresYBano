@@ -25,14 +25,20 @@
 
     <action
         android:id="@+id/navigate_to_navigation__feature_application__favorite_posts_fragment"
-        app:destination="@id/navigation__feature_application__favorite_posts_fragment" />
+        app:destination="@id/navigation__feature_application__favorite_posts_fragment"
+        app:popUpTo="@id/navigation__feature_application"
+        app:popUpToInclusive="true" />
 
     <action
         android:id="@+id/navigate_to_navigation__feature_application__home_fragment"
-        app:destination="@id/navigation__feature_application__home_fragment" />
+        app:destination="@id/navigation__feature_application__home_fragment"
+        app:popUpTo="@id/navigation__feature_application"
+        app:popUpToInclusive="true" />
 
     <action
         android:id="@+id/navigate_to_navigation__feature_application__settings_fragment"
-        app:destination="@id/navigation__feature_application__settings_fragment" />
+        app:destination="@id/navigation__feature_application__settings_fragment"
+        app:popUpTo="@id/navigation__feature_application"
+        app:popUpToInclusive="true" />
 
 </navigation>
