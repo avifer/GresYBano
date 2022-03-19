@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu__activity_host__bottom_bar__navigation__favorite"
+        android:enabled="true"
+        android:icon="@drawable/icon_favorite_unselected"
+        android:title="@string/menu__activity_host__bottom_bar__navigation__favorite__title" />
+    <item
+        android:id="@+id/menu__activity_host__bottom_bar__navigation__home"
+        android:enabled="true"
+        android:icon="@drawable/icon_home"
+        android:title="@string/menu__activity_host__bottom_bar__navigation__home__title" />
+    <item
+        android:id="@+id/menu__activity_host__bottom_bar__navigation__settings"
+        android:enabled="true"
+        android:icon="@drawable/icon_settings"
+        android:title="@string/menu__activity_host__bottom_bar__navigation__settings__title" />
+</menu>

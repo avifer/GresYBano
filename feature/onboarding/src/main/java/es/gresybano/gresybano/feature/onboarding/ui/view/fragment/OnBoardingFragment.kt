@@ -39,6 +39,7 @@ class OnBoardingFragment : BaseFragment() {
         getBindingCast()?.initActionButtons()
         initViewPager()
         hideToolbar()
+        hideBottomNavigationBar()
     }
 
     private fun initViewPager() {
