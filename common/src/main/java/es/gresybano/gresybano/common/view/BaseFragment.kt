@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import es.gresybano.gresybano.common.R
+import es.gresybano.gresybano.common.extensions.invisible
+import es.gresybano.gresybano.common.extensions.show
 import es.gresybano.gresybano.common.viewmodel.BaseViewModel
 import es.gresybano.gresybano.navigation.Navigation
 import es.gresybano.gresybano.navigation.Navigation.Back
@@ -79,6 +81,14 @@ abstract class BaseFragment : Fragment() {
     override fun onDestroyView() {
         binding = null
         super.onDestroyView()
+    }
+
+    fun hideBottomNavigationBar() {
+        getHostActivity()?.hideBottomNavigationBar()
+    }
+
+    fun showBottomNavigationBar() {
+        getHostActivity()?.showBottomNavigationBar()
     }
 
     fun hideToolbar() {

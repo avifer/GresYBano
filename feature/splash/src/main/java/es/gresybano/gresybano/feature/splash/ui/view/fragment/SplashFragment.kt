@@ -32,6 +32,7 @@ class SplashFragment : BaseFragment() {
     override fun onViewReady(savedInstanceState: Bundle?) {
         firstScreen()
         hideToolbar()
+        hideBottomNavigationBar()
     }
 
     private fun firstScreen() {
