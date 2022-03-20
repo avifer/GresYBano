@@ -23,4 +23,28 @@
     <dimen name="row__height_publication__img__amount_publication__margin_bottom">12dp</dimen>
     <dimen name="row__height_publication__label__amount_publication__margin_start">4dp</dimen>
     <dimen name="row__height_publication__label__amount_publication__margin_end">12dp</dimen>
+
+    <dimen name="fragment_home__list__categories__margin_horizontal_list">12dp</dimen>
+    <dimen name="fragment_home__list__categories__margin_horizontal_text_header">12dp</dimen>
+    <dimen name="fragment_home__list__categories__margin_horizontal_text_see_more">12dp</dimen>
+    <dimen name="fragment_home__list__categories__margin_vertical_list">12dp</dimen>
+    <dimen name="fragment_home__list__categories__margin_vertical_text_header">12dp</dimen>
+    <dimen name="fragment_home__list__categories__size_text_header">8sp</dimen>
+    <dimen name="fragment_home__list__categories__size_text_see_more">6sp</dimen>
+
+    <dimen name="fragment_home__list__more_populars__margin_horizontal_list">12dp</dimen>
+    <dimen name="fragment_home__list__more_populars__margin_horizontal_text_header">12dp</dimen>
+    <dimen name="fragment_home__list__more_populars__margin_horizontal_text_see_more">12dp</dimen>
+    <dimen name="fragment_home__list__more_populars__margin_vertical_list">12dp</dimen>
+    <dimen name="fragment_home__list__more_populars__margin_vertical_text_header">12dp</dimen>
+    <dimen name="fragment_home__list__more_populars__size_text_header">8sp</dimen>
+    <dimen name="fragment_home__list__more_populars__size_text_see_more">6sp</dimen>
+
+    <dimen name="fragment_home__list__last_published__margin_horizontal_list">12dp</dimen>
+    <dimen name="fragment_home__list__last_published__margin_horizontal_text_header">12dp</dimen>
+    <dimen name="fragment_home__list__last_published__margin_horizontal_text_see_more">12dp</dimen>
+    <dimen name="fragment_home__list__last_published__margin_vertical_list">12dp</dimen>
+    <dimen name="fragment_home__list__last_published__margin_vertical_text_header">12dp</dimen>
+    <dimen name="fragment_home__list__last_published__size_text_header">8sp</dimen>
+    <dimen name="fragment_home__list__last_published__size_text_see_more">6sp</dimen>
 </resources>
