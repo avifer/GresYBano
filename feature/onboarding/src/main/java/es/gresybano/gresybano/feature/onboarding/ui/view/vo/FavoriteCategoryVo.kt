@@ -20,5 +20,5 @@ fun FavoriteCategoryVo.toBo() = CategoryBo(
     id = id,
     name = name,
     primaryUrl = urlImage,
-    isFavorite = selected
+    isFavorite = selected,
 )
