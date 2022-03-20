@@ -5,4 +5,5 @@ data class CategoryBo(
     val name: String,
     val primaryUrl: String,
     var isFavorite: Boolean? = null,
+    val listPublications: List<PublicationBo> = listOf(),
 )

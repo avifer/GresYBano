@@ -1,3 +1,12 @@
 <resources>
+    <string name="see_more">Ver más</string>
 
+    <string name="fragment_home__list__categories__text_header">Categorias</string>
+    <string name="fragment_home__list__categories__text_see_more">@string/see_more</string>
+
+    <string name="fragment_home__list__more_populars__text_header">Mas populares</string>
+    <string name="fragment_home__list__more_populars__text_see_more">@string/see_more</string>
+
+    <string name="fragment_home__list__last_published__text_header">Ultimas publicaciones</string>
+    <string name="fragment_home__list__last_published__test_see_more">@string/see_more</string>
 </resources>
