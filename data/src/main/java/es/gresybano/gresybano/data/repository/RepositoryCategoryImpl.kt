@@ -6,7 +6,7 @@ import es.gresybano.gresybano.data.local.category.model.toDbo
 import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteDataSource
 import es.gresybano.gresybano.data.utils.BaseRepository
 import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
-import es.gresybano.gresybano.domain.entities.category.CategoryBo
+import es.gresybano.gresybano.domain.entities.CategoryBo
 import es.gresybano.gresybano.domain.entities.response.Response
 import es.gresybano.gresybano.domain.entities.response.defaultResponse
 
