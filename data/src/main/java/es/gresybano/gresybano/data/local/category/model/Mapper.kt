@@ -6,7 +6,7 @@ fun CategoryDbo.toBo() = CategoryBo(
     id = id,
     name = name,
     primaryUrl = url,
-    isFavorite = isFavorite
+    isFavorite = isFavorite,
 )
 
 fun CategoryBo.toDbo() = CategoryDbo(
