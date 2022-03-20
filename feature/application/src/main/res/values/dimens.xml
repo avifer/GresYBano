@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="row__height_category__margin">8dp</dimen>
+    <dimen name="row__height_category__card_corner_radius">8dp</dimen>
+    <dimen name="row__height_category__card_elevation">2dp</dimen>
+    <dimen name="row__height_category__img__image_category__size">150dp</dimen>
+    <dimen name="row__height_category__label__name_category__margin_horizontal">12dp</dimen>
+    <dimen name="row__height_category__label__name_category__margin_bottom">4dp</dimen>
+    <dimen name="row__height_category__img__amount_category__size">20dp</dimen>
+    <dimen name="row__height_category__img__amount_category__margin_start">12dp</dimen>
+    <dimen name="row__height_category__img__amount_category__margin_botom">12dp</dimen>
+    <dimen name="row__height_category__label__amount_category__margin_start">4dp</dimen>
+    <dimen name="row__height_category__label__amount_category__margin_end">12dp</dimen>
+</resources>
