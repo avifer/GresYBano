@@ -5,5 +5,5 @@ import es.gresybano.gresybano.domain.entities.CategoryBo
 fun CategoryDto.toBo() = CategoryBo(
     id = id ?: -1L,
     name = name ?: "",
-    url = url ?: "",
+    primaryUrl = url ?: "",
 )

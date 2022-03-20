@@ -12,13 +12,13 @@ data class FavoriteCategoryVo(
 fun CategoryBo.toVo() = FavoriteCategoryVo(
     id = id,
     name = name,
-    urlImage = url,
+    urlImage = primaryUrl,
     selected = false
 )
 
 fun FavoriteCategoryVo.toBo() = CategoryBo(
     id = id,
     name = name,
-    url = urlImage,
+    primaryUrl = urlImage,
     isFavorite = selected
 )
