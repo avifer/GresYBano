@@ -65,14 +65,14 @@ class SelectFavoriteFragment : BaseFragment() {
                 }
             },
             {
-                getBindingCast()?.playAnimation(R.raw.animation_select_favorite_error)
+                getBindingCast()?.playAnimation(es.gresybano.gresybano.common.R.raw.animation_error)
                 toast(R.string.error_chargin_categories)
             },
             { loading ->
                 getBindingCast()?.let {
                     with(it) {
                         if (loading) {
-                            playAnimation(R.raw.animation_select_favorite_loading)
+                            playAnimation(es.gresybano.gresybano.common.R.raw.animation_loading)
 
                         } else {
                             stopAnimation()

@@ -79,7 +79,7 @@ class HostActivity : BaseActivity() {
     private fun configureAnimation() {
         lottieAnimation?.let {
             with(it) {
-                setAnimation(R.raw.animation_build_home)
+                setAnimation(es.gresybano.gresybano.common.R.raw.animation_loading)
                 repeatCount = LottieDrawable.INFINITE
             }
         }
