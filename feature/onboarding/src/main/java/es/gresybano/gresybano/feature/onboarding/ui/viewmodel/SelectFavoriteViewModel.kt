@@ -4,7 +4,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import es.gresybano.gresybano.common.viewmodel.BaseViewModel
 import es.gresybano.gresybano.common.viewmodel.executeWithListeners
 import es.gresybano.gresybano.domain.category.usecases.GetAllCategoriesLocal
-import es.gresybano.gresybano.domain.entities.category.CategoryBo
+import es.gresybano.gresybano.domain.entities.CategoryBo
 import es.gresybano.gresybano.domain.entities.response.ExceptionInfo
 import javax.inject.Inject
 

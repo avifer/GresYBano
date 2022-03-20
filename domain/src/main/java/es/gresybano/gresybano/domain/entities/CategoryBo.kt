@@ -1,4 +1,4 @@
-package es.gresybano.gresybano.domain.entities.category
+package es.gresybano.gresybano.domain.entities
 
 data class CategoryBo(
     val id: Long,

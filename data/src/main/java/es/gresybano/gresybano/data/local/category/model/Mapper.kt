@@ -1,6 +1,6 @@
 package es.gresybano.gresybano.data.local.category.model
 
-import es.gresybano.gresybano.domain.entities.category.CategoryBo
+import es.gresybano.gresybano.domain.entities.CategoryBo
 
 fun CategoryDbo.toBo() = CategoryBo(
     id = id,
