@@ -32,6 +32,8 @@ dependencies {
 
     implementation(Dependencies.Androidx.FRAGMENT)
 
+    implementation(Dependencies.Airbnb.LOTTIE)
+
     implementation(Dependencies.Github.LIST_HEADER_SEE_MORE)
 
     implementation(Dependencies.Androidx.NAVIGATION_FRAGMENT_KOTLIN)

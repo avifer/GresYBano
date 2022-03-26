@@ -12,6 +12,10 @@ import es.gresybano.gresybano.feature.application.databinding.RowHeightPublicati
 class HeightPublicationAdapter(private val listenerClickElement: (publication: PublicationBo) -> Unit) :
     ListHeaderSeeMoreAdapter<PublicationBo>(diffUtils) {
 
+    companion object {
+        private const val IMAGE_SIZE = 150
+    }
+
     class ViewHolderCategory(private val viewBinding: RowHeightPublicationBinding) :
         RecyclerView.ViewHolder(viewBinding.root) {
 
@@ -28,8 +32,8 @@ class HeightPublicationAdapter(private val listenerClickElement: (publication: P
         private fun RowHeightPublicationBinding.setData(publication: PublicationBo) {
             rowHeightPublicationImgImagePublication.loadUrl(
                 publication.listImages.first(),
-                150,
-                150
+                IMAGE_SIZE,
+                IMAGE_SIZE
             )
             rowHeightPublicationLabelNamePublication.text = publication.category
             rowHeightPublicationLabelAmountPublication.text = publication.listImages.size.toString()
