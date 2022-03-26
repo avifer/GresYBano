@@ -45,7 +45,7 @@ object Versions {
 
     object Github {
         const val GLIDE = "4.11.0"
-        const val LIST_HEADER_SEE_MORE = "1.0"
+        const val LIST_HEADER_SEE_MORE = "1.1"
     }
 
 }
