@@ -12,6 +12,10 @@ import es.gresybano.gresybano.feature.application.databinding.RowHeightCategoryB
 class HeightCategoryAdapter(private val listenerClickElement: (category: CategoryBo) -> Unit) :
     ListHeaderSeeMoreAdapter<CategoryBo>(diffUtils) {
 
+    companion object {
+        private const val IMAGE_SIZE = 150
+    }
+
     class ViewHolderCategory(private val viewBinding: RowHeightCategoryBinding) :
         RecyclerView.ViewHolder(viewBinding.root) {
 
@@ -23,7 +27,7 @@ class HeightCategoryAdapter(private val listenerClickElement: (category: Categor
         }
 
         private fun RowHeightCategoryBinding.setData(category: CategoryBo) {
-            rowHeightCategoryImgImageCategory.loadUrl(category.primaryUrl, 150, 150)
+            rowHeightCategoryImgImageCategory.loadUrl(category.primaryUrl, IMAGE_SIZE, IMAGE_SIZE)
             rowHeightCategoryLabelNameCategory.text = category.name
             rowHeightCategoryLabelAmountCategory.text = category.listPublications.size.toString()
         }

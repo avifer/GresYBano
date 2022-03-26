@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import es.gresybano.gresybano.common.view.BaseFragment
-import es.gresybano.gresybano.feature.application.databinding.FragmentFavoritePostsBinding
+import es.gresybano.gresybano.feature.application.databinding.FragmentFavoritePublicationsBinding
 import es.gresybano.gresybano.feature.application.viewmodel.FavoritePostsViewModel
 
-class FavoritePostsFragment : BaseFragment() {
+class FavoritePublicationsFragment : BaseFragment() {
 
     override val viewModel by viewModels<FavoritePostsViewModel>()
 
-    override fun getBindingCast() = binding as? FragmentFavoritePostsBinding
+    override fun getBindingCast() = binding as? FragmentFavoritePublicationsBinding
 
     override fun onViewReady(savedInstanceState: Bundle?) {
         showToolbarDefault()
@@ -20,6 +20,6 @@ class FavoritePostsFragment : BaseFragment() {
     }
 
     override fun getInflateBinding(inflater: LayoutInflater, container: ViewGroup?) =
-        FragmentFavoritePostsBinding.inflate(inflater, container, false)
+        FragmentFavoritePublicationsBinding.inflate(inflater, container, false)
 
 }

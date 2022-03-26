@@ -9,9 +9,14 @@ import es.gresybano.gresybano.data.local.category.datasource.CategoryLocalDataSo
 import es.gresybano.gresybano.data.local.category.datasource.CategoryLocalDataSourceImpl
 import es.gresybano.gresybano.data.remote.category.api.CategoryApi
 import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteDataSource
-import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteDataSourceImp
+import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteDataSourceImpl
+import es.gresybano.gresybano.data.remote.publication.api.PublicationApi
+import es.gresybano.gresybano.data.remote.publication.datasource.PublicationRemoteDataSource
+import es.gresybano.gresybano.data.remote.publication.datasource.PublicationRemoteDataSourceImpl
 import es.gresybano.gresybano.data.repository.RepositoryCategoryImpl
+import es.gresybano.gresybano.data.repository.RepositoryPublicationImpl
 import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
+import es.gresybano.gresybano.domain.publication.repository.RepositoryPublication
 import javax.inject.Singleton
 
 @Module
@@ -20,7 +25,7 @@ class RepositoryModule {
 
     @Provides
     fun getCategoryRemoteDataSource(categoryApi: CategoryApi): CategoryRemoteDataSource {
-        return CategoryRemoteDataSourceImp(categoryApi)
+        return CategoryRemoteDataSourceImpl(categoryApi)
     }
 
     @Provides
@@ -32,9 +37,22 @@ class RepositoryModule {
     @Provides
     fun getRepositoryCategoryImpl(
         categoryRemoteDataSource: CategoryRemoteDataSource,
-        categoryLocalDataSource: CategoryLocalDataSource
+        categoryLocalDataSource: CategoryLocalDataSource,
     ): RepositoryCategory {
         return RepositoryCategoryImpl(categoryRemoteDataSource, categoryLocalDataSource)
+    }
+
+    @Provides
+    fun getPublicationRemoteDataSource(publicationApi: PublicationApi): PublicationRemoteDataSource {
+        return PublicationRemoteDataSourceImpl(publicationApi)
+    }
+
+    @Singleton
+    @Provides
+    fun getRepositoryPublicationImpl(
+        publicationRemoteDataSource: PublicationRemoteDataSource,
+    ): RepositoryPublication {
+        return RepositoryPublicationImpl(publicationRemoteDataSource)
     }
 
 }

@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import es.gresybano.gresybano.data.remote.category.api.CategoryApi
+import es.gresybano.gresybano.data.remote.publication.api.PublicationApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -54,6 +55,20 @@ class RemoteDataModule {
             .client(okHttpClient)
             .build()
             .create(CategoryApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providePublicationApi(
+        okHttpClient: OkHttpClient,
+        gson: GsonConverterFactory
+    ): PublicationApi {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL_API_EXCHANGE)
+            .addConverterFactory(gson)
+            .client(okHttpClient)
+            .build()
+            .create(PublicationApi::class.java)
     }
 
 }

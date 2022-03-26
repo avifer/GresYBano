@@ -15,6 +15,10 @@ import es.gresybano.gresybano.feature.onboarding.ui.view.vo.FavoriteCategoryVo
 class FavoriteCategoriesAdapter(private val listenerClickElement: () -> Unit) :
     ListAdapter<FavoriteCategoryVo, FavoriteCategoriesAdapter.ViewHolderFavoriteCategory>(diffUtils) {
 
+    companion object {
+        private const val IMAGE_SIZE = 150
+    }
+
     class ViewHolderFavoriteCategory(private val viewBinding: RowFavoriteCategoryBinding) :
         RecyclerView.ViewHolder(viewBinding.root) {
 
@@ -30,7 +34,7 @@ class FavoriteCategoriesAdapter(private val listenerClickElement: () -> Unit) :
         }
 
         private fun RowFavoriteCategoryBinding.setData(category: FavoriteCategoryVo) {
-            rowFavoriteCategoryImgCategory.loadUrl(category.urlImage, 150, 130)
+            rowFavoriteCategoryImgCategory.loadUrl(category.urlImage, IMAGE_SIZE, IMAGE_SIZE)
             rowFavoriteCategoryLabelNameCategory.text = category.name
         }
 

@@ -51,20 +51,27 @@ class HostActivity : BaseActivity() {
                 setOnItemSelectedListener { menuItem ->
                     when (menuItem.itemId) {
                         es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__favorite_posts -> {
-                            findNavController(R.id.activity_host__fragment_container__host).navigate(navigationFavoritePosts)
+                            findNavController(R.id.activity_host__fragment_container__host).navigate(
+                                navigationFavoritePosts
+                            )
                             true
                         }
                         es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__home -> {
-                            findNavController(R.id.activity_host__fragment_container__host).navigate(navigationHome)
+                            findNavController(R.id.activity_host__fragment_container__host).navigate(
+                                navigationHome
+                            )
                             true
                         }
                         es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__settings -> {
-                            findNavController(R.id.activity_host__fragment_container__host).navigate(navigationSettings)
+                            findNavController(R.id.activity_host__fragment_container__host).navigate(
+                                navigationSettings
+                            )
                             true
                         }
                         else -> false
                     }
                 }
+                setOnItemReselectedListener { /*no-op*/ }
             }
         }
     }
