@@ -2,10 +2,7 @@ package es.gresybano.gresybano.feature.application.usecases
 
 import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
 import es.gresybano.gresybano.domain.entities.HomeListElementsVo
-import es.gresybano.gresybano.domain.entities.response.Response
-import es.gresybano.gresybano.domain.entities.response.getData
-import es.gresybano.gresybano.domain.entities.response.getError
-import es.gresybano.gresybano.domain.entities.response.isSuccessful
+import es.gresybano.gresybano.domain.entities.response.*
 import es.gresybano.gresybano.domain.publication.repository.RepositoryPublication
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -20,7 +17,9 @@ class GetDataHomeFragmentUseCase @Inject constructor(
         return flow {
             emit(Response.Loading())
             //TODO MOCK
-            Thread.sleep(3000)
+            Thread.sleep(1500)
+            emit(Response.Error(ExceptionInfo(CodeExceptions.UNKNOWN)))
+            Thread.sleep(1500)
 
             val listAllCategories = repositoryCategory.getAllCategoriesRemote()
             val listMorePopular = repositoryPublication.getMorePopularPublicationsRemote()
