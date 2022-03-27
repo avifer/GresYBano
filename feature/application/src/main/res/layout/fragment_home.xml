@@ -1,4 +1,4 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,77 +6,58 @@
     android:background="@color/white"
     tools:context=".view.fragment.HomeFragment">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/fragment_home__lottie__charge_error"
+    <LinearLayout
+        android:id="@+id/fragment_home__linear__parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/fragment_home__linear__parent"
+        <es.avifer.listheaderseemore.ListHeaderSeeMore
+            android:id="@+id/fragment_home__list__categories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:visibility="gone"
+            app:colorTextSeeMore="@color/secondary_color_dark"
+            app:marginHorizontalTextSeeMore="@dimen/fragment_home__list__categories__margin_horizontal_text_see_more"
+            app:marginList="@dimen/fragment_home__list__categories__margin_list"
+            app:marginTextHeader="@dimen/fragment_home__list__categories__margin_text_header"
+            app:sizeTextHeader="@dimen/fragment_home__list__categories__size_text_header"
+            app:sizeTextSeeMore="@dimen/fragment_home__list__categories__size_text_see_more"
+            app:textHeader="@string/fragment_home__list__categories__text_header"
+            app:textSeeMore="@string/fragment_home__list__categories__text_see_more" />
 
-            <es.avifer.listheaderseemore.ListHeaderSeeMore
-                android:id="@+id/fragment_home__list__categories"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:colorTextSeeMore="@color/secondary_color_dark"
-                app:marginHorizontalTextSeeMore="@dimen/fragment_home__list__categories__margin_horizontal_text_see_more"
-                app:marginList="@dimen/fragment_home__list__categories__margin_list"
-                app:marginTextHeader="@dimen/fragment_home__list__categories__margin_text_header"
-                app:sizeTextHeader="@dimen/fragment_home__list__categories__size_text_header"
-                app:sizeTextSeeMore="@dimen/fragment_home__list__categories__size_text_see_more"
-                app:textHeader="@string/fragment_home__list__categories__text_header"
-                app:textSeeMore="@string/fragment_home__list__categories__text_see_more" />
+        <es.avifer.listheaderseemore.ListHeaderSeeMore
+            android:id="@+id/fragment_home__list__more_populars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:colorTextSeeMore="@color/secondary_color_dark"
+            app:marginHorizontalTextSeeMore="@dimen/fragment_home__list__categories__margin_horizontal_text_see_more"
+            app:marginList="@dimen/fragment_home__list__categories__margin_list"
+            app:marginTextHeader="@dimen/fragment_home__list__categories__margin_text_header"
+            app:sizeTextHeader="@dimen/fragment_home__list__categories__size_text_header"
+            app:sizeTextSeeMore="@dimen/fragment_home__list__categories__size_text_see_more"
+            app:textHeader="@string/fragment_home__list__more_populars__text_header"
+            app:textSeeMore="@string/fragment_home__list__more_populars__text_see_more" />
 
-            <es.avifer.listheaderseemore.ListHeaderSeeMore
-                android:id="@+id/fragment_home__list__more_populars"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:colorTextSeeMore="@color/secondary_color_dark"
-                app:marginHorizontalTextSeeMore="@dimen/fragment_home__list__categories__margin_horizontal_text_see_more"
-                app:marginList="@dimen/fragment_home__list__categories__margin_list"
-                app:marginTextHeader="@dimen/fragment_home__list__categories__margin_text_header"
-                app:sizeTextHeader="@dimen/fragment_home__list__categories__size_text_header"
-                app:sizeTextSeeMore="@dimen/fragment_home__list__categories__size_text_see_more"
-                app:textHeader="@string/fragment_home__list__more_populars__text_header"
-                app:textSeeMore="@string/fragment_home__list__more_populars__text_see_more" />
+        <es.avifer.listheaderseemore.ListHeaderSeeMore
+            android:id="@+id/fragment_home__list__last_published"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:colorTextSeeMore="@color/secondary_color_dark"
+            app:marginHorizontalTextSeeMore="@dimen/fragment_home__list__categories__margin_horizontal_text_see_more"
+            app:marginList="@dimen/fragment_home__list__categories__margin_list"
+            app:marginTextHeader="@dimen/fragment_home__list__categories__margin_text_header"
+            app:sizeTextHeader="@dimen/fragment_home__list__categories__size_text_header"
+            app:sizeTextSeeMore="@dimen/fragment_home__list__categories__size_text_see_more"
+            app:textHeader="@string/fragment_home__list__last_published__text_header"
+            app:textSeeMore="@string/fragment_home__list__last_published__test_see_more" />
 
-            <es.avifer.listheaderseemore.ListHeaderSeeMore
-                android:id="@+id/fragment_home__list__last_published"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:colorTextSeeMore="@color/secondary_color_dark"
-                app:marginHorizontalTextSeeMore="@dimen/fragment_home__list__categories__margin_horizontal_text_see_more"
-                app:marginList="@dimen/fragment_home__list__categories__margin_list"
-                app:marginTextHeader="@dimen/fragment_home__list__categories__margin_text_header"
-                app:sizeTextHeader="@dimen/fragment_home__list__categories__size_text_header"
-                app:sizeTextSeeMore="@dimen/fragment_home__list__categories__size_text_see_more"
-                app:textHeader="@string/fragment_home__list__last_published__text_header"
-                app:textSeeMore="@string/fragment_home__list__last_published__test_see_more" />
+    </LinearLayout>
 
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
