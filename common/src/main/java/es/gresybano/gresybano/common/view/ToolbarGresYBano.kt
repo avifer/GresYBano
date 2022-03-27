@@ -22,6 +22,7 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
     }
 
     private var iconGoBackToolbar: ImageView? = null
+    private var titleToolbar: TextView? = null
     private var searchView: View? = null
     private var iconSearchView: ImageView? = null
     private var iconScanQR: ImageView? = null
@@ -35,6 +36,7 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
 
     private fun initViews() {
         iconGoBackToolbar = findViewById(R.id.view__toolbar_app__img__go_back)
+        titleToolbar = findViewById(R.id.view__toolbar_app__label__title)
         searchView = findViewById(R.id.view__toolbar_app__view__search_bar)
         iconSearchView = findViewById(R.id.view__toolbar_app__img__search)
         iconScanQR = findViewById(R.id.view__toolbar_app__img__scan_qr)
@@ -63,6 +65,10 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
         }
     }
 
+    fun setTitleToolbar(title: String) {
+        titleToolbar?.text = title
+    }
+
     fun showToolbarDefault(amount: Int = 0) {
         show()
         showDefault()
@@ -70,10 +76,11 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
         setAmountNotifications(amount)
     }
 
-    fun showToolbarGoBack() {
+    fun showToolbarGoBack(title: String = "") {
         show()
         hideDefault()
         showGoBack()
+        setTitleToolbar(title)
     }
 
     fun initToolbarActions(
@@ -99,6 +106,7 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
 
     private fun hideGoBack() {
         iconGoBackToolbar?.hide()
+        titleToolbar?.hide()
     }
 
     private fun showDefault() {
@@ -111,6 +119,7 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
 
     private fun showGoBack() {
         iconGoBackToolbar?.show()
+        titleToolbar?.show()
     }
 
 }
