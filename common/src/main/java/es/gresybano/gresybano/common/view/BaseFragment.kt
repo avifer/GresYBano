@@ -73,10 +73,10 @@ abstract class BaseFragment : Fragment() {
         viewModel.defaultErrorNotification.observe(viewLifecycleOwner) { responseHandleNull ->
             responseHandleNull?.let { responseHandle ->
                 if (responseHandle.getIdResErrorHandle() != null) {
-                    toast(responseHandle.idResError)
+                    toast(responseHandle.idResError, Toast.LENGTH_LONG)
                     getHostActivity()?.showError(true)
                 }
-            } ?: kotlin.run { toast(R.string.default_error) }
+            } ?: kotlin.run { toast(R.string.default_error, Toast.LENGTH_LONG) }
         }
     }
 
