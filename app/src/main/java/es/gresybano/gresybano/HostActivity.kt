@@ -1,6 +1,7 @@
 package es.gresybano.gresybano
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import com.airbnb.lottie.LottieAnimationView
@@ -44,34 +45,37 @@ class HostActivity : BaseActivity() {
         val navigationSettings =
             es.gresybano.gresybano.feature.application.R.id.navigate_to_navigation__feature_application__settings_fragment
 
-        bottomNavigationBar?.let {
-            with(it) {
+        val clickOnElements: (menuItem: MenuItem) -> Boolean =
+            { menuItem ->
+                when (menuItem.itemId) {
+                    es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__favorite_posts -> {
+                        findNavController(R.id.activity_host__fragment_container__host).navigate(
+                            navigationFavoritePosts
+                        )
+                        true
+                    }
+                    es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__home -> {
+                        findNavController(R.id.activity_host__fragment_container__host).navigate(
+                            navigationHome
+                        )
+                        true
+                    }
+                    es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__settings -> {
+                        findNavController(R.id.activity_host__fragment_container__host).navigate(
+                            navigationSettings
+                        )
+                        true
+                    }
+                    else -> false
+                }
+            }
+
+        bottomNavigationBar?.let { bottomNav ->
+            with(bottomNav) {
                 selectedItemId =
                     es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__home
-                setOnItemSelectedListener { menuItem ->
-                    when (menuItem.itemId) {
-                        es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__favorite_posts -> {
-                            findNavController(R.id.activity_host__fragment_container__host).navigate(
-                                navigationFavoritePosts
-                            )
-                            true
-                        }
-                        es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__home -> {
-                            findNavController(R.id.activity_host__fragment_container__host).navigate(
-                                navigationHome
-                            )
-                            true
-                        }
-                        es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__settings -> {
-                            findNavController(R.id.activity_host__fragment_container__host).navigate(
-                                navigationSettings
-                            )
-                            true
-                        }
-                        else -> false
-                    }
-                }
-                setOnItemReselectedListener { /*no-op*/ }
+                setOnItemSelectedListener { clickOnElements(it) }
+                setOnItemReselectedListener { clickOnElements(it) }
             }
         }
     }
