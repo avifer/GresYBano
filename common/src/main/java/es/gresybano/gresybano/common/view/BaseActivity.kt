@@ -89,8 +89,8 @@ abstract class BaseActivity : AppCompatActivity() {
         toolbar?.showToolbarDefault(amount)
     }
 
-    fun showToolbarGoBack() {
-        toolbar?.showToolbarGoBack()
+    fun showToolbarGoBack(title: String = "") {
+        toolbar?.showToolbarGoBack(title)
     }
 
     fun initToolbarActions(
@@ -109,6 +109,10 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun setToolbarAmountNotifications(amount: Int) {
         toolbar?.setAmountNotifications(amount)
+    }
+
+    fun setTitleToolbar(title: String) {
+        toolbar?.setTitleToolbar(title)
     }
 
 }
