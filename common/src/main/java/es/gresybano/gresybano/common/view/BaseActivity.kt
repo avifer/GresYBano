@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import es.gresybano.gresybano.common.R
 import es.gresybano.gresybano.common.extensions.hide
 import es.gresybano.gresybano.common.extensions.invisible
 import es.gresybano.gresybano.common.extensions.show
@@ -38,23 +39,38 @@ abstract class BaseActivity : AppCompatActivity() {
 
     abstract var bottomNavigationBar: BottomNavigationView?
 
-    private fun showLoading() {
+    private fun showAnimation() {
         viewLoading?.show()
         lottieAnimation?.playAnimation()
     }
 
-    private fun hideLoading() {
+    private fun hideAnimation() {
         viewLoading?.hide()
         lottieAnimation?.pauseAnimation()
     }
 
-    fun visibilityLoading(visible: Boolean) {
+    fun showLoading(visible: Boolean) {
         if (visible) {
-            showLoading()
+            lottieAnimation?.setAnimation(R.raw.animation_loading)
+            showAnimation()
 
         } else {
-            hideLoading()
+            hideAnimation()
         }
+    }
+
+    fun showError(visible: Boolean) {
+        if (visible) {
+            lottieAnimation?.setAnimation(R.raw.animation_error)
+            showAnimation()
+
+        } else {
+            hideAnimation()
+        }
+    }
+
+    fun hideAnimationLoadingError() {
+        hideAnimation()
     }
 
     fun hideBottomNavigationBar() {

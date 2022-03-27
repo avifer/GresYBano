@@ -7,17 +7,15 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.NavDirections
 import es.gresybano.gresybano.common.util.runInIO
 import es.gresybano.gresybano.common.util.runInMain
-import es.gresybano.gresybano.domain.entities.response.ExceptionInfo
-import es.gresybano.gresybano.domain.entities.response.Response
-import es.gresybano.gresybano.domain.entities.response.getStringError
+import es.gresybano.gresybano.domain.entities.response.*
 import es.gresybano.gresybano.navigation.Event
 import es.gresybano.gresybano.navigation.Navigation
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 
 open class BaseViewModel : ViewModel() {
-    var defaultErrorNotification: LiveData<Int> = MutableLiveData()
-    var defaultWaitingNotification: LiveData<Boolean> = MutableLiveData()
+    var defaultErrorNotification: LiveData<ResponseErrorHandle> = MutableLiveData()
+    var defaultWaitingNotification: LiveData<ResponseLoadingHandle> = MutableLiveData()
 
     private val navigation = MutableLiveData<Event<Navigation>>()
 
@@ -55,17 +53,22 @@ fun <T> BaseViewModel.defaultResponse(
 }
 
 fun <T> BaseViewModel.postSuccessful(data: T, mutableLiveDataResult: MutableLiveData<T?>) {
-    mutableLiveDataResult.postValue(data)
     postLoading(false)
+    mutableLiveDataResult.postValue(data)
 }
 
 fun BaseViewModel.postError(@StringRes idError: Int) {
-    (defaultErrorNotification as? MutableLiveData)?.postValue(idError)
     postLoading(false)
+    (defaultErrorNotification as? MutableLiveData)?.postValue(ResponseErrorHandle(idError, false))
 }
 
 fun BaseViewModel.postLoading(loading: Boolean) {
-    (defaultWaitingNotification as? MutableLiveData)?.postValue(loading)
+    (defaultWaitingNotification as? MutableLiveData)?.postValue(
+        ResponseLoadingHandle(
+            loading,
+            false
+        )
+    )
 }
 
 fun <T> BaseViewModel.executeWithListeners(

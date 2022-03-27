@@ -10,8 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import es.gresybano.gresybano.common.R
-import es.gresybano.gresybano.common.extensions.invisible
-import es.gresybano.gresybano.common.extensions.show
 import es.gresybano.gresybano.common.viewmodel.BaseViewModel
 import es.gresybano.gresybano.navigation.Navigation
 import es.gresybano.gresybano.navigation.Navigation.Back
@@ -42,6 +40,7 @@ abstract class BaseFragment : Fragment() {
         initDefaultObserverWaiting()
         initDefaultObserverError()
         observeNavigation()
+        getHostActivity()?.hideAnimationLoadingError()
         onViewReady(savedInstanceState)
     }
 
@@ -61,17 +60,22 @@ abstract class BaseFragment : Fragment() {
     }
 
     open fun initDefaultObserverWaiting() {
-        viewModel.defaultWaitingNotification.observe(viewLifecycleOwner) {
-            it?.let {
-                getHostActivity()?.visibilityLoading(it)
+        viewModel.defaultWaitingNotification.observe(viewLifecycleOwner) { responseHandleNull ->
+            responseHandleNull?.let { responseHandle ->
+                if (responseHandle.getLoadingHandle() != null) {
+                    getHostActivity()?.showLoading(responseHandle.loading)
+                }
             } ?: kotlin.run { toast(R.string.default_error) }
         }
     }
 
     open fun initDefaultObserverError() {
-        viewModel.defaultErrorNotification.observe(viewLifecycleOwner) {
-            it?.let {
-                toast(it)
+        viewModel.defaultErrorNotification.observe(viewLifecycleOwner) { responseHandleNull ->
+            responseHandleNull?.let { responseHandle ->
+                if (responseHandle.getIdResErrorHandle() != null) {
+                    toast(responseHandle.idResError)
+                    getHostActivity()?.showError(true)
+                }
             } ?: kotlin.run { toast(R.string.default_error) }
         }
     }
