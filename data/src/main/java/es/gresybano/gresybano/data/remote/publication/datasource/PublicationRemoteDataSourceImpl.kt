@@ -10,6 +10,12 @@ class PublicationRemoteDataSourceImpl(
     private val publicationApi: PublicationApi
 ) : PublicationRemoteDataSource, BaseRepository() {
 
+    override suspend fun getPublicationsOfCategory(idCategory: Long): Response<List<PublicationDto>> {
+        return safeRemoteCall {
+            publicationApi.getPublicationsCategory(idCategory)?.filterNotNull() ?: listOf()
+        }
+    }
+
     override suspend fun getLastPublished(): Response<List<PublicationDto?>?> {
         return safeRemoteCall { publicationApi.getLastPublished() }
     }

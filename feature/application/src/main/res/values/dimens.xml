@@ -45,4 +45,11 @@
     <dimen name="fragment_home__list__last_published__margin_vertical_text_header">12dp</dimen>
     <dimen name="fragment_home__list__last_published__size_text_header">8sp</dimen>
     <dimen name="fragment_home__list__last_published__size_text_see_more">6sp</dimen>
+
+    <dimen name="fragment_category_details__img__category__height">300dp</dimen>
+    <dimen name="row__height_publication__img__favorite__margin_bottom">12dp</dimen>
+    <dimen name="row__height_publication__img__favorite__margin_end">12dp</dimen>
+    <dimen name="fragment_category_details__label__amount_publications__margin">12dp</dimen>
+    <dimen name="fragment_category_details__label__amount_publications__text_size">24sp</dimen>
+    <dimen name="fragment_category_details__list__list_publications__margin_vertical">8dp</dimen>
 </resources>
