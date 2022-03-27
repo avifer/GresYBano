@@ -5,11 +5,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import es.avifer.listheaderseemore.ListHeaderSeeMoreAdapter
+import es.gresybano.gresybano.common.extensions.hide
 import es.gresybano.gresybano.common.extensions.loadUrl
+import es.gresybano.gresybano.common.extensions.visible
 import es.gresybano.gresybano.domain.entities.PublicationBo
 import es.gresybano.gresybano.feature.application.databinding.RowHeightPublicationBinding
 
-class HeightPublicationAdapter(private val listenerClickElement: (publication: PublicationBo) -> Unit) :
+class HeightPublicationAdapter(
+    private val listenerClickElement: (publication: PublicationBo) -> Unit,
+    private val favoriteEnable: Boolean = false,
+    private val centerGravity: Boolean = false,
+) :
     ListHeaderSeeMoreAdapter<PublicationBo>(diffUtils) {
 
     companion object {
@@ -21,15 +27,23 @@ class HeightPublicationAdapter(private val listenerClickElement: (publication: P
 
         fun bind(
             publication: PublicationBo,
-            listenerClickElement: (publication: PublicationBo) -> Unit
+            listenerClickElement: (publication: PublicationBo) -> Unit,
+            favoriteEnable: Boolean,
+            centerGravity: Boolean
         ) {
             with(viewBinding) {
                 setOnClickParent { listenerClickElement(publication) }
-                setData(publication)
+                if (centerGravity) {
+                    setGravityCenter()
+                }
+                setData(publication, favoriteEnable)
             }
         }
 
-        private fun RowHeightPublicationBinding.setData(publication: PublicationBo) {
+        private fun RowHeightPublicationBinding.setData(
+            publication: PublicationBo,
+            favoriteEnable: Boolean
+        ) {
             rowHeightPublicationImgImagePublication.loadUrl(
                 publication.listImages.first(),
                 IMAGE_SIZE,
@@ -37,15 +51,30 @@ class HeightPublicationAdapter(private val listenerClickElement: (publication: P
             )
             rowHeightPublicationLabelNamePublication.text = publication.category
             rowHeightPublicationLabelAmountPublication.text = publication.listImages.size.toString()
+            if (favoriteEnable) {
+                rowHeightPublicationImgFavorite.visible(publication.favorite)
+
+            } else {
+                rowHeightPublicationImgFavorite.hide()
+            }
         }
 
         private fun RowHeightPublicationBinding.setOnClickParent(action: () -> Unit) {
             root.setOnClickListener { action() }
         }
+
+        private fun RowHeightPublicationBinding.setGravityCenter() {
+            root.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+        }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as? ViewHolderCategory)?.bind(currentList[position], listenerClickElement)
+        (holder as? ViewHolderCategory)?.bind(
+            currentList[position],
+            listenerClickElement,
+            favoriteEnable,
+            centerGravity
+        )
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderCategory {

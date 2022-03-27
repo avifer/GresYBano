@@ -3,19 +3,13 @@ package es.gresybano.gresybano.feature.application.view.fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.RawRes
 import androidx.fragment.app.activityViewModels
-import com.airbnb.lottie.LottieDrawable
 import dagger.hilt.android.AndroidEntryPoint
 import es.avifer.listheaderseemore.ListHeaderSeeMore
 import es.avifer.listheaderseemore.ListHeaderSeeMoreAdapter
-import es.gresybano.gresybano.common.extensions.invisible
-import es.gresybano.gresybano.common.extensions.show
 import es.gresybano.gresybano.common.extensions.visible
 import es.gresybano.gresybano.common.view.BaseFragment
-import es.gresybano.gresybano.common.view.toast
 import es.gresybano.gresybano.domain.entities.HomeListElementsVo
-import es.gresybano.gresybano.domain.entities.response.getStringError
 import es.gresybano.gresybano.feature.application.databinding.FragmentHomeBinding
 import es.gresybano.gresybano.feature.application.view.adapter.HeightCategoryAdapter
 import es.gresybano.gresybano.feature.application.view.adapter.HeightPublicationAdapter
@@ -29,13 +23,19 @@ class HomeFragment : BaseFragment() {
     override fun getBindingCast() = binding as? FragmentHomeBinding
 
     private val adapterListCategories =
-        HeightCategoryAdapter { /*TODO*/ }
+        HeightCategoryAdapter {
+            viewModel.goToDetailCategory(
+                idCategory = it.id,
+                nameCategory = it.name,
+                urlPrimary = it.primaryUrl,
+            )
+        }
 
     private val adapterListMorePopulars =
-        HeightPublicationAdapter { /*TODO*/ }
+        HeightPublicationAdapter(listenerClickElement = { /*TODO*/ })
 
     private val adapterListLastPublications =
-        HeightPublicationAdapter { /*TODO*/ }
+        HeightPublicationAdapter(listenerClickElement = { /*TODO*/ })
 
     private val actionSeeMoreCategories = { /*TODO*/ }
 
@@ -55,18 +55,10 @@ class HomeFragment : BaseFragment() {
             viewModel.getDataSave()?.let { setDataInLists(it) }
 
         } else {
-            viewModel.getElementsHome(
-                { it?.let { setDataInLists(it) } },
-                {
-                    getBindingCast()?.showAnimation(es.gresybano.gresybano.common.R.raw.animation_error)
-                    toast(it.getStringError())
-                },
-                {
-                    if (it) {
-                        getBindingCast()?.showAnimation(es.gresybano.gresybano.common.R.raw.animation_loading)
-                    }
-                }
-            )
+            viewModel.getElementsHome().observe(viewLifecycleOwner) {
+                it?.let { setDataInLists(it) }
+                viewModel.saveData(it)
+            }
         }
     }
 
@@ -98,28 +90,11 @@ class HomeFragment : BaseFragment() {
                 fragmentHomeListCategories.visible(!homeListElementsVo.listCategories.isNullOrEmpty())
                 fragmentHomeListMorePopulars.visible(!homeListElementsVo.listMorePopularPublications.isNullOrEmpty())
                 fragmentHomeListLastPublished.visible(!homeListElementsVo.listLastPublished.isNullOrEmpty())
-                fragmentHomeLottieChargeError.invisible()
             }
         }
         adapterListCategories.submitList(homeListElementsVo.listCategories)
         adapterListMorePopulars.submitList(homeListElementsVo.listMorePopularPublications)
         adapterListLastPublications.submitList(homeListElementsVo.listLastPublished)
-    }
-
-    private fun FragmentHomeBinding.showAnimation(@RawRes idAnimation: Int) {
-        hideLists()
-        with(fragmentHomeLottieChargeError) {
-            show()
-            setAnimation(idAnimation)
-            repeatCount = LottieDrawable.INFINITE
-            playAnimation()
-        }
-    }
-
-    private fun FragmentHomeBinding.hideLists() {
-        fragmentHomeListCategories.invisible()
-        fragmentHomeListMorePopulars.invisible()
-        fragmentHomeListLastPublished.invisible()
     }
 
     private fun <T> ListHeaderSeeMore.initListSeeMore(

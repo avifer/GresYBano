@@ -7,4 +7,5 @@ data class PublicationBo(
     val publishDate: Date = Date(),
     val category: String,
     val listImages: List<String>,
+    val favorite: Boolean = false,
 )

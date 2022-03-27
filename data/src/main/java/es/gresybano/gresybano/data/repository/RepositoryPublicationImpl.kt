@@ -21,6 +21,7 @@ class RepositoryPublicationImpl(
                 ),
                 category = "Cuarto de baño",
                 publishDate = Date(),
+                favorite = true,
             ),
             PublicationBo(
                 id = 1,
@@ -30,6 +31,7 @@ class RepositoryPublicationImpl(
                 ),
                 category = "Patio interno",
                 publishDate = Date(),
+                favorite = true,
             ),
             PublicationBo(
                 id = 2,
@@ -51,8 +53,95 @@ class RepositoryPublicationImpl(
                 ),
                 category = "Cocina",
                 publishDate = Date(),
+                favorite = true,
+            ),
+            PublicationBo(
+                id = 4,
+                listImages = listOf(
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                ),
+                category = "Cocina",
+                publishDate = Date(),
+                favorite = true,
+            ),
+            PublicationBo(
+                id = 5,
+                listImages = listOf(
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                ),
+                category = "Cocina",
+                publishDate = Date(),
+            ),
+            PublicationBo(
+                id = 6,
+                listImages = listOf(
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                ),
+                category = "Cocina",
+                publishDate = Date(),
+            ),
+            PublicationBo(
+                id = 7,
+                listImages = listOf(
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                ),
+                category = "Cocina",
+                publishDate = Date(),
+                favorite = true,
+            ),
+            PublicationBo(
+                id = 8,
+                listImages = listOf(
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                    "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                ),
+                category = "Cocina",
+                publishDate = Date(),
             ),
         )
+
+    override suspend fun getPublicationsOfCategory(idCategory: Long): Response<List<PublicationBo>> {
+        //TODO MOCK
+        return Response.Successful(exampleListPublications)
+        /*
+        return publicationRemoteDataSource.getMorePopular().defaultResponse { listPublication ->
+            listPublication?.filterNotNull()?.map { it.toBo() } ?: listOf()
+        }
+         */
+    }
 
     override suspend fun getMorePopularPublicationsRemote(): Response<List<PublicationBo>> {
         //TODO MOCK

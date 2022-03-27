@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        tools:context=".view.fragment.FavoritePublicationsFragment">
+
+        <ImageView
+            android:id="@+id/fragment_category_details__img__category"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_category_details__img__category__height"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0.5"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/fragment_category_details__img__category"
+            app:layout_constraintEnd_toEndOf="@id/fragment_category_details__img__category"
+            app:layout_constraintStart_toStartOf="@id/fragment_category_details__img__category"
+            app:layout_constraintTop_toTopOf="@id/fragment_category_details__img__category" />
+
+        <TextView
+            android:id="@+id/fragment_category_details__label__amount_publications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fragment_category_details__label__amount_publications__margin"
+            android:textColor="@color/white"
+            android:textSize="@dimen/fragment_category_details__label__amount_publications__text_size"
+            app:layout_constraintBottom_toBottomOf="@id/fragment_category_details__img__category"
+            app:layout_constraintStart_toStartOf="@id/fragment_category_details__img__category" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_category_details__list__list_publications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/fragment_category_details__list__list_publications__margin_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_category_details__img__category" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

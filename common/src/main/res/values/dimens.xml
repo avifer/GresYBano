@@ -16,6 +16,8 @@
 
     <dimen name="background__total_notifications__toolbar__stroke_radius">1000dp</dimen>
     <dimen name="background__total_notifications__toolbar__stroke_width">4dp</dimen>
+    <dimen name="view__toolbar_app__label__title__margin_start">8dp</dimen>
+    <dimen name="view__toolbar_app__label__title__text_size">18sp</dimen>
 
     <item name="view__toolbar_app__guideline__separator_search__percent" format="float" type="dimen">0.75</item>
 </resources>

@@ -23,6 +23,12 @@
         android:label="fragment_favorite_posts"
         tools:layout="@layout/fragment_favorite_publications" />
 
+    <fragment
+        android:id="@+id/navigation__feature_application__category_details_fragment"
+        android:name="es.gresybano.gresybano.feature.application.view.fragment.CategoryDetailsFragment"
+        android:label="fragment_category_details"
+        tools:layout="@layout/fragment_category_details" />
+
     <action
         android:id="@+id/navigate_to_navigation__feature_application__favorite_posts_fragment"
         app:destination="@id/navigation__feature_application__favorite_posts_fragment"
@@ -40,5 +46,26 @@
         app:destination="@id/navigation__feature_application__settings_fragment"
         app:popUpTo="@id/navigation__feature_application"
         app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/navigate_to_navigation__feature_application__category_details_fragment"
+        app:destination="@id/navigation__feature_application__category_details_fragment">
+
+        <argument
+            android:name="idCategory"
+            android:defaultValue="-1L"
+            app:argType="long" />
+
+        <argument
+            android:name="nameCategory"
+            android:defaultValue=""
+            app:argType="string" />
+
+        <argument
+            android:name="primaryUrlCategory"
+            android:defaultValue=""
+            app:argType="string" />
+
+    </action>
 
 </navigation>

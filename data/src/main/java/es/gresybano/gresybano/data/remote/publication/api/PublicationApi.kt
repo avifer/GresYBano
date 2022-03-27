@@ -6,6 +6,10 @@ import retrofit2.http.GET
 interface PublicationApi {
     //TODO
     @GET("")
+    suspend fun getPublicationsCategory(idCategory: Long): List<PublicationDto?>?
+
+    //TODO
+    @GET("")
     suspend fun getLastPublished(): List<PublicationDto?>?
 
     //TODO
