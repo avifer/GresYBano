@@ -17,6 +17,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/view__toolbar_app__label__title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/view__toolbar_app__label__title__margin_start"
+        android:textColor="@color/black"
+        android:textSize="@dimen/view__toolbar_app__label__title__text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/view__toolbar_app__img__go_back"
+        app:layout_constraintStart_toEndOf="@id/view__toolbar_app__img__go_back"
+        app:layout_constraintTop_toTopOf="@id/view__toolbar_app__img__go_back" />
+
     <View
         android:id="@+id/view__toolbar_app__view__search_bar"
         android:layout_width="0dp"
