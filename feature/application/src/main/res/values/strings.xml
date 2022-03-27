@@ -9,4 +9,5 @@
 
     <string name="fragment_home__list__last_published__text_header">Ultimas publicaciones</string>
     <string name="fragment_home__list__last_published__test_see_more">@string/see_more</string>
+    <string name="publications_with_number">%d publicaciones</string>
 </resources>

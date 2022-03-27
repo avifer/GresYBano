@@ -28,13 +28,13 @@
     <include
         android:id="@+id/activity_host__view__loading"
         layout="@layout/loading_screen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@id/activity_host__fragment_container__host"
+        app:layout_constraintEnd_toEndOf="@id/activity_host__fragment_container__host"
+        app:layout_constraintStart_toStartOf="@id/activity_host__fragment_container__host"
+        app:layout_constraintTop_toTopOf="@id/activity_host__fragment_container__host" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/activity_host__bottom_bar__navigation"
