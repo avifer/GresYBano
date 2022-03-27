@@ -1,5 +1,6 @@
 package es.gresybano.gresybano.feature.application.viewmodel
 
+import androidx.lifecycle.LiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.gresybano.gresybano.common.viewmodel.BaseViewModel
 import es.gresybano.gresybano.common.viewmodel.defaultResponse
@@ -21,7 +22,9 @@ class HomeViewModel @Inject constructor(
         dataSave = homeListElementsVo
     }
 
-    fun getElementsHome() = defaultResponse { getDataHomeFragmentUseCase() }
+    fun getElementsHome(): LiveData<HomeListElementsVo?> {
+        return defaultResponse { getDataHomeFragmentUseCase() }
+    }
 
     fun goToDetailCategory(idCategory: Long, nameCategory: String, urlPrimary: String) {
         navigate(

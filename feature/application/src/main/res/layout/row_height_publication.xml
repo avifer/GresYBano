@@ -79,7 +79,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/row__height_publication__img__amount_publication"
-                app:layout_constraintEnd_toStartOf="@+id/row__height_publication__img__favorite"
+                app:layout_constraintEnd_toStartOf="@id/row__height_publication__img__favorite"
                 app:layout_constraintStart_toEndOf="@id/row__height_publication__img__amount_publication"
                 app:layout_constraintTop_toTopOf="@id/row__height_publication__img__amount_publication"
                 tools:text="333" />
