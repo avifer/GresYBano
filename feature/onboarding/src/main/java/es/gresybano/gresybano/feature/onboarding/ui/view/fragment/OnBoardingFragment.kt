@@ -1,15 +1,12 @@
 package es.gresybano.gresybano.feature.onboarding.ui.view.fragment
 
 import android.os.Bundle
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import dagger.hilt.android.AndroidEntryPoint
-import es.gresybano.gresybano.common.extensions.getColorState
 import es.gresybano.gresybano.common.extensions.hide
 import es.gresybano.gresybano.common.extensions.show
 import es.gresybano.gresybano.common.util.PreferencesUtil
@@ -36,6 +33,7 @@ class OnBoardingFragment : BaseFragment() {
     override fun getBindingCast() = binding as? FragmentOnBoardingBinding
 
     override fun onViewReady(savedInstanceState: Bundle?) {
+        initPageIndicator()
         getBindingCast()?.initActionButtons()
         initViewPager()
         hideToolbar()
@@ -58,6 +56,12 @@ class OnBoardingFragment : BaseFragment() {
         }
     }
 
+    private fun initPageIndicator() {
+        getBindingCast()?.fragmentOnBoardingPageIndicatorIndicator?.setQuantityIndicator(
+            TOTAL_FRAGMENTS, FIRST_PAGE
+        )
+    }
+
     private fun FragmentOnBoardingBinding.firstPage() {
         fragmentOnBoardingImgGoBack.hide()
     }
@@ -70,23 +74,8 @@ class OnBoardingFragment : BaseFragment() {
         fragmentOnBoardingImgGoBack.show()
     }
 
-    //TODO Remove this and change for custom library
     private fun updateIndicatorPage(position: Int) {
-        getBindingCast()?.fragmentOnBoardingLinearIndicator?.let {
-            with(it) {
-                removeAllViews()
-                val dots = MutableList(TOTAL_FRAGMENTS) { TextView(requireContext()) }
-                dots.forEach { itextView ->
-                    addView(itextView)
-                    with(itextView) {
-                        text = Html.fromHtml("&#8226")
-                        textSize = 35F
-                        setTextColor(requireContext().getColorState(es.gresybano.gresybano.common.R.color.primary_color))
-                    }
-                }
-                dots[position].setTextColor(requireContext().getColorState(es.gresybano.gresybano.common.R.color.primary_color_dark))
-            }
-        }
+        getBindingCast()?.fragmentOnBoardingPageIndicatorIndicator?.changeSelectedIndicator(position)
     }
 
     private fun updateButtonsPage(position: Int) {
