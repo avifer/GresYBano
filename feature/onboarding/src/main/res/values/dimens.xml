@@ -19,7 +19,7 @@
 
     <dimen name="fragment_on_boarding__img__go_back__size">24dp</dimen>
     <dimen name="fragment_on_boarding__img__go_back__margin_start">24dp</dimen>
-    <dimen name="fragment_on_boarding__linear__indicator__margin_start">24dp</dimen>
+    <dimen name="fragment_on_boarding__page_indicator__indicator__margin_start">24dp</dimen>
     <dimen name="fragment_on_boarding__img__go_forward__margin_end">24dp</dimen>
     <dimen name="fragment_on_boarding__img__go_forward__size">24dp</dimen>
 

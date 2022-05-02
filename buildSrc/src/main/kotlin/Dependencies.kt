@@ -46,6 +46,7 @@ object Dependencies {
     object Github{
         const val GLIDE = "com.github.bumptech.glide:glide:${Versions.Github.GLIDE}"
         const val LIST_HEADER_SEE_MORE = "com.github.avifer:ListHeaderSeeMore:${Versions.Github.LIST_HEADER_SEE_MORE}"
+        const val PAGE_INDICATOR = "com.github.avifer:PageIndicator:${Versions.Github.PAGE_INDICATOR}"
     }
 
 }

@@ -37,14 +37,13 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="@dimen/fragment_on_boarding__guideline__bottom_separator__percent" />
 
-    <!-- TODO Remove this and change for custom library -->
-
-    <LinearLayout
-        android:id="@+id/fragment_on_boarding__linear__indicator"
+    <es.avifer.pageindicator.PageIndicator
+        android:id="@+id/fragment_on_boarding__page_indicator__indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_on_boarding__linear__indicator__margin_start"
-        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/fragment_on_boarding__page_indicator__indicator__margin_start"
+        app:colorSelectedPageIndicator="@color/primary_color_dark"
+        app:colorUnselectedPageIndicator="@color/primary_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_boarding__view_pager__fragments" />
 
