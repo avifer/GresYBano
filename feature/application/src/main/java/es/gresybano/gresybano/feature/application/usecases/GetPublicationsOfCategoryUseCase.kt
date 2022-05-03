@@ -1,6 +1,8 @@
 package es.gresybano.gresybano.feature.application.usecases
 
 import es.gresybano.gresybano.domain.entities.PublicationBo
+import es.gresybano.gresybano.domain.entities.response.CodeExceptions
+import es.gresybano.gresybano.domain.entities.response.ExceptionInfo
 import es.gresybano.gresybano.domain.entities.response.Response
 import es.gresybano.gresybano.domain.publication.repository.RepositoryPublication
 import kotlinx.coroutines.flow.Flow
@@ -11,12 +13,16 @@ class GetPublicationsOfCategoryUseCase @Inject constructor(
     private val repositoryPublication: RepositoryPublication,
 ) {
 
-    operator fun invoke(idCategory: Long): Flow<Response<List<PublicationBo>>> {
+    operator fun invoke(idCategory: Long?): Flow<Response<List<PublicationBo>>> {
         return flow {
-            emit(Response.Loading())
-            //TODO MOCK
-            Thread.sleep(1500)
-            emit(repositoryPublication.getPublicationsOfCategory(idCategory))
+            idCategory?.let {
+                //TODO MOCK
+                emit(Response.Loading())
+                Thread.sleep(1500)
+                emit(Response.Error(ExceptionInfo(CodeExceptions.UNKNOWN)))
+                Thread.sleep(1500)
+                emit(repositoryPublication.getPublicationsOfCategory(idCategory))
+            } ?: kotlin.run { emit(Response.Error(ExceptionInfo(CodeExceptions.UNKNOWN))) }
         }
     }
 

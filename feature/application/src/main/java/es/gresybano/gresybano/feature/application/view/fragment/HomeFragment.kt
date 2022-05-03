@@ -32,10 +32,20 @@ class HomeFragment : BaseFragment() {
         }
 
     private val adapterListMorePopulars =
-        HeightPublicationAdapter(listenerClickElement = { /*TODO*/ })
+        HeightPublicationAdapter(listenerClickElement = {
+            viewModel.goToDetailPublication(
+                idPublication = it.id,
+                listImages = it.listImages,
+            )
+        })
 
     private val adapterListLastPublications =
-        HeightPublicationAdapter(listenerClickElement = { /*TODO*/ })
+        HeightPublicationAdapter(listenerClickElement = {
+            viewModel.goToDetailPublication(
+                idPublication = it.id,
+                listImages = it.listImages,
+            )
+        })
 
     private val actionSeeMoreCategories = { /*TODO*/ }
 

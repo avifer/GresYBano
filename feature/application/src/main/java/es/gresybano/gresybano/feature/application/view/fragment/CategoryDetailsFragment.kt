@@ -7,11 +7,9 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import es.gresybano.gresybano.common.extensions.loadUrl
-import es.gresybano.gresybano.common.util.DEFAULT_ID
 import es.gresybano.gresybano.common.util.EMPTY_STRING
 import es.gresybano.gresybano.common.util.ZERO
 import es.gresybano.gresybano.common.view.BaseFragment
-import es.gresybano.gresybano.common.viewmodel.postError
 import es.gresybano.gresybano.feature.application.R
 import es.gresybano.gresybano.feature.application.databinding.FragmentCategoryDetailsBinding
 import es.gresybano.gresybano.feature.application.view.adapter.HeightPublicationAdapter
@@ -30,7 +28,12 @@ class CategoryDetailsFragment : BaseFragment() {
 
     private val adapterListPublications =
         HeightPublicationAdapter(
-            listenerClickElement = { /*TODO*/ },
+            listenerClickElement = {
+                viewModel.goToDetailPublication(
+                    idPublication = it.id,
+                    listImages = it.listImages,
+                )
+            },
             centerGravity = true,
             favoriteEnable = true
         )
@@ -38,6 +41,9 @@ class CategoryDetailsFragment : BaseFragment() {
     override val viewModel by viewModels<CategoryDetailsViewModel>()
 
     override fun getBindingCast() = binding as? FragmentCategoryDetailsBinding
+
+    override fun getInflateBinding(inflater: LayoutInflater, container: ViewGroup?) =
+        FragmentCategoryDetailsBinding.inflate(inflater, container, false)
 
     override fun onViewReady(savedInstanceState: Bundle?) {
         showToolbarGoBack(arguments?.getString(KEY_NAME_CATEGORY) ?: EMPTY_STRING)
@@ -47,20 +53,11 @@ class CategoryDetailsFragment : BaseFragment() {
     }
 
     private fun getPublicationsCategory() {
-        val idCategory = arguments?.getLong(KEY_ID_CATEGORY)
-
-        if (idCategory != null
-            && idCategory != DEFAULT_ID
-        ) {
-            viewModel.getPublicationsOfCategory(idCategory = idCategory)
-                .observe(viewLifecycleOwner) {
-                    adapterListPublications.submitList(it)
-                    getBindingCast()?.loadAmountPublications(it?.size ?: ZERO)
-                }
-            
-        } else {
-            viewModel.postError(es.gresybano.gresybano.common.R.string.default_error)
-        }
+        viewModel.getPublicationsOfCategory(idCategory = arguments?.getLong(KEY_ID_CATEGORY))
+            .observe(viewLifecycleOwner) {
+                adapterListPublications.submitList(it)
+                getBindingCast()?.loadAmountPublications(it?.size ?: ZERO)
+            }
     }
 
     private fun initList() {
@@ -77,9 +74,6 @@ class CategoryDetailsFragment : BaseFragment() {
             arguments?.getString(KEY_PRIMARY_URL_CATEGORY) ?: EMPTY_STRING
         )
     }
-
-    override fun getInflateBinding(inflater: LayoutInflater, container: ViewGroup?) =
-        FragmentCategoryDetailsBinding.inflate(inflater, container, false)
 
     private fun FragmentCategoryDetailsBinding.loadImageCategory(urlImage: String) {
         fragmentCategoryDetailsImgCategory.loadUrl(urlImage)

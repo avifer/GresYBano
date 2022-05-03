@@ -6,6 +6,12 @@
     app:startDestination="@id/navigation__feature_application__home_fragment">
 
     <fragment
+        android:id="@+id/navigation__feature_application__category_details_fragment"
+        android:name="es.gresybano.gresybano.feature.application.view.fragment.CategoryDetailsFragment"
+        android:label="fragment_category_details"
+        tools:layout="@layout/fragment_category_details" />
+
+    <fragment
         android:id="@+id/navigation__feature_application__home_fragment"
         android:name="es.gresybano.gresybano.feature.application.view.fragment.HomeFragment"
         android:label="fragment_home"
@@ -24,10 +30,26 @@
         tools:layout="@layout/fragment_favorite_publications" />
 
     <fragment
-        android:id="@+id/navigation__feature_application__category_details_fragment"
-        android:name="es.gresybano.gresybano.feature.application.view.fragment.CategoryDetailsFragment"
-        android:label="fragment_category_details"
-        tools:layout="@layout/fragment_category_details" />
+        android:id="@+id/navigation__feature_application__publication_details_fragment"
+        android:name="es.gresybano.gresybano.feature.application.view.fragment.PublicationDetailsFragment"
+        android:label="fragment_publication_details"
+        tools:layout="@layout/fragment_publication_details" />
+
+    <action
+        android:id="@+id/navigate_to_navigation__feature_application__publication_details_fragment"
+        app:destination="@id/navigation__feature_application__publication_details_fragment">
+
+        <argument
+            android:name="idPublication"
+            android:defaultValue="-1L"
+            app:argType="long" />
+
+        <argument
+            android:name="listImages"
+            app:argType="string[]"
+            app:nullable="false" />
+
+    </action>
 
     <action
         android:id="@+id/navigate_to_navigation__feature_application__favorite_posts_fragment"

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.PublicationDetailsFragment">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/fragment_publication_details__view_pager__images"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="@dimen/fragment_publication_details__view_pager__images__margin_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <es.avifer.pageindicator.PageIndicator
+        android:id="@+id/fragment_publication_details__page_indicator__indicator"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/fragment_publication_details__page_indicator__indicator__margin_horizontal"
+        android:layout_marginBottom="@dimen/fragment_publication_details__page_indicator__indicator__margin_bottom"
+        app:colorSelectedPageIndicator="@color/secondary_color_dark"
+        app:colorUnselectedPageIndicator="@color/secondary_color"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_publication_details__view_pager__images"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:quantityIndicators="0"
+        app:sizeIndicator="@dimen/fragment_publication_details__page_indicator__indicator__size_indicator" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
