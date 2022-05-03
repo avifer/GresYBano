@@ -20,32 +20,32 @@ class RepositoryCategoryImpl(
         CategoryBo(
             1,
             "Cuartos de baño",
-            "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+            "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
         ),
         CategoryBo(
             2,
             "Cuartos de baño",
-            "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+            "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
         ),
         CategoryBo(
             3,
             "Cuartos de baño",
-            "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+            "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
         ),
         CategoryBo(
             4,
             "Cuartos de baño",
-            "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+            "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
         ),
         CategoryBo(
             5,
             "Cuartos de baño",
-            "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+            "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
         ),
         CategoryBo(
             6,
             "Cuartos de baño",
-            "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+            "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
         )
     )
 
@@ -71,7 +71,7 @@ class RepositoryCategoryImpl(
             CategoryBo(
                 id,
                 "Cuartos de baño",
-                "https://www.roca.es/rocalife/wp-content/uploads/2020/03/Roca_banos_modernos_def-1.jpg",
+                "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
             )
         )
     }

@@ -35,6 +35,7 @@ dependencies {
     implementation(Dependencies.Airbnb.LOTTIE)
 
     implementation(Dependencies.Github.LIST_HEADER_SEE_MORE)
+    implementation(Dependencies.Github.PAGE_INDICATOR)
 
     implementation(Dependencies.Androidx.NAVIGATION_FRAGMENT_KOTLIN)
     implementation(Dependencies.Androidx.NAVIGATION_UI_KOTLIN)

@@ -6,7 +6,7 @@ import es.gresybano.gresybano.common.viewmodel.BaseViewModel
 import es.gresybano.gresybano.common.viewmodel.defaultResponse
 import es.gresybano.gresybano.domain.entities.HomeListElementsVo
 import es.gresybano.gresybano.feature.application.usecases.GetDataHomeFragmentUseCase
-import es.gresybano.gresybano.feature.application.view.fragment.CategoryDetailsFragmentDirections
+import es.gresybano.gresybano.feature.application.view.fragment.HomeFragmentDirections
 import javax.inject.Inject
 
 @HiltViewModel
@@ -28,8 +28,19 @@ class HomeViewModel @Inject constructor(
 
     fun goToDetailCategory(idCategory: Long, nameCategory: String, urlPrimary: String) {
         navigate(
-            CategoryDetailsFragmentDirections.navigateToNavigationFeatureApplicationCategoryDetailsFragment(
-                idCategory, nameCategory, urlPrimary
+            HomeFragmentDirections.navigateToNavigationFeatureApplicationCategoryDetailsFragment(
+                idCategory = idCategory,
+                nameCategory = nameCategory,
+                primaryUrlCategory = urlPrimary,
+            )
+        )
+    }
+
+    fun goToDetailPublication(idPublication: Long, listImages: List<String>) {
+        navigate(
+            HomeFragmentDirections.navigateToNavigationFeatureApplicationPublicationDetailsFragment(
+                idPublication = idPublication,
+                listImages = listImages.toTypedArray()
             )
         )
     }
