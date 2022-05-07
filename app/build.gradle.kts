@@ -40,10 +40,11 @@ android {
     }
     buildTypes {
         getByName("debug") {
+            applicationIdSuffix = ".debug"
             isMinifyEnabled = false
             isDebuggable = true
-            manifestPlaceholders["crashlyticsCollectionEnabled"] = false
-            manifestPlaceholders["analyticsCollectionEnabled"] = false
+            manifestPlaceholders["crashlyticsCollectionEnabled"] = true
+            manifestPlaceholders["analyticsCollectionEnabled"] = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
