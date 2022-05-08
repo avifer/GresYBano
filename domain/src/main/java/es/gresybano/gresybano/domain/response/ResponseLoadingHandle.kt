@@ -1,4 +1,4 @@
-package es.gresybano.gresybano.domain.entities.response
+package es.gresybano.gresybano.domain.response
 
 data class ResponseLoadingHandle(
     val loading: Boolean,

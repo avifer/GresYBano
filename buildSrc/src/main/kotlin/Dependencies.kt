@@ -34,9 +34,11 @@ object Dependencies {
         const val GSON = "com.google.code.gson:gson:${Versions.Google.GSON}"
         const val HILT_ANDROID = "com.google.dagger:hilt-android:${Versions.Google.HILT_ANDROID}"
         const val HILT_ANDROID_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.Google.HILT_ANDROID_COMPILER}"
+
         const val FIREBASE_CRASHLYTICS = "com.google.firebase:firebase-crashlytics-ktx:${Versions.Google.FIREBASE_CRASHLYTICS}"
         const val FIREBASE_ANALYTICS = "com.google.firebase:firebase-analytics-ktx:${Versions.Google.FIREBASE_ANALYTICS}"
         const val FIREBASE_CONFIG = "com.google.firebase:firebase-config-ktx:${Versions.Google.FIREBASE_CONFIG}"
+        const val FIREBASE_MESSAGING = "com.google.firebase:firebase-messaging-ktx:${Versions.Google.FIREBASE_MESSAGING}"
     }
 
     object Airbnb{

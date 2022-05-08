@@ -4,7 +4,7 @@ import es.gresybano.gresybano.common.util.ZERO
 import es.gresybano.gresybano.data.local.favoritecategory.dao.FavoriteCategoryDao
 import es.gresybano.gresybano.data.local.favoritecategory.model.FavoriteCategoryDbo
 import es.gresybano.gresybano.data.utils.safeLocalCall
-import es.gresybano.gresybano.domain.entities.response.Response
+import es.gresybano.gresybano.domain.response.Response
 
 class FavoriteCategoryLocalDataSourceImpl(
     private val favoriteCategoryDao: FavoriteCategoryDao

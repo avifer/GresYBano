@@ -1,7 +1,7 @@
 package es.gresybano.gresybano.domain.publication.repository
 
-import es.gresybano.gresybano.domain.entities.PublicationBo
-import es.gresybano.gresybano.domain.entities.response.Response
+import es.gresybano.gresybano.domain.publication.entity.PublicationBo
+import es.gresybano.gresybano.domain.response.Response
 
 interface RepositoryPublication {
 

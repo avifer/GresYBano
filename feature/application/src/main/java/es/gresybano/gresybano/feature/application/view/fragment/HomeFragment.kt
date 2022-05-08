@@ -9,7 +9,7 @@ import es.avifer.listheaderseemore.ListHeaderSeeMore
 import es.avifer.listheaderseemore.ListHeaderSeeMoreAdapter
 import es.gresybano.gresybano.common.extensions.visible
 import es.gresybano.gresybano.common.view.BaseFragment
-import es.gresybano.gresybano.domain.entities.HomeListElementsVo
+import es.gresybano.gresybano.feature.application.entity.HomeListElementsVo
 import es.gresybano.gresybano.feature.application.databinding.FragmentHomeBinding
 import es.gresybano.gresybano.feature.application.view.adapter.HeightCategoryAdapter
 import es.gresybano.gresybano.feature.application.view.adapter.HeightPublicationAdapter

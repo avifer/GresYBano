@@ -99,8 +99,8 @@ abstract class BaseFragment : Fragment() {
         getHostActivity()?.hideToolbar()
     }
 
-    fun showToolbarDefault(amount: Int = 0) {
-        getHostActivity()?.showToolbarDefault(amount)
+    fun showToolbarDefault() {
+        getHostActivity()?.showToolbarDefault()
     }
 
     fun showToolbarGoBack(title: String = "") {

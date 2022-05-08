@@ -2,6 +2,8 @@ plugins {
     id(Plugins.ANDROID_LIBRARY)
     id(Plugins.KOTLIN_ANDROID)
     id(Plugins.JETBRAINS_KOTLIN)
+    id(Plugins.KOTLIN_KAPT)
+    id(Plugins.DAGGER_HILT)
 }
 
 android {
@@ -37,4 +39,7 @@ dependencies {
 
     implementation(Dependencies.Androidx.NAVIGATION_FRAGMENT_KOTLIN)
     implementation(Dependencies.Androidx.NAVIGATION_UI_KOTLIN)
+
+    implementation(Dependencies.Google.HILT_ANDROID)
+    kapt(Dependencies.Google.HILT_ANDROID_COMPILER)
 }

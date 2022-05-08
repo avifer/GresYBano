@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import es.avifer.listheaderseemore.ListHeaderSeeMoreAdapter
 import es.gresybano.gresybano.common.extensions.loadUrl
-import es.gresybano.gresybano.domain.entities.CategoryBo
+import es.gresybano.gresybano.domain.category.entity.CategoryBo
 import es.gresybano.gresybano.feature.application.databinding.RowHeightCategoryBinding
 
 class HeightCategoryAdapter(private val listenerClickElement: (category: CategoryBo) -> Unit) :

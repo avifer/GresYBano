@@ -37,6 +37,7 @@ object Versions {
         const val FIREBASE_CRASHLYTICS = "18.2.8"
         const val FIREBASE_ANALYTICS = "20.1.0"
         const val FIREBASE_CONFIG = "21.0.1"
+        const val FIREBASE_MESSAGING = "22.0.0"
     }
 
     object Airbnb {

@@ -3,7 +3,7 @@ package es.gresybano.gresybano.feature.onboarding.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import es.gresybano.gresybano.common.util.parseJSON
 import es.gresybano.gresybano.common.viewmodel.BaseViewModel
-import es.gresybano.gresybano.domain.entities.CategoryBo
+import es.gresybano.gresybano.domain.category.entity.CategoryBo
 
 class OnBoardingSharedViewModel : BaseViewModel() {
 

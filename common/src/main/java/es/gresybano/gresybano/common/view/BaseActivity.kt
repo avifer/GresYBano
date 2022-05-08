@@ -85,8 +85,8 @@ abstract class BaseActivity : AppCompatActivity() {
         toolbar?.invisible()
     }
 
-    fun showToolbarDefault(amount: Int = 0) {
-        toolbar?.showToolbarDefault(amount)
+    fun showToolbarDefault() {
+        toolbar?.showToolbarDefault()
     }
 
     fun showToolbarGoBack(title: String = "") {

@@ -97,6 +97,9 @@ dependencies {
     implementation(Dependencies.Google.FIREBASE_CRASHLYTICS)
     implementation(Dependencies.Google.FIREBASE_ANALYTICS)
     implementation(Dependencies.Google.FIREBASE_CONFIG)
+    implementation(Dependencies.Google.FIREBASE_MESSAGING)
+
+    implementation(Dependencies.Github.GLIDE)
 
     implementation(Dependencies.Airbnb.LOTTIE)
 

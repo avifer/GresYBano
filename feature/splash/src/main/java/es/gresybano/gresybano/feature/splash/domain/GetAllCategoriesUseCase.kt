@@ -1,8 +1,8 @@
 package es.gresybano.gresybano.feature.splash.domain
 
 import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
-import es.gresybano.gresybano.domain.entities.CategoryBo
-import es.gresybano.gresybano.domain.entities.response.*
+import es.gresybano.gresybano.domain.category.entity.CategoryBo
+import es.gresybano.gresybano.domain.response.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

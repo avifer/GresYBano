@@ -8,7 +8,7 @@ import es.avifer.listheaderseemore.ListHeaderSeeMoreAdapter
 import es.gresybano.gresybano.common.extensions.hide
 import es.gresybano.gresybano.common.extensions.loadUrl
 import es.gresybano.gresybano.common.extensions.visible
-import es.gresybano.gresybano.domain.entities.PublicationBo
+import es.gresybano.gresybano.domain.publication.entity.PublicationBo
 import es.gresybano.gresybano.feature.application.databinding.RowHeightPublicationBinding
 
 class HeightPublicationAdapter(
