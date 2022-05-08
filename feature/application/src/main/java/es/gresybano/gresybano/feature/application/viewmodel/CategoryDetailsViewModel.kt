@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.gresybano.gresybano.common.viewmodel.BaseViewModel
 import es.gresybano.gresybano.common.viewmodel.defaultResponse
-import es.gresybano.gresybano.domain.entities.PublicationBo
+import es.gresybano.gresybano.domain.publication.entity.PublicationBo
 import es.gresybano.gresybano.feature.application.usecases.GetPublicationsOfCategoryUseCase
 import es.gresybano.gresybano.feature.application.view.fragment.CategoryDetailsFragmentDirections
 import javax.inject.Inject

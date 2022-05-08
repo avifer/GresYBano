@@ -13,7 +13,7 @@ import es.gresybano.gresybano.common.extensions.hide
 import es.gresybano.gresybano.common.extensions.show
 import es.gresybano.gresybano.common.view.BaseFragment
 import es.gresybano.gresybano.common.view.toast
-import es.gresybano.gresybano.domain.entities.CategoryBo
+import es.gresybano.gresybano.domain.category.entity.CategoryBo
 import es.gresybano.gresybano.feature.onboarding.R
 import es.gresybano.gresybano.feature.onboarding.databinding.FragmentSelectFavoritesCategoriesBinding
 import es.gresybano.gresybano.feature.onboarding.ui.view.adapter.FavoriteCategoriesAdapter

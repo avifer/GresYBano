@@ -1,4 +1,6 @@
-package es.gresybano.gresybano.domain.entities
+package es.gresybano.gresybano.domain.category.entity
+
+import es.gresybano.gresybano.domain.publication.entity.PublicationBo
 
 data class CategoryBo(
     val id: Long,

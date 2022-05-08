@@ -6,10 +6,13 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.text.isDigitsOnly
 import es.gresybano.gresybano.common.R
 import es.gresybano.gresybano.common.extensions.hide
 import es.gresybano.gresybano.common.extensions.invisible
 import es.gresybano.gresybano.common.extensions.show
+import es.gresybano.gresybano.common.extensions.visible
+import es.gresybano.gresybano.common.util.ZERO
 
 class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
     ConstraintLayout(context, attributeSet) {
@@ -65,15 +68,30 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
         }
     }
 
+    private fun getNotifications() =
+        iconAmountNotifications?.let {
+            with(it) {
+                if (
+                    !text.isNullOrEmpty() &&
+                    text?.isDigitsOnly() == true
+                ) {
+                    text.toString().toInt()
+
+                } else {
+                    ZERO
+                }
+            }
+        } ?: ZERO
+
+
     fun setTitleToolbar(title: String) {
         titleToolbar?.text = title
     }
 
-    fun showToolbarDefault(amount: Int = 0) {
+    fun showToolbarDefault() {
         show()
         showDefault()
         hideGoBack()
-        setAmountNotifications(amount)
     }
 
     fun showToolbarGoBack(title: String = "") {
@@ -114,7 +132,7 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
         iconSearchView?.show()
         iconScanQR?.show()
         iconNotifications?.show()
-        iconAmountNotifications?.show()
+        iconAmountNotifications?.visible(getNotifications() > MIN_AMOUNT_NOTIFICATION_SHOW)
     }
 
     private fun showGoBack() {

@@ -4,7 +4,7 @@ import es.gresybano.gresybano.data.remote.category.api.CategoryApi
 import es.gresybano.gresybano.data.remote.category.model.CategoryDto
 import es.gresybano.gresybano.data.utils.BaseRepository
 import es.gresybano.gresybano.data.utils.safeRemoteCall
-import es.gresybano.gresybano.domain.entities.response.Response
+import es.gresybano.gresybano.domain.response.Response
 
 class CategoryRemoteDataSourceImpl(
     private val categoryApi: CategoryApi

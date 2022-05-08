@@ -1,4 +1,4 @@
-package es.gresybano.gresybano.domain.entities
+package es.gresybano.gresybano.domain.publication.entity
 
 import java.util.*
 

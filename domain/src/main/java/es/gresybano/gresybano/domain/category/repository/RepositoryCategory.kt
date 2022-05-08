@@ -1,7 +1,7 @@
 package es.gresybano.gresybano.domain.category.repository
 
-import es.gresybano.gresybano.domain.entities.CategoryBo
-import es.gresybano.gresybano.domain.entities.response.Response
+import es.gresybano.gresybano.domain.category.entity.CategoryBo
+import es.gresybano.gresybano.domain.response.Response
 
 interface RepositoryCategory {
 

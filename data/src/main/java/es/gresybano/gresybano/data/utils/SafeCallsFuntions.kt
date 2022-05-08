@@ -1,8 +1,8 @@
 package es.gresybano.gresybano.data.utils
 
-import es.gresybano.gresybano.domain.entities.response.CodeExceptions
-import es.gresybano.gresybano.domain.entities.response.ExceptionInfo
-import es.gresybano.gresybano.domain.entities.response.Response
+import es.gresybano.gresybano.domain.response.CodeExceptions
+import es.gresybano.gresybano.domain.response.ExceptionInfo
+import es.gresybano.gresybano.domain.response.Response
 import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException

@@ -5,10 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavDirections
-import com.google.android.gms.common.R
 import es.gresybano.gresybano.common.util.runInIO
 import es.gresybano.gresybano.common.util.runInMain
-import es.gresybano.gresybano.domain.entities.response.*
+import es.gresybano.gresybano.domain.response.*
 import es.gresybano.gresybano.navigation.Event
 import es.gresybano.gresybano.navigation.Navigation
 import kotlinx.coroutines.flow.Flow

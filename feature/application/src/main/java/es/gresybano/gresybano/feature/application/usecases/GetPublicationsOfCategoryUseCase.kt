@@ -1,9 +1,9 @@
 package es.gresybano.gresybano.feature.application.usecases
 
-import es.gresybano.gresybano.domain.entities.PublicationBo
-import es.gresybano.gresybano.domain.entities.response.CodeExceptions
-import es.gresybano.gresybano.domain.entities.response.ExceptionInfo
-import es.gresybano.gresybano.domain.entities.response.Response
+import es.gresybano.gresybano.domain.publication.entity.PublicationBo
+import es.gresybano.gresybano.domain.response.CodeExceptions
+import es.gresybano.gresybano.domain.response.ExceptionInfo
+import es.gresybano.gresybano.domain.response.Response
 import es.gresybano.gresybano.domain.publication.repository.RepositoryPublication
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

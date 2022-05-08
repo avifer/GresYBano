@@ -1,8 +1,8 @@
 package es.gresybano.gresybano.feature.application.usecases
 
 import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
-import es.gresybano.gresybano.domain.entities.HomeListElementsVo
-import es.gresybano.gresybano.domain.entities.response.*
+import es.gresybano.gresybano.feature.application.entity.HomeListElementsVo
+import es.gresybano.gresybano.domain.response.*
 import es.gresybano.gresybano.domain.publication.repository.RepositoryPublication
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

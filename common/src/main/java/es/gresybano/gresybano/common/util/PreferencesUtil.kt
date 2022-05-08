@@ -24,5 +24,4 @@ class PreferencesUtil(
             ?: false
     }
 
-
 }

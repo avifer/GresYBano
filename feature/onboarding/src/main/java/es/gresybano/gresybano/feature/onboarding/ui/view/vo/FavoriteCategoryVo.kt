@@ -1,6 +1,6 @@
 package es.gresybano.gresybano.feature.onboarding.ui.view.vo
 
-import es.gresybano.gresybano.domain.entities.CategoryBo
+import es.gresybano.gresybano.domain.category.entity.CategoryBo
 
 data class FavoriteCategoryVo(
     val id: Long,

@@ -1,7 +1,7 @@
 package es.gresybano.gresybano.data.local.favoritecategory.datasource
 
 import es.gresybano.gresybano.data.local.favoritecategory.model.FavoriteCategoryDbo
-import es.gresybano.gresybano.domain.entities.response.Response
+import es.gresybano.gresybano.domain.response.Response
 
 interface FavoriteCategoryLocalDataSource {
 

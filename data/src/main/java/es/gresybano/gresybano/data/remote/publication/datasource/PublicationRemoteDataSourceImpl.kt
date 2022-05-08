@@ -4,7 +4,7 @@ import es.gresybano.gresybano.data.remote.publication.api.PublicationApi
 import es.gresybano.gresybano.data.remote.publication.model.PublicationDto
 import es.gresybano.gresybano.data.utils.BaseRepository
 import es.gresybano.gresybano.data.utils.safeRemoteCall
-import es.gresybano.gresybano.domain.entities.response.Response
+import es.gresybano.gresybano.domain.response.Response
 
 class PublicationRemoteDataSourceImpl(
     private val publicationApi: PublicationApi

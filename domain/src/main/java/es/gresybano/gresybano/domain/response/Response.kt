@@ -1,4 +1,4 @@
-package es.gresybano.gresybano.domain.entities.response
+package es.gresybano.gresybano.domain.response
 
 sealed class Response<T> {
     data class Successful<T>(val data: T? = null) : Response<T>()

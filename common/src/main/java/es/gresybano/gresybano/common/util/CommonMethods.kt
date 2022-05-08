@@ -34,7 +34,7 @@ fun runDelayIO(delay: Long, block: () -> Unit) {
     }
 }
 
-fun parseToJSON(element: Any?) = Gson().toJson(element)
+fun parseToJSON(element: Any?): String = Gson().toJson(element)
 
 fun <T> parseJSON(element: String?, clazz: Class<T>) =
     try {

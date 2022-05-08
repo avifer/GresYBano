@@ -7,9 +7,9 @@ import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteData
 import es.gresybano.gresybano.data.remote.category.model.toBo
 import es.gresybano.gresybano.data.utils.BaseRepository
 import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
-import es.gresybano.gresybano.domain.entities.CategoryBo
-import es.gresybano.gresybano.domain.entities.response.Response
-import es.gresybano.gresybano.domain.entities.response.defaultResponse
+import es.gresybano.gresybano.domain.category.entity.CategoryBo
+import es.gresybano.gresybano.domain.response.Response
+import es.gresybano.gresybano.domain.response.defaultResponse
 
 class RepositoryCategoryImpl(
     private val categoryRemoteDataSource: CategoryRemoteDataSource,

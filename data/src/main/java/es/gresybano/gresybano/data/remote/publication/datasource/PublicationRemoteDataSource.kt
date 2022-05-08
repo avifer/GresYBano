@@ -1,7 +1,7 @@
 package es.gresybano.gresybano.data.remote.publication.datasource
 
 import es.gresybano.gresybano.data.remote.publication.model.PublicationDto
-import es.gresybano.gresybano.domain.entities.response.Response
+import es.gresybano.gresybano.domain.response.Response
 
 interface PublicationRemoteDataSource {
 

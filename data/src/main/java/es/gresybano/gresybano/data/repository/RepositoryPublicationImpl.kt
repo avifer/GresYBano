@@ -3,9 +3,9 @@ package es.gresybano.gresybano.data.repository
 import es.gresybano.gresybano.data.remote.publication.datasource.PublicationRemoteDataSource
 import es.gresybano.gresybano.data.remote.publication.model.toBo
 import es.gresybano.gresybano.data.utils.BaseRepository
-import es.gresybano.gresybano.domain.entities.PublicationBo
-import es.gresybano.gresybano.domain.entities.response.Response
-import es.gresybano.gresybano.domain.entities.response.defaultResponse
+import es.gresybano.gresybano.domain.publication.entity.PublicationBo
+import es.gresybano.gresybano.domain.response.Response
+import es.gresybano.gresybano.domain.response.defaultResponse
 import es.gresybano.gresybano.domain.publication.repository.RepositoryPublication
 
 class RepositoryPublicationImpl(
