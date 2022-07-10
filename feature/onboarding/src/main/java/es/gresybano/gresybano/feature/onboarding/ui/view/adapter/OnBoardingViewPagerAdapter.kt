@@ -3,7 +3,7 @@ package es.gresybano.gresybano.feature.onboarding.ui.view.adapter
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import es.gresybano.gresybano.feature.onboarding.ui.view.fragment.InfoWithImageFragment
-import es.gresybano.gresybano.feature.onboarding.ui.view.fragment.SelectFavoriteFragment
+import es.gresybano.gresybano.feature.onboarding.ui.view.fragment.SelectFavoritesCategoriesFragment
 
 class OnBoardingViewPagerAdapter(fragmentParent: Fragment) : FragmentStateAdapter(fragmentParent) {
 
@@ -21,7 +21,7 @@ class OnBoardingViewPagerAdapter(fragmentParent: Fragment) : FragmentStateAdapte
                 InfoWithImageFragment.newInstance()
             }
             1 -> {
-                SelectFavoriteFragment.newInstance()
+                SelectFavoritesCategoriesFragment.newInstance()
             }
             else -> {
                 InfoWithImageFragment.newInstance()

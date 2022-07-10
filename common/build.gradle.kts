@@ -33,6 +33,8 @@ dependencies {
 
     implementation(Dependencies.Github.GLIDE)
 
+    implementation(Dependencies.Google.GSON)
+
     implementation(Dependencies.Androidx.NAVIGATION_FRAGMENT_KOTLIN)
     implementation(Dependencies.Androidx.NAVIGATION_UI_KOTLIN)
 }

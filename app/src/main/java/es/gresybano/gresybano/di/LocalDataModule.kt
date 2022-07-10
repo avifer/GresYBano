@@ -8,7 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import es.gresybano.gresybano.data.local.DatabaseApp
-import es.gresybano.gresybano.data.local.category.dao.CategoryDao
+import es.gresybano.gresybano.data.local.favoritecategory.dao.FavoriteCategoryDao
 import javax.inject.Singleton
 
 @Module
@@ -25,6 +25,6 @@ class LocalDataModule {
     @Singleton
     @Provides
     fun getCategoryDao(database: DatabaseApp):
-            CategoryDao = database.categoryDao()
+            FavoriteCategoryDao = database.categoryDao()
 
 }

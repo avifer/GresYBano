@@ -1,8 +1,8 @@
 package es.gresybano.gresybano.data.repository
 
-import es.gresybano.gresybano.data.local.category.datasource.CategoryLocalDataSource
-import es.gresybano.gresybano.data.local.category.model.toBo
-import es.gresybano.gresybano.data.local.category.model.toDbo
+import es.gresybano.gresybano.data.local.favoritecategory.datasource.FavoriteCategoryLocalDataSource
+import es.gresybano.gresybano.data.local.favoritecategory.model.toBo
+import es.gresybano.gresybano.data.local.favoritecategory.model.toDbo
 import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteDataSource
 import es.gresybano.gresybano.data.remote.category.model.toBo
 import es.gresybano.gresybano.data.utils.BaseRepository
@@ -13,54 +13,34 @@ import es.gresybano.gresybano.domain.entities.response.defaultResponse
 
 class RepositoryCategoryImpl(
     private val categoryRemoteDataSource: CategoryRemoteDataSource,
-    private val categoryLocalDataSource: CategoryLocalDataSource,
+    private val favoriteCategoryLocalDataSource: FavoriteCategoryLocalDataSource,
 ) : RepositoryCategory, BaseRepository() {
 
-    override suspend fun getAllCategoriesRemote(): Response<List<CategoryBo>> {
-        return categoryRemoteDataSource.getAllCategories().defaultResponse { listCategories ->
-            listCategories?.filterNotNull()?.map { category -> category.toBo() } ?: listOf()
-        }
+    override suspend fun getCategory(id: Long): Response<CategoryBo?> {
+        return categoryRemoteDataSource.getCategory(id).defaultResponse { it?.toBo() }
     }
 
     override suspend fun getTopCategories(): Response<List<CategoryBo>> {
         return categoryRemoteDataSource.getAllCategories().defaultResponse { listCategories ->
-            listCategories?.filterNotNull()?.map { category -> category.toBo() } ?: listOf()
+            listCategories?.mapNotNull { category -> category?.toBo() } ?: listOf()
         }
     }
 
-    override suspend fun getAllCategoriesLocal(): Response<List<CategoryBo>> {
-        return categoryLocalDataSource.getAllCategories().defaultResponse { listCategories ->
-            listCategories?.filterNotNull()?.map { category -> category.toBo() } ?: listOf()
+    override suspend fun getAllCategories(): Response<List<CategoryBo>> {
+        return categoryRemoteDataSource.getAllCategories().defaultResponse { listCategories ->
+            listCategories?.mapNotNull { category -> category?.toBo() } ?: listOf()
         }
     }
 
-    override suspend fun getCategoryRemote(id: Long): Response<CategoryBo?> {
-        return categoryRemoteDataSource.getCategory(id).defaultResponse { it?.toBo() }
+    override suspend fun saveCategoriesFavorites(list: List<CategoryBo>): Response<List<Long>> {
+        return favoriteCategoryLocalDataSource.insertListCategories(list.map { it.toDbo() })
+            .defaultResponse { it?.filterNotNull() ?: listOf() }
     }
 
-    override suspend fun getCategoryLocal(id: Long): Response<CategoryBo?> {
-        return categoryLocalDataSource.getCategory(id)
-            .defaultResponse { category -> category?.toBo() }
-    }
-
-    override suspend fun insertCategoriesLocal(list: List<CategoryBo>): Response<List<Long>> {
-        return categoryLocalDataSource.insertCategories((list.map { it.toDbo() }))
-            .defaultResponse { idsCategories -> idsCategories?.filterNotNull() ?: listOf() }
-    }
-
-    override suspend fun insertWithReplaceCategoriesLocal(list: List<CategoryBo>): Response<List<Long>> {
-        return categoryLocalDataSource.insertWithReplaceCategories((list.map { it.toDbo() }))
-            .defaultResponse { idsCategories -> idsCategories?.filterNotNull() ?: listOf() }
-    }
-
-    override suspend fun updateCategoriesLocal(list: List<CategoryBo>): Response<Int> {
-        return categoryLocalDataSource.updateCategories((list.map { it.toDbo() }))
-            .defaultResponse { numbersRowAffected -> numbersRowAffected ?: 0 }
-    }
-
-    override suspend fun deleteCategoriesLocal(list: List<CategoryBo>): Response<Int> {
-        return categoryLocalDataSource.deleteCategories((list.map { it.toDbo() }))
-            .defaultResponse { numbersRowAffected -> numbersRowAffected ?: 0 }
+    override suspend fun getAllCategoriesFavorites(): Response<List<CategoryBo>> {
+        return favoriteCategoryLocalDataSource.getCategories().defaultResponse { listCategories ->
+            listCategories?.mapNotNull { category -> category?.toBo() } ?: listOf()
+        }
     }
 
 }

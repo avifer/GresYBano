@@ -14,7 +14,7 @@ class SaveCategoriesLocal @Inject constructor(
     operator fun invoke(list: List<CategoryBo>): Flow<Response<List<Long>>> {
         return flow {
             emit(Response.Loading())
-            emit(repositoryCategory.insertWithReplaceCategoriesLocal(list))
+            emit(repositoryCategory.saveCategoriesFavorites(list))
         }
     }
 

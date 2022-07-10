@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
+import es.gresybano.gresybano.common.util.DEFAULT_ID_LONG
 import es.gresybano.gresybano.common.view.BaseFragment
 import es.gresybano.gresybano.feature.application.databinding.FragmentPublicationDetailsBinding
 import es.gresybano.gresybano.feature.application.view.adapter.ImagePublicationPageAdapter
@@ -13,12 +14,12 @@ import es.gresybano.gresybano.feature.application.viewmodel.PublicationDetailsVi
 
 class PublicationDetailsFragment : BaseFragment() {
 
+    override val viewModel by viewModels<PublicationDetailsViewModel>()
+
     companion object {
         private const val KEY_ID_PUBLICATION = "idPublication"
         private const val KEY_LIST_IMAGES = "listImages"
     }
-
-    private lateinit var listImages: List<String>
 
     private val actionChangeImage =
         object : ViewPager2.OnPageChangeCallback() {
@@ -30,8 +31,6 @@ class PublicationDetailsFragment : BaseFragment() {
             }
         }
 
-    override val viewModel by viewModels<PublicationDetailsViewModel>()
-
     override fun getBindingCast() = binding as? FragmentPublicationDetailsBinding
 
     override fun getInflateBinding(inflater: LayoutInflater, container: ViewGroup?) =
@@ -40,25 +39,30 @@ class PublicationDetailsFragment : BaseFragment() {
     override fun onViewReady(savedInstanceState: Bundle?) {
         showToolbarGoBack()
         initListImages()
+        initIdPublication()
         initIndicator()
         initImagesPager()
     }
 
     private fun initListImages() {
-        listImages = arguments?.getStringArray(KEY_LIST_IMAGES)?.toList() ?: listOf()
+        viewModel.listImages = arguments?.getStringArray(KEY_LIST_IMAGES)?.toList() ?: listOf()
+    }
+
+    private fun initIdPublication() {
+        viewModel.idPublication = arguments?.getLong(KEY_ID_PUBLICATION) ?: DEFAULT_ID_LONG
     }
 
     private fun initIndicator() {
         getBindingCast()?.fragmentPublicationDetailsPageIndicatorIndicator
-            ?.setQuantityIndicator(listImages.size)
+            ?.setQuantityIndicator(viewModel.listImages.size)
     }
 
     private fun initImagesPager() {
         getBindingCast()?.fragmentPublicationDetailsViewPagerImages?.let {
             with(it) {
-                adapter = ImagePublicationPageAdapter(listImages)
+                adapter = ImagePublicationPageAdapter(viewModel.listImages)
                 registerOnPageChangeCallback(actionChangeImage)
-                offscreenPageLimit = listImages.size
+                offscreenPageLimit = viewModel.listImages.size
             }
         }
     }

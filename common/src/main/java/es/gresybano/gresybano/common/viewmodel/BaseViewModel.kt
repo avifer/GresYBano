@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavDirections
+import com.google.android.gms.common.R
 import es.gresybano.gresybano.common.util.runInIO
 import es.gresybano.gresybano.common.util.runInMain
 import es.gresybano.gresybano.domain.entities.response.*
@@ -28,6 +29,11 @@ open class BaseViewModel : ViewModel() {
     fun navigateBack() {
         navigation.postValue(Event(Navigation.Back))
     }
+
+    fun postDefaultError() {
+        postError(es.gresybano.gresybano.common.R.string.default_error)
+    }
+
 }
 
 fun <T> BaseViewModel.defaultResponse(
