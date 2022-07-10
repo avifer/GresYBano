@@ -7,6 +7,6 @@ data class CategoryDto(
     val id: Long?,
     @SerializedName("name")
     val name: String?,
-    @SerializedName("url")
+    @SerializedName("mainImage")
     val url: String?,
 )

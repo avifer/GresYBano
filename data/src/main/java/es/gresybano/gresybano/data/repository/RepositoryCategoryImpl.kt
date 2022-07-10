@@ -4,6 +4,7 @@ import es.gresybano.gresybano.data.local.category.datasource.CategoryLocalDataSo
 import es.gresybano.gresybano.data.local.category.model.toBo
 import es.gresybano.gresybano.data.local.category.model.toDbo
 import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteDataSource
+import es.gresybano.gresybano.data.remote.category.model.toBo
 import es.gresybano.gresybano.data.utils.BaseRepository
 import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
 import es.gresybano.gresybano.domain.entities.CategoryBo
@@ -15,48 +16,16 @@ class RepositoryCategoryImpl(
     private val categoryLocalDataSource: CategoryLocalDataSource,
 ) : RepositoryCategory, BaseRepository() {
 
-    //TODO MOCK
-    private val listCategoriesMock = listOf(
-        CategoryBo(
-            1,
-            "Cuartos de baño",
-            "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-        ),
-        CategoryBo(
-            2,
-            "Cuartos de baño",
-            "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-        ),
-        CategoryBo(
-            3,
-            "Cuartos de baño",
-            "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-        ),
-        CategoryBo(
-            4,
-            "Cuartos de baño",
-            "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-        ),
-        CategoryBo(
-            5,
-            "Cuartos de baño",
-            "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-        ),
-        CategoryBo(
-            6,
-            "Cuartos de baño",
-            "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-        )
-    )
-
     override suspend fun getAllCategoriesRemote(): Response<List<CategoryBo>> {
-        //TODO MOCK
-        return Response.Successful(listCategoriesMock)
-        /*
         return categoryRemoteDataSource.getAllCategories().defaultResponse { listCategories ->
             listCategories?.filterNotNull()?.map { category -> category.toBo() } ?: listOf()
         }
-        */
+    }
+
+    override suspend fun getTopCategories(): Response<List<CategoryBo>> {
+        return categoryRemoteDataSource.getAllCategories().defaultResponse { listCategories ->
+            listCategories?.filterNotNull()?.map { category -> category.toBo() } ?: listOf()
+        }
     }
 
     override suspend fun getAllCategoriesLocal(): Response<List<CategoryBo>> {
@@ -66,14 +35,7 @@ class RepositoryCategoryImpl(
     }
 
     override suspend fun getCategoryRemote(id: Long): Response<CategoryBo?> {
-        //TODO MOCK
-        return Response.Successful(
-            CategoryBo(
-                id,
-                "Cuartos de baño",
-                "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-            )
-        )
+        return categoryRemoteDataSource.getCategory(id).defaultResponse { it?.toBo() }
     }
 
     override suspend fun getCategoryLocal(id: Long): Response<CategoryBo?> {

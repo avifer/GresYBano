@@ -5,13 +5,13 @@ import es.gresybano.gresybano.domain.entities.CategoryBo
 fun CategoryDbo.toBo() = CategoryBo(
     id = id,
     name = name,
-    primaryUrl = url,
+    mainImage = url,
     isFavorite = isFavorite,
 )
 
 fun CategoryBo.toDbo() = CategoryDbo(
     id = id,
     name = name,
-    url = primaryUrl,
+    url = mainImage,
     isFavorite = isFavorite ?: false
 )

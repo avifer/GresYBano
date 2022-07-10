@@ -16,12 +16,12 @@ class PublicationRemoteDataSourceImpl(
         }
     }
 
-    override suspend fun getLastPublished(): Response<List<PublicationDto?>?> {
-        return safeRemoteCall { publicationApi.getLastPublished() }
+    override suspend fun getLastPublished(): Response<List<PublicationDto>> {
+        return safeRemoteCall { publicationApi.getLastPublished()?.filterNotNull() ?: listOf() }
     }
 
-    override suspend fun getMorePopular(): Response<List<PublicationDto?>?> {
-        return safeRemoteCall { publicationApi.getMorePopular() }
+    override suspend fun getMorePopular(): Response<List<PublicationDto>> {
+        return safeRemoteCall { publicationApi.getMorePopular()?.filterNotNull() ?: listOf() }
     }
 
 }

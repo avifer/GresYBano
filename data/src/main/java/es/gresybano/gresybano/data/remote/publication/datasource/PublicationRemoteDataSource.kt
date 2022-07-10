@@ -7,8 +7,8 @@ interface PublicationRemoteDataSource {
 
     suspend fun getPublicationsOfCategory(idCategory: Long): Response<List<PublicationDto>>
 
-    suspend fun getLastPublished(): Response<List<PublicationDto?>?>
+    suspend fun getLastPublished(): Response<List<PublicationDto>>
 
-    suspend fun getMorePopular(): Response<List<PublicationDto?>?>
+    suspend fun getMorePopular(): Response<List<PublicationDto>>
 
 }

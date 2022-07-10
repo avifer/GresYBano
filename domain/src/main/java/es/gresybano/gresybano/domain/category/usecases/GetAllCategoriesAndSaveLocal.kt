@@ -14,8 +14,6 @@ class GetAllCategoriesAndSaveLocal @Inject constructor(
     operator fun invoke(): Flow<Response<Boolean>> {
         return flow {
             emit(Response.Loading())
-            //TODO MOCK
-            Thread.sleep(3000)
             val listCategories = repositoryCategory.getAllCategoriesRemote()
             if (listCategories.isSuccessful() && listCategories.getData() != null) {
                 emit(insertCategoriesLocal(listCategories))

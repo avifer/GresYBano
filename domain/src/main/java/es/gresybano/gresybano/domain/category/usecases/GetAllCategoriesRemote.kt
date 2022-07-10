@@ -14,8 +14,6 @@ class GetAllCategoriesRemote @Inject constructor(
     operator fun invoke(): Flow<Response<List<CategoryBo>>> {
         return flow {
             emit(Response.Loading())
-            //TODO MOCK
-            Thread.sleep(3000)
             emit(repositoryCategory.getAllCategoriesRemote())
         }
     }

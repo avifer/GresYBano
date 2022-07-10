@@ -27,7 +27,7 @@ class HeightCategoryAdapter(private val listenerClickElement: (category: Categor
         }
 
         private fun RowHeightCategoryBinding.setData(category: CategoryBo) {
-            rowHeightCategoryImgImageCategory.loadUrl(category.primaryUrl, IMAGE_SIZE, IMAGE_SIZE)
+            rowHeightCategoryImgImageCategory.loadUrl(category.mainImage, IMAGE_SIZE, IMAGE_SIZE)
             rowHeightCategoryLabelNameCategory.text = category.name
             rowHeightCategoryLabelAmountCategory.text = category.listPublications.size.toString()
         }
@@ -61,5 +61,5 @@ private val diffUtils = object : DiffUtil.ItemCallback<CategoryBo>() {
     override fun areContentsTheSame(
         oldItem: CategoryBo,
         newItem: CategoryBo
-    ) = oldItem.primaryUrl == newItem.primaryUrl && oldItem.name == newItem.name
+    ) = oldItem.mainImage == newItem.mainImage && oldItem.name == newItem.name
 }
