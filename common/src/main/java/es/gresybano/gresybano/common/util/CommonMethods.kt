@@ -1,5 +1,7 @@
 package es.gresybano.gresybano.common.util
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,3 +33,13 @@ fun runDelayIO(delay: Long, block: () -> Unit) {
         block()
     }
 }
+
+fun parseToJSON(element: Any?) = Gson().toJson(element)
+
+fun <T> parseJSON(element: String?, clazz: Class<T>) =
+    try {
+        GsonBuilder().create().fromJson(element, clazz)
+
+    } catch (e: Exception) {
+        null
+    }

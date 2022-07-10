@@ -4,9 +4,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import es.gresybano.gresybano.data.local.category.dao.CategoryDao
-import es.gresybano.gresybano.data.local.category.datasource.CategoryLocalDataSource
-import es.gresybano.gresybano.data.local.category.datasource.CategoryLocalDataSourceImpl
+import es.gresybano.gresybano.data.local.favoritecategory.dao.FavoriteCategoryDao
+import es.gresybano.gresybano.data.local.favoritecategory.datasource.FavoriteCategoryLocalDataSource
+import es.gresybano.gresybano.data.local.favoritecategory.datasource.FavoriteCategoryLocalDataSourceImpl
 import es.gresybano.gresybano.data.remote.category.api.CategoryApi
 import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteDataSource
 import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteDataSourceImpl
@@ -29,17 +29,17 @@ class RepositoryModule {
     }
 
     @Provides
-    fun getRepositoryRemoteDataSource(categoryDao: CategoryDao): CategoryLocalDataSource {
-        return CategoryLocalDataSourceImpl(categoryDao)
+    fun getRepositoryRemoteDataSource(favoriteCategoryDao: FavoriteCategoryDao): FavoriteCategoryLocalDataSource {
+        return FavoriteCategoryLocalDataSourceImpl(favoriteCategoryDao)
     }
 
     @Singleton
     @Provides
     fun getRepositoryCategoryImpl(
         categoryRemoteDataSource: CategoryRemoteDataSource,
-        categoryLocalDataSource: CategoryLocalDataSource,
+        favoriteCategoryLocalDataSource: FavoriteCategoryLocalDataSource,
     ): RepositoryCategory {
-        return RepositoryCategoryImpl(categoryRemoteDataSource, categoryLocalDataSource)
+        return RepositoryCategoryImpl(categoryRemoteDataSource, favoriteCategoryLocalDataSource)
     }
 
     @Provides

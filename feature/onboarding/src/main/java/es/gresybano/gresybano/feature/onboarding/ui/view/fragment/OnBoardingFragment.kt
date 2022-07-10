@@ -9,7 +9,6 @@ import androidx.viewpager2.widget.ViewPager2
 import dagger.hilt.android.AndroidEntryPoint
 import es.gresybano.gresybano.common.extensions.hide
 import es.gresybano.gresybano.common.extensions.show
-import es.gresybano.gresybano.common.util.PreferencesUtil
 import es.gresybano.gresybano.common.view.BaseFragment
 import es.gresybano.gresybano.feature.onboarding.databinding.FragmentOnBoardingBinding
 import es.gresybano.gresybano.feature.onboarding.ui.view.adapter.OnBoardingViewPagerAdapter
@@ -18,23 +17,33 @@ import es.gresybano.gresybano.feature.onboarding.ui.view.adapter.OnBoardingViewP
 import es.gresybano.gresybano.feature.onboarding.ui.view.adapter.OnBoardingViewPagerAdapter.Companion.TOTAL_FRAGMENTS
 import es.gresybano.gresybano.feature.onboarding.ui.viewmodel.OnBoardingSharedViewModel
 import es.gresybano.gresybano.feature.onboarding.ui.viewmodel.OnBoardingViewModel
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class OnBoardingFragment : BaseFragment() {
+
+    companion object {
+        private const val KEY_LIST_CATEGORIES = "listCategories"
+    }
 
     override val viewModel by viewModels<OnBoardingViewModel>()
 
     private val viewModelShared by activityViewModels<OnBoardingSharedViewModel>()
 
-    @Inject
-    lateinit var preferencesUtil: PreferencesUtil
-
     override fun getBindingCast() = binding as? FragmentOnBoardingBinding
 
+    private val actionSaveFavorites = {
+        with(viewModel) {
+            viewModelShared.categoriesFavoritesSelected.value?.let {
+                saveFavoriteCategories(it)
+
+            } ?: kotlin.run { postDefaultError() }
+        }
+    }
+
     override fun onViewReady(savedInstanceState: Bundle?) {
+        getListTopCategories()
         initPageIndicator()
-        getBindingCast()?.initActionButtons()
+        getBindingCast()?.initActionButtons(actionSaveFavorites)
         initViewPager()
         hideToolbar()
         hideBottomNavigationBar()
@@ -57,21 +66,8 @@ class OnBoardingFragment : BaseFragment() {
     }
 
     private fun initPageIndicator() {
-        getBindingCast()?.fragmentOnBoardingPageIndicatorIndicator?.setQuantityIndicator(
-            TOTAL_FRAGMENTS, FIRST_PAGE
-        )
-    }
-
-    private fun FragmentOnBoardingBinding.firstPage() {
-        fragmentOnBoardingImgGoBack.hide()
-    }
-
-    private fun FragmentOnBoardingBinding.lastPage() {
-        fragmentOnBoardingImgGoBack.show()
-    }
-
-    private fun FragmentOnBoardingBinding.betweenPage() {
-        fragmentOnBoardingImgGoBack.show()
+        getBindingCast()?.fragmentOnBoardingPageIndicatorIndicator
+            ?.setQuantityIndicator(TOTAL_FRAGMENTS, FIRST_PAGE)
     }
 
     private fun updateIndicatorPage(position: Int) {
@@ -92,17 +88,27 @@ class OnBoardingFragment : BaseFragment() {
         }
     }
 
-    private fun FragmentOnBoardingBinding.initActionButtons() {
-        fragmentOnBoardingImgGoBack.setOnClickListener { fragmentOnBoardingViewPagerFragments.currentItem-- }
+    private fun getListTopCategories() {
+        viewModelShared.saveListCategories(arguments?.getString(KEY_LIST_CATEGORIES))
+    }
 
+    private fun FragmentOnBoardingBinding.firstPage() {
+        fragmentOnBoardingImgGoBack.hide()
+    }
+
+    private fun FragmentOnBoardingBinding.lastPage() {
+        fragmentOnBoardingImgGoBack.show()
+    }
+
+    private fun FragmentOnBoardingBinding.betweenPage() {
+        fragmentOnBoardingImgGoBack.show()
+    }
+
+    private fun FragmentOnBoardingBinding.initActionButtons(actionSaveFavorites: () -> Unit) {
+        fragmentOnBoardingImgGoBack.setOnClickListener { fragmentOnBoardingViewPagerFragments.currentItem-- }
         fragmentOnBoardingImgGoForward.setOnClickListener {
             if (fragmentOnBoardingViewPagerFragments.currentItem == LAST_PAGE) {
-                viewModelShared.categoriesFavoritesSelected.value?.let {
-                    viewModel.saveCategories(it).observe(viewLifecycleOwner) {
-                        preferencesUtil.setIsOnBoardingConfig()
-                        viewModel.navigateToHome()
-                    }
-                }
+                actionSaveFavorites()
 
             } else {
                 fragmentOnBoardingViewPagerFragments.currentItem++

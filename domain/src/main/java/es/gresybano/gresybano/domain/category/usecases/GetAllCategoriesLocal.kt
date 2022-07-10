@@ -14,7 +14,7 @@ class GetAllCategoriesLocal @Inject constructor(
     operator fun invoke(): Flow<Response<List<CategoryBo>>> {
         return flow {
             emit(Response.Loading())
-            emit(repositoryCategory.getAllCategoriesLocal())
+            emit(repositoryCategory.getAllCategoriesFavorites())
         }
     }
 

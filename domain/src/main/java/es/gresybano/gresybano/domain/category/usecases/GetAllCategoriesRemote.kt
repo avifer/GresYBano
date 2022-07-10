@@ -14,7 +14,7 @@ class GetAllCategoriesRemote @Inject constructor(
     operator fun invoke(): Flow<Response<List<CategoryBo>>> {
         return flow {
             emit(Response.Loading())
-            emit(repositoryCategory.getAllCategoriesRemote())
+            emit(repositoryCategory.getAllCategories())
         }
     }
 

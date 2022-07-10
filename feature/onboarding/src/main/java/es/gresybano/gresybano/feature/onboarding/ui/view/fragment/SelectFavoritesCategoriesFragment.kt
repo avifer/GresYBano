@@ -15,7 +15,7 @@ import es.gresybano.gresybano.common.view.BaseFragment
 import es.gresybano.gresybano.common.view.toast
 import es.gresybano.gresybano.domain.entities.CategoryBo
 import es.gresybano.gresybano.feature.onboarding.R
-import es.gresybano.gresybano.feature.onboarding.databinding.FragmentSelectFavoriteBinding
+import es.gresybano.gresybano.feature.onboarding.databinding.FragmentSelectFavoritesCategoriesBinding
 import es.gresybano.gresybano.feature.onboarding.ui.view.adapter.FavoriteCategoriesAdapter
 import es.gresybano.gresybano.feature.onboarding.ui.view.vo.FavoriteCategoryVo
 import es.gresybano.gresybano.feature.onboarding.ui.view.vo.toBo
@@ -24,10 +24,10 @@ import es.gresybano.gresybano.feature.onboarding.ui.viewmodel.OnBoardingSharedVi
 import es.gresybano.gresybano.feature.onboarding.ui.viewmodel.SelectFavoriteViewModel
 
 @AndroidEntryPoint
-class SelectFavoriteFragment : BaseFragment() {
+class SelectFavoritesCategoriesFragment : BaseFragment() {
 
     companion object {
-        fun newInstance() = SelectFavoriteFragment()
+        fun newInstance() = SelectFavoritesCategoriesFragment()
 
         private const val SPAN_COUNT_LIST = 2
     }
@@ -36,14 +36,15 @@ class SelectFavoriteFragment : BaseFragment() {
 
     private val viewModelShared by activityViewModels<OnBoardingSharedViewModel>()
 
-    override fun getBindingCast() = binding as? FragmentSelectFavoriteBinding
+    override fun getBindingCast() = binding as? FragmentSelectFavoritesCategoriesBinding
 
     override fun onViewReady(savedInstanceState: Bundle?) {
+        getBindingCast()?.playAnimation(es.gresybano.gresybano.common.R.raw.animation_loading)
         getBindingCast()?.initList()
         getFavorites()
     }
 
-    private fun FragmentSelectFavoriteBinding.initList() {
+    private fun FragmentSelectFavoritesCategoriesBinding.initList() {
         with(fragmentSelectFavoriteListFavorites) {
             layoutManager = GridLayoutManager(requireContext(), SPAN_COUNT_LIST)
             adapter = FavoriteCategoriesAdapter {
@@ -53,57 +54,41 @@ class SelectFavoriteFragment : BaseFragment() {
     }
 
     private fun getFavorites() {
-        viewModel.getAllCategories(
-            { listCategories ->
-                getBindingCast()?.let {
-                    with(it) {
-                        listCategories?.let { listCategoriesNotNull ->
-                            setElements(listCategoriesNotNull.map { it.toVo() })
-                        }
-                        stopAnimation()
-                    }
-                }
-            },
-            {
-                getBindingCast()?.playAnimation(es.gresybano.gresybano.common.R.raw.animation_error)
-                toast(R.string.error_chargin_categories)
-            },
-            { loading ->
-                getBindingCast()?.let {
-                    with(it) {
-                        if (loading) {
-                            playAnimation(es.gresybano.gresybano.common.R.raw.animation_loading)
+        getBindingCast()?.let { bindingNotNull ->
+            with(bindingNotNull) {
+                stopAnimation()
+                viewModelShared.listCategories?.let { listCategoriesNotNull ->
+                    setElements(listCategoriesNotNull.map { it.toVo() })
 
-                        } else {
-                            stopAnimation()
-                        }
-                    }
+                } ?: kotlin.run {
+                    toast(R.string.error_chargin_categories)
+                    playAnimation(es.gresybano.gresybano.common.R.raw.animation_error)
                 }
             }
-        )
+        }
     }
 
     override fun getInflateBinding(inflater: LayoutInflater, container: ViewGroup?) =
-        FragmentSelectFavoriteBinding.inflate(inflater, container, false)
+        FragmentSelectFavoritesCategoriesBinding.inflate(inflater, container, false)
 
-    private fun FragmentSelectFavoriteBinding.setElements(listElements: List<FavoriteCategoryVo>) {
+    private fun FragmentSelectFavoritesCategoriesBinding.setElements(listElements: List<FavoriteCategoryVo>) {
         (fragmentSelectFavoriteListFavorites.adapter as? FavoriteCategoriesAdapter)
             ?.submitList(listElements)
     }
 
-    private fun FragmentSelectFavoriteBinding.getElements(): List<CategoryBo> {
+    private fun FragmentSelectFavoritesCategoriesBinding.getElements(): List<CategoryBo> {
         return (fragmentSelectFavoriteListFavorites.adapter as? FavoriteCategoriesAdapter)
             ?.currentList?.map { it.toBo() } ?: listOf()
     }
 
-    private fun FragmentSelectFavoriteBinding.stopAnimation() {
+    private fun FragmentSelectFavoritesCategoriesBinding.stopAnimation() {
         with(fragmentSelectFavoriteLottieAnimation) {
             pauseAnimation()
             hide()
         }
     }
 
-    private fun FragmentSelectFavoriteBinding.playAnimation(@RawRes animation: Int) {
+    private fun FragmentSelectFavoritesCategoriesBinding.playAnimation(@RawRes animation: Int) {
         with(fragmentSelectFavoriteLottieAnimation) {
             setAnimation(animation)
             repeatCount = LottieDrawable.INFINITE
