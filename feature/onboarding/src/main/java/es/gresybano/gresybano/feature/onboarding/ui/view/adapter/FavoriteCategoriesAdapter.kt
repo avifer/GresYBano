@@ -34,7 +34,7 @@ class FavoriteCategoriesAdapter(private val listenerClickElement: () -> Unit) :
         }
 
         private fun RowFavoriteCategoryBinding.setData(category: FavoriteCategoryVo) {
-            rowFavoriteCategoryImgCategory.loadUrl(category.urlImage, IMAGE_SIZE, IMAGE_SIZE)
+            rowFavoriteCategoryImgCategory.loadUrl(category.mainImage, IMAGE_SIZE, IMAGE_SIZE)
             rowFavoriteCategoryLabelNameCategory.text = category.name
         }
 
@@ -90,5 +90,5 @@ private val diffUtils = object : DiffUtil.ItemCallback<FavoriteCategoryVo>() {
     override fun areContentsTheSame(
         oldItem: FavoriteCategoryVo,
         newItem: FavoriteCategoryVo
-    ) = oldItem.urlImage == newItem.urlImage && oldItem.name == newItem.name
+    ) = oldItem.mainImage == newItem.mainImage && oldItem.name == newItem.name
 }

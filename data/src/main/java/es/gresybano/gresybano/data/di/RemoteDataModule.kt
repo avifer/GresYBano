@@ -19,7 +19,7 @@ class RemoteDataModule {
 
     companion object {
         private const val REQUEST_TIMEOUT = 10L
-        private const val BASE_URL_API_EXCHANGE = "https://api.blockchain.com/v3/exchange/"
+        private const val BASE_URL_FIREBASE = "https://mocki.io/v1/"    //TODO Cambiar por la final
     }
 
     @Provides
@@ -48,9 +48,12 @@ class RemoteDataModule {
 
     @Provides
     @Singleton
-    fun provideCategoryApi(okHttpClient: OkHttpClient, gson: GsonConverterFactory): CategoryApi {
+    fun provideCategoryApi(
+        okHttpClient: OkHttpClient,
+        gson: GsonConverterFactory
+    ): CategoryApi {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL_API_EXCHANGE)
+            .baseUrl(BASE_URL_FIREBASE)
             .addConverterFactory(gson)
             .client(okHttpClient)
             .build()
@@ -64,7 +67,7 @@ class RemoteDataModule {
         gson: GsonConverterFactory
     ): PublicationApi {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL_API_EXCHANGE)
+            .baseUrl(BASE_URL_FIREBASE)
             .addConverterFactory(gson)
             .client(okHttpClient)
             .build()

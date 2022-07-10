@@ -27,7 +27,7 @@ class HomeFragment : BaseFragment() {
             viewModel.goToDetailCategory(
                 idCategory = it.id,
                 nameCategory = it.name,
-                urlPrimary = it.primaryUrl,
+                urlPrimary = it.mainImage,
             )
         }
 

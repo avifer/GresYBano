@@ -5,6 +5,8 @@ import es.gresybano.gresybano.domain.entities.response.Response
 
 interface RepositoryCategory {
 
+    suspend fun getTopCategories(): Response<List<CategoryBo>>
+
     suspend fun getAllCategoriesRemote(): Response<List<CategoryBo>>
 
     suspend fun getAllCategoriesLocal(): Response<List<CategoryBo>>

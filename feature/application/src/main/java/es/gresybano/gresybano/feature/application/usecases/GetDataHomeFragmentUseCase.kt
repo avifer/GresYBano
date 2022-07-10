@@ -16,11 +16,6 @@ class GetDataHomeFragmentUseCase @Inject constructor(
     operator fun invoke(): Flow<Response<HomeListElementsVo>> {
         return flow {
             emit(Response.Loading())
-            //TODO MOCK
-            Thread.sleep(1500)
-            emit(Response.Error(ExceptionInfo(CodeExceptions.UNKNOWN)))
-            Thread.sleep(1500)
-
             val listAllCategories = repositoryCategory.getAllCategoriesRemote()
             val listMorePopular = repositoryPublication.getMorePopularPublicationsRemote()
             val listLastPublished = repositoryPublication.getLastPublishedPublicationsRemote()

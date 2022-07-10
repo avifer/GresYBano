@@ -7,9 +7,9 @@ data class PublicationDto(
     @SerializedName("id")
     val id: Long?,
     @SerializedName("publishDate")
-    val publishDate: Date?,
-    @SerializedName("category")
-    val category: String?,
+    val publishDate: String?,
+    @SerializedName("listCategoriesId")
+    val listCategoriesId: List<Long?>?,
     @SerializedName("listImages")
     val listImages: List<String?>?,
 )

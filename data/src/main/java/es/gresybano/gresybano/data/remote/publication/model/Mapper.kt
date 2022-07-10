@@ -6,7 +6,9 @@ import java.util.*
 
 fun PublicationDto.toBo() = PublicationBo(
     id = id ?: DEFAULT_ID_LONG,
-    publishDate = publishDate ?: Date(),
-    category = category ?: "",
+    publishDate = parseDate(publishDate),
+    category = listCategoriesId?.filterNotNull() ?: listOf(),
     listImages = listImages?.filterNotNull() ?: listOf(),
 )
+
+fun parseDate(dateString: String?) = Date()

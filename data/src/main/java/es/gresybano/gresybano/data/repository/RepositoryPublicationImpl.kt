@@ -1,165 +1,33 @@
 package es.gresybano.gresybano.data.repository
 
 import es.gresybano.gresybano.data.remote.publication.datasource.PublicationRemoteDataSource
+import es.gresybano.gresybano.data.remote.publication.model.toBo
 import es.gresybano.gresybano.data.utils.BaseRepository
 import es.gresybano.gresybano.domain.entities.PublicationBo
 import es.gresybano.gresybano.domain.entities.response.Response
+import es.gresybano.gresybano.domain.entities.response.defaultResponse
 import es.gresybano.gresybano.domain.publication.repository.RepositoryPublication
-import java.util.*
 
 class RepositoryPublicationImpl(
     private val publicationRemoteDataSource: PublicationRemoteDataSource,
 ) : RepositoryPublication, BaseRepository() {
 
-    //TODO MOCK
-    private val exampleListPublications =
-        listOf(
-            PublicationBo(
-                id = 0,
-                listImages = listOf(
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                ),
-                category = "Cuarto de baño",
-                publishDate = Date(),
-                favorite = true,
-            ),
-            PublicationBo(
-                id = 1,
-                listImages = listOf(
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                ),
-                category = "Patio interno",
-                publishDate = Date(),
-                favorite = true,
-            ),
-            PublicationBo(
-                id = 2,
-                listImages = listOf(
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                ),
-                category = "Cocina",
-                publishDate = Date(),
-            ),
-            PublicationBo(
-                id = 3,
-                listImages = listOf(
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                ),
-                category = "Cocina",
-                publishDate = Date(),
-                favorite = true,
-            ),
-            PublicationBo(
-                id = 4,
-                listImages = listOf(
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                ),
-                category = "Cocina",
-                publishDate = Date(),
-                favorite = true,
-            ),
-            PublicationBo(
-                id = 5,
-                listImages = listOf(
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                ),
-                category = "Cocina",
-                publishDate = Date(),
-            ),
-            PublicationBo(
-                id = 6,
-                listImages = listOf(
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                ),
-                category = "Cocina",
-                publishDate = Date(),
-            ),
-            PublicationBo(
-                id = 7,
-                listImages = listOf(
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                ),
-                category = "Cocina",
-                publishDate = Date(),
-                favorite = true,
-            ),
-            PublicationBo(
-                id = 8,
-                listImages = listOf(
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                    "https://www.elmueble.com/medio/2021/03/15/00531224_49198044_1500x2000.jpg",
-                ),
-                category = "Cocina",
-                publishDate = Date(),
-            ),
-        )
-
     override suspend fun getPublicationsOfCategory(idCategory: Long): Response<List<PublicationBo>> {
-        //TODO MOCK
-        return Response.Successful(exampleListPublications)
-        /*
-        return publicationRemoteDataSource.getMorePopular().defaultResponse { listPublication ->
-            listPublication?.filterNotNull()?.map { it.toBo() } ?: listOf()
-        }
-         */
+        return publicationRemoteDataSource.getPublicationsOfCategory(idCategory)
+            .defaultResponse { listPublication ->
+                listPublication?.map { it.toBo() } ?: listOf()
+            }
     }
 
     override suspend fun getMorePopularPublicationsRemote(): Response<List<PublicationBo>> {
-        //TODO MOCK
-        return Response.Successful(exampleListPublications)
-        /*
         return publicationRemoteDataSource.getMorePopular().defaultResponse { listPublication ->
-            listPublication?.filterNotNull()?.map { it.toBo() } ?: listOf()
+            listPublication?.map { it.toBo() } ?: listOf()
         }
-         */
     }
 
     override suspend fun getLastPublishedPublicationsRemote(): Response<List<PublicationBo>> {
-        //TODO MOCK
-        return Response.Successful(exampleListPublications)
-        /*
         return publicationRemoteDataSource.getLastPublished().defaultResponse { listPublication ->
-            listPublication?.filterNotNull()?.map { it.toBo() } ?: listOf()
+            listPublication?.map { it.toBo() } ?: listOf()
         }
-         */
     }
 }

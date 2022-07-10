@@ -16,11 +16,7 @@ class GetPublicationsOfCategoryUseCase @Inject constructor(
     operator fun invoke(idCategory: Long?): Flow<Response<List<PublicationBo>>> {
         return flow {
             idCategory?.let {
-                //TODO MOCK
                 emit(Response.Loading())
-                Thread.sleep(1500)
-                emit(Response.Error(ExceptionInfo(CodeExceptions.UNKNOWN)))
-                Thread.sleep(1500)
                 emit(repositoryPublication.getPublicationsOfCategory(idCategory))
             } ?: kotlin.run { emit(Response.Error(ExceptionInfo(CodeExceptions.UNKNOWN))) }
         }

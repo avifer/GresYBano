@@ -49,7 +49,7 @@ class HeightPublicationAdapter(
                 IMAGE_SIZE,
                 IMAGE_SIZE
             )
-            rowHeightPublicationLabelNamePublication.text = publication.category
+            //rowHeightPublicationLabelNamePublication.text = publication.category  //TODO Ver como implementar
             rowHeightPublicationLabelAmountPublication.text = publication.listImages.size.toString()
             if (favoriteEnable) {
                 rowHeightPublicationImgFavorite.visible(publication.favorite)
