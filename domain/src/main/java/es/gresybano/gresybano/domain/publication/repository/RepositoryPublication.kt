@@ -11,4 +11,6 @@ interface RepositoryPublication {
 
     suspend fun getLastPublishedPublicationsRemote(): Response<List<PublicationBo>>
 
+    suspend fun getPublication(idPublication: Long): Response<PublicationBo?>
+
 }

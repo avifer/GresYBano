@@ -111,9 +111,19 @@ abstract class BaseFragment : Fragment() {
         getHostActivity()?.setToolbarAmountNotifications(amount)
     }
 
+    fun increaseAmountNotifications() {
+        getHostActivity()?.increaseAmountNotifications()
+    }
+
+    fun decreaseAmountNotifications() {
+        getHostActivity()?.decreaseAmountNotifications()
+    }
+
     fun setTitleToolbar(title: String) {
         getHostActivity()?.setTitleToolbar(title)
     }
+
+    fun newPublicationLiveData() = getHostActivity()?.newPublicationLiveData()
 
 }
 

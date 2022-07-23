@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.LiveData
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import es.gresybano.gresybano.common.R
@@ -38,6 +39,8 @@ abstract class BaseActivity : AppCompatActivity() {
     abstract var toolbar: ToolbarGresYBano?
 
     abstract var bottomNavigationBar: BottomNavigationView?
+
+    abstract fun newPublicationLiveData(): LiveData<Boolean>
 
     private fun showAnimation() {
         viewLoading?.show()
@@ -82,7 +85,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun hideToolbar() {
-        toolbar?.invisible()
+        toolbar?.hideToolbar()
     }
 
     fun showToolbarDefault() {
@@ -109,6 +112,14 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun setToolbarAmountNotifications(amount: Int) {
         toolbar?.setAmountNotifications(amount)
+    }
+
+    fun increaseAmountNotifications() {
+        toolbar?.increaseAmountNotifications()
+    }
+
+    fun decreaseAmountNotifications() {
+        toolbar?.decreaseAmountNotifications()
     }
 
     fun setTitleToolbar(title: String) {

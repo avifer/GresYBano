@@ -9,4 +9,23 @@
     <string name="menu__activity_host__bottom_bar__navigation__favorite_posts__title">Favoritos</string>
     <string name="menu__activity_host__bottom_bar__navigation__home__title">Inicio</string>
     <string name="menu__activity_host__bottom_bar__navigation__settings__title">Ajustes</string>
+
+    <string name="format_date_without_year">{d} de {m}</string>
+
+    <string name="format_date_with_year">{d} de {m} de {y}</string>
+
+    <string name="january">Enero</string>
+    <string name="february">Febrero</string>
+    <string name="march">Marzo</string>
+    <string name="april">Abril</string>
+    <string name="may">mayo</string>
+    <string name="june">Junio</string>
+    <string name="july">Julio</string>
+    <string name="august">Agosto</string>
+    <string name="september">Septiembre</string>
+    <string name="octuber">Octubre</string>
+    <string name="november">Noviembre</string>
+    <string name="december">Diciembre</string>
+
+
 </resources>

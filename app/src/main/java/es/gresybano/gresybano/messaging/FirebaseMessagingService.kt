@@ -18,8 +18,6 @@ import es.gresybano.gresybano.common.util.ZERO
 import es.gresybano.gresybano.common.util.runInIO
 import es.gresybano.gresybano.domain.notification.entity.MessageNotificationBo
 import es.gresybano.gresybano.domain.notification.entity.getMainImage
-import es.gresybano.gresybano.domain.notification.entity.getSubtitle
-import es.gresybano.gresybano.domain.notification.entity.getTitle
 import es.gresybano.gresybano.domain.response.Response
 import es.gresybano.gresybano.messaging.extensions.toBo
 import kotlinx.coroutines.flow.collect
@@ -117,7 +115,7 @@ class FirebaseMessagingService : FirebaseMessagingService() {
                         }
                     }
                 }
-                showNotification(getTitle(), getSubtitle(), getMainImage())
+                showNotification(title, subtitle, getMainImage())
             }
         }
     }

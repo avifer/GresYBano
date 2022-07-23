@@ -11,4 +11,6 @@ interface PublicationRemoteDataSource {
 
     suspend fun getMorePopular(): Response<List<PublicationDto>>
 
+    suspend fun getPublication(idPublication: Long): Response<PublicationDto?>
+
 }
