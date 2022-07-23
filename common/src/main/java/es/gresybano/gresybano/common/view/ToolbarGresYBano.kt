@@ -70,18 +70,22 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
 
     private fun getNotifications() =
         iconAmountNotifications?.let {
-            with(it) {
+            val amountNotification = it.text
+            return if (amountNotification == STRING_MORE_THAN_MAX_NOTIFICATION) {
+                STRING_MORE_THAN_MAX_NOTIFICATION
+
+            } else {
                 if (
-                    !text.isNullOrEmpty() &&
-                    text?.isDigitsOnly() == true
+                    !amountNotification.isNullOrEmpty() &&
+                    amountNotification.isDigitsOnly()
                 ) {
-                    text.toString().toInt()
+                    amountNotification.toString()
 
                 } else {
-                    ZERO
+                    ZERO.toString()
                 }
             }
-        } ?: ZERO
+        } ?: ZERO.toString()
 
 
     fun setTitleToolbar(title: String) {
@@ -132,7 +136,7 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
         iconSearchView?.show()
         iconScanQR?.show()
         iconNotifications?.show()
-        iconAmountNotifications?.visible(getNotifications() > MIN_AMOUNT_NOTIFICATION_SHOW)
+        iconAmountNotifications?.visible(getNotifications() != ZERO.toString())
     }
 
     private fun showGoBack() {

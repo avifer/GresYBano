@@ -59,7 +59,9 @@ class HostActivity : BaseActivity() {
         initToolbarActions(
             actionBack = { findNavController(R.id.activity_host__fragment_container__host).popBackStack() },
             actionClickScanQR = { /*TODO*/ },
-            actionClickIconNotification = { /*TODO*/ },
+            actionClickIconNotification = {
+                navigateActivity(es.gresybano.gresybano.feature.application.R.id.navigate_to_navigation__feature_application__notifications_fragment)
+            },
             actionClickSearchView = { /*TODO*/ },
         )
     }
@@ -76,21 +78,15 @@ class HostActivity : BaseActivity() {
             { menuItem ->
                 when (menuItem.itemId) {
                     es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__favorite_posts -> {
-                        findNavController(R.id.activity_host__fragment_container__host).navigate(
-                            navigationFavoritePosts
-                        )
+                        navigateActivity(navigationFavoritePosts)
                         true
                     }
                     es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__home -> {
-                        findNavController(R.id.activity_host__fragment_container__host).navigate(
-                            navigationHome
-                        )
+                        navigateActivity(navigationHome)
                         true
                     }
                     es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__settings -> {
-                        findNavController(R.id.activity_host__fragment_container__host).navigate(
-                            navigationSettings
-                        )
+                        navigateActivity(navigationSettings)
                         true
                     }
                     else -> false
@@ -141,6 +137,10 @@ class HostActivity : BaseActivity() {
                 }
             }
         }
+    }
+
+    private fun navigateActivity(navigation: Int) {
+        findNavController(R.id.activity_host__fragment_container__host).navigate(navigation)
     }
 
     override fun onResume() {
