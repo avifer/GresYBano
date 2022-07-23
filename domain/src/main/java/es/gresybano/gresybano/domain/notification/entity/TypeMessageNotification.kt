@@ -1,15 +1,13 @@
-package es.gresybano.gresybano.messaging.entities
+package es.gresybano.gresybano.domain.notification.entity
 
-import es.gresybano.gresybano.common.util.EMPTY_STRING
-
-enum class TypeMessageNotificationDto {
+enum class TypeMessageNotification {
     NEW_PUBLICATION, ERROR_TYPE;
 
     companion object {
 
         fun parseTypeMessage(type: String?) =
             try {
-                valueOf(type ?: EMPTY_STRING)
+                valueOf(type ?: "")
 
             } catch (e: Exception) {
                 ERROR_TYPE

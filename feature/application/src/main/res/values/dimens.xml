@@ -42,4 +42,16 @@
     <dimen name="fragment_publication_details__page_indicator__indicator__margin_horizontal">72dp</dimen>
     <dimen name="fragment_publication_details__page_indicator__indicator__margin_bottom">12dp</dimen>
     <dimen name="fragment_publication_details__page_indicator__indicator__size_indicator">10dp</dimen>
+
+    <dimen name="row_notification__elevation">4dp</dimen>
+    <dimen name="row_notification__card__height">80dp</dimen>
+    <dimen name="row_notification__img__notification">60dp</dimen>
+    <dimen name="row_notification__img__notification__margin_vertical">12dp</dimen>
+    <dimen name="row_notification__img__notification__margin_start">12dp</dimen>
+    <dimen name="row_notification__linear__margin_horizontal">12dp</dimen>
+    <dimen name="row_notification__label__title__text_size">18sp</dimen>
+
+    <dimen name="row_separator_date__elevation">4dp</dimen>
+    <dimen name="row_separator_date__label__date__margin">16dp</dimen>
+    <dimen name="row_separator_date__label__date__text_size">18sp</dimen>
 </resources>

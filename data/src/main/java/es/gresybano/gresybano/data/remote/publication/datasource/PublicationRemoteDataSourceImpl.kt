@@ -12,7 +12,8 @@ class PublicationRemoteDataSourceImpl(
 
     override suspend fun getPublicationsOfCategory(idCategory: Long): Response<List<PublicationDto>> {
         return safeRemoteCall {
-            publicationApi.getPublicationsCategory(idCategory)?.filterNotNull() ?: listOf()
+            publicationApi.getPublicationsCategory()?.filterNotNull()
+                ?: listOf()   //TODO Añadir parametro cuando este la url
         }
     }
 
@@ -22,6 +23,10 @@ class PublicationRemoteDataSourceImpl(
 
     override suspend fun getMorePopular(): Response<List<PublicationDto>> {
         return safeRemoteCall { publicationApi.getMorePopular()?.filterNotNull() ?: listOf() }
+    }
+
+    override suspend fun getPublication(idPublication: Long): Response<PublicationDto?> {
+        return safeRemoteCall { publicationApi.getPublication() }   //TODO Añadir parametro cuando este la url
     }
 
 }

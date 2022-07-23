@@ -4,14 +4,15 @@ import androidx.annotation.StringRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
-import es.gresybano.gresybano.common.util.runInIO
 import es.gresybano.gresybano.common.util.runInMain
 import es.gresybano.gresybano.domain.response.*
 import es.gresybano.gresybano.navigation.Event
 import es.gresybano.gresybano.navigation.Navigation
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 open class BaseViewModel : ViewModel() {
     var defaultErrorNotification: LiveData<ResponseErrorHandle> = MutableLiveData()
@@ -39,7 +40,7 @@ fun <T> BaseViewModel.defaultResponse(
     block: suspend () -> Flow<Response<T>>
 ): MutableLiveData<T?> {
     val mutableLiveDataResult = MutableLiveData<T?>()
-    runInIO {
+    viewModelScope.launch {
         block().collect {
             when (it) {
                 is Response.Error -> {
@@ -83,7 +84,7 @@ fun <T> BaseViewModel.executeWithListeners(
     enableDefaultLoading: Boolean = true,
     block: suspend () -> Flow<Response<T>>,
 ) {
-    runInIO {
+    viewModelScope.launch {
         block().collect {
             runInMain {
                 when (it) {

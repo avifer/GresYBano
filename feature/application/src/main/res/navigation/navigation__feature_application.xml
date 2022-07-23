@@ -35,6 +35,30 @@
         android:label="fragment_publication_details"
         tools:layout="@layout/fragment_publication_details" />
 
+    <fragment
+        android:id="@+id/navigation__feature_application__notifications_fragment"
+        android:name="es.gresybano.gresybano.feature.application.view.fragment.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications">
+
+        <action
+            android:id="@+id/navigate_to_navigation__feature_application__publication_details_fragment__from_notification_fragment"
+            app:destination="@id/navigation__feature_application__publication_details_fragment">
+
+            <argument
+                android:name="idPublication"
+                android:defaultValue="-1L"
+                app:argType="long" />
+
+            <argument
+                android:name="listImages"
+                app:argType="string[]"
+                app:nullable="false" />
+
+        </action>
+
+    </fragment>
+
     <action
         android:id="@+id/navigate_to_navigation__feature_application__publication_details_fragment"
         app:destination="@id/navigation__feature_application__publication_details_fragment">
@@ -89,5 +113,9 @@
             app:argType="string" />
 
     </action>
+
+    <action
+        android:id="@+id/navigate_to_navigation__feature_application__notifications_fragment"
+        app:destination="@id/navigation__feature_application__notifications_fragment"/>
 
 </navigation>

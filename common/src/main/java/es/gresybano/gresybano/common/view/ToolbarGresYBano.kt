@@ -6,22 +6,25 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.text.isDigitsOnly
 import es.gresybano.gresybano.common.R
 import es.gresybano.gresybano.common.extensions.hide
 import es.gresybano.gresybano.common.extensions.invisible
 import es.gresybano.gresybano.common.extensions.show
 import es.gresybano.gresybano.common.extensions.visible
+import es.gresybano.gresybano.common.util.EMPTY_STRING
 import es.gresybano.gresybano.common.util.ZERO
 
 class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
     ConstraintLayout(context, attributeSet) {
 
     companion object {
-        private const val MIN_AMOUNT_NOTIFICATION_SHOW = 0
+        private const val MIN_AMOUNT_NOTIFICATION_SHOW = 1
         private const val MAX_AMOUNT_NOTIFICATION_SHOW = 9
         private const val STRING_MORE_THAN_MAX_NOTIFICATION = "9+"
+    }
 
+    private enum class TypeToolbarShow {
+        TOOLBAR_DEFAULT, TOOLBAR_GO_BACK, NONE
     }
 
     private var iconGoBackToolbar: ImageView? = null
@@ -31,6 +34,10 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
     private var iconScanQR: ImageView? = null
     private var iconNotifications: ImageView? = null
     private var iconAmountNotifications: TextView? = null
+
+    private var amountNotifications: Int = ZERO
+
+    private var typeToolbarShow: TypeToolbarShow = TypeToolbarShow.TOOLBAR_DEFAULT
 
     init {
         inflate(context, R.layout.view__toolbar_app, this)
@@ -47,51 +54,53 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
         iconAmountNotifications = findViewById(R.id.view__toolbar_app__label__amount_notifications)
     }
 
+    fun increaseAmountNotifications() {
+        setAmountNotifications(++amountNotifications)
+    }
+
+    fun decreaseAmountNotifications() {
+        if (amountNotifications > ZERO) {
+            amountNotifications--
+        }
+        setAmountNotifications(amountNotifications)
+    }
+
     fun setAmountNotifications(amount: Int) {
+        amountNotifications = amount
         iconAmountNotifications?.let {
             with(it) {
-                if (amount > MIN_AMOUNT_NOTIFICATION_SHOW) {
-                    text = when {
-                        amount <= MAX_AMOUNT_NOTIFICATION_SHOW -> {
-                            amount.toString()
-                        }
-                        else -> {
-                            STRING_MORE_THAN_MAX_NOTIFICATION
-                        }
+                val result = calculateAmountNotificationToShow()
+                text = result
+                if (typeToolbarShow == TypeToolbarShow.TOOLBAR_DEFAULT) {
+                    when (result) {
+                        EMPTY_STRING -> invisible()
+                        else -> show()
                     }
-                    show()
-
-                } else {
-                    invisible()
                 }
             }
         }
     }
 
-    private fun getNotifications() =
-        iconAmountNotifications?.let {
-            with(it) {
-                if (
-                    !text.isNullOrEmpty() &&
-                    text?.isDigitsOnly() == true
-                ) {
-                    text.toString().toInt()
-
-                } else {
-                    ZERO
-                }
-            }
-        } ?: ZERO
-
+    private fun calculateAmountNotificationToShow() =
+        when (amountNotifications) {
+            in Int.MIN_VALUE..0 -> EMPTY_STRING
+            in MIN_AMOUNT_NOTIFICATION_SHOW..MAX_AMOUNT_NOTIFICATION_SHOW -> amountNotifications.toString()
+            else -> STRING_MORE_THAN_MAX_NOTIFICATION
+        }
 
     fun setTitleToolbar(title: String) {
         titleToolbar?.text = title
     }
 
+    fun hideToolbar() {
+        typeToolbarShow = TypeToolbarShow.NONE
+        this.invisible()
+    }
+
     fun showToolbarDefault() {
         show()
-        showDefault()
         hideGoBack()
+        showDefault()
     }
 
     fun showToolbarGoBack(title: String = "") {
@@ -115,6 +124,7 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
     }
 
     private fun hideDefault() {
+        typeToolbarShow = TypeToolbarShow.NONE
         searchView?.hide()
         iconSearchView?.hide()
         iconScanQR?.hide()
@@ -123,19 +133,22 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
     }
 
     private fun hideGoBack() {
+        typeToolbarShow = TypeToolbarShow.NONE
         iconGoBackToolbar?.hide()
         titleToolbar?.hide()
     }
 
     private fun showDefault() {
+        typeToolbarShow = TypeToolbarShow.TOOLBAR_DEFAULT
         searchView?.show()
         iconSearchView?.show()
         iconScanQR?.show()
         iconNotifications?.show()
-        iconAmountNotifications?.visible(getNotifications() > MIN_AMOUNT_NOTIFICATION_SHOW)
+        iconAmountNotifications?.visible(amountNotifications != ZERO)
     }
 
     private fun showGoBack() {
+        typeToolbarShow = TypeToolbarShow.TOOLBAR_GO_BACK
         iconGoBackToolbar?.show()
         titleToolbar?.show()
     }

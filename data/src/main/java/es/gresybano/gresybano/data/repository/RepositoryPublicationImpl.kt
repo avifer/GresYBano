@@ -4,9 +4,9 @@ import es.gresybano.gresybano.data.remote.publication.datasource.PublicationRemo
 import es.gresybano.gresybano.data.remote.publication.model.toBo
 import es.gresybano.gresybano.data.utils.BaseRepository
 import es.gresybano.gresybano.domain.publication.entity.PublicationBo
+import es.gresybano.gresybano.domain.publication.repository.RepositoryPublication
 import es.gresybano.gresybano.domain.response.Response
 import es.gresybano.gresybano.domain.response.defaultResponse
-import es.gresybano.gresybano.domain.publication.repository.RepositoryPublication
 
 class RepositoryPublicationImpl(
     private val publicationRemoteDataSource: PublicationRemoteDataSource,
@@ -30,4 +30,10 @@ class RepositoryPublicationImpl(
             listPublication?.map { it.toBo() } ?: listOf()
         }
     }
+
+    override suspend fun getPublication(idPublication: Long): Response<PublicationBo?> {
+        return publicationRemoteDataSource.getPublication(idPublication)
+            .defaultResponse { it?.toBo() }
+    }
+
 }

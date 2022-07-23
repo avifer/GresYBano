@@ -6,22 +6,16 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.AndroidEntryPoint
-import es.gresybano.gresybano.common.usecase.GetAllNotificationsUseCase
-import es.gresybano.gresybano.common.util.runInIO
-import es.gresybano.gresybano.common.util.runInMain
 import es.gresybano.gresybano.common.view.BaseActivity
 import es.gresybano.gresybano.common.view.ToolbarGresYBano
-import es.gresybano.gresybano.domain.response.Response
 import es.gresybano.gresybano.messaging.FirebaseMessagingService.Companion.KEY_INTENT_NOTIFICATION_RECEIVED
-import kotlinx.coroutines.flow.collect
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class HostActivity : BaseActivity() {
@@ -31,14 +25,14 @@ class HostActivity : BaseActivity() {
     override var toolbar: ToolbarGresYBano? = null
     override var bottomNavigationBar: BottomNavigationView? = null
 
-    //TODO Revisar implementacion. Pasar logica a viewModel
+    private val viewModel by viewModels<HostViewModel>()
 
-    @Inject
-    lateinit var getAllNotificationsUseCase: GetAllNotificationsUseCase
+    override fun newPublicationLiveData() = viewModel.newPublicationLiveData()
 
     private val receiverNotificationReceived: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent) {
-            getNotificationsAndPutInView()
+            viewModel.getNotificationsAndPutInView { setToolbarAmountNotifications(it) }
+            viewModel.postNewNotification()
         }
     }
 
@@ -46,20 +40,21 @@ class HostActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_host)
         //TODO CONTROLAR SI LA APP ESTA ABIERTA, NO ABIRILA DE NUEVO Y SOLAMENTE LLEVAR A DONDE HAYA QUE LLEVAR
-        FirebaseMessaging.getInstance()
-            .subscribeToTopic("all")     //TODO Eliminar cuando se acabe el desarrollo
         initViews()
         configureAnimation()
         initToolbar()
         initBottomNavigationBar()
-        getNotificationsAndPutInView()
+        viewModel.start()
+        viewModel.getNotificationsAndPutInView { setToolbarAmountNotifications(it) }
     }
 
     private fun initToolbar() {
         initToolbarActions(
             actionBack = { findNavController(R.id.activity_host__fragment_container__host).popBackStack() },
             actionClickScanQR = { /*TODO*/ },
-            actionClickIconNotification = { /*TODO*/ },
+            actionClickIconNotification = {
+                navigateActivity(es.gresybano.gresybano.feature.application.R.id.navigate_to_navigation__feature_application__notifications_fragment)
+            },
             actionClickSearchView = { /*TODO*/ },
         )
     }
@@ -76,21 +71,15 @@ class HostActivity : BaseActivity() {
             { menuItem ->
                 when (menuItem.itemId) {
                     es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__favorite_posts -> {
-                        findNavController(R.id.activity_host__fragment_container__host).navigate(
-                            navigationFavoritePosts
-                        )
+                        navigateActivity(navigationFavoritePosts)
                         true
                     }
                     es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__home -> {
-                        findNavController(R.id.activity_host__fragment_container__host).navigate(
-                            navigationHome
-                        )
+                        navigateActivity(navigationHome)
                         true
                     }
                     es.gresybano.gresybano.common.R.id.menu__activity_host__bottom_bar__navigation__settings -> {
-                        findNavController(R.id.activity_host__fragment_container__host).navigate(
-                            navigationSettings
-                        )
+                        navigateActivity(navigationSettings)
                         true
                     }
                     else -> false
@@ -123,24 +112,8 @@ class HostActivity : BaseActivity() {
         }
     }
 
-    private fun getNotificationsAndPutInView() {
-        runInIO {
-            getAllNotificationsUseCase().collect { response ->
-                when (response) {
-                    is Response.Successful -> {
-                        response.data?.let {
-                            runInMain {
-                                setToolbarAmountNotifications(it.size)
-                            }
-                        }
-                    }
-                    is Response.Error,
-                    is Response.Loading -> {
-                        //no-op
-                    }
-                }
-            }
-        }
+    private fun navigateActivity(navigation: Int) {
+        findNavController(R.id.activity_host__fragment_container__host).navigate(navigation)
     }
 
     override fun onResume() {
