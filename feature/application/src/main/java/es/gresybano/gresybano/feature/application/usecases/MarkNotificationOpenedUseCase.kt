@@ -1,8 +1,7 @@
-package es.gresybano.gresybano.common.usecase
+package es.gresybano.gresybano.feature.application.usecases
 
-import es.gresybano.gresybano.domain.response.Response
-import es.gresybano.gresybano.domain.notification.entity.MessageNotificationBo
 import es.gresybano.gresybano.domain.notification.repository.RepositoryNotification
+import es.gresybano.gresybano.domain.response.Response
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

@@ -3,7 +3,6 @@ package es.gresybano.gresybano.feature.application.viewmodel
 import androidx.lifecycle.LiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.gresybano.gresybano.common.usecase.GetAllNotificationsUseCase
-import es.gresybano.gresybano.common.usecase.MarkNotificationOpenedUseCase
 import es.gresybano.gresybano.common.util.runInIO
 import es.gresybano.gresybano.common.viewmodel.BaseViewModel
 import es.gresybano.gresybano.common.viewmodel.defaultResponse
@@ -13,6 +12,7 @@ import es.gresybano.gresybano.domain.notification.entity.MessageNotificationBo
 import es.gresybano.gresybano.domain.response.Response
 import es.gresybano.gresybano.domain.response.getStringError
 import es.gresybano.gresybano.feature.application.usecases.GetPublicationUseCase
+import es.gresybano.gresybano.feature.application.usecases.MarkNotificationOpenedUseCase
 import es.gresybano.gresybano.feature.application.view.fragment.NotificationsFragmentDirections
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package es.gresybano.gresybano.feature.splash.domain
+package es.gresybano.gresybano.feature.splash.usecases
 
 import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
 import es.gresybano.gresybano.domain.category.entity.CategoryBo

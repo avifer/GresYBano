@@ -16,7 +16,7 @@ class GetDataHomeFragmentUseCase @Inject constructor(
     operator fun invoke(): Flow<Response<HomeListElementsVo>> {
         return flow {
             emit(Response.Loading())
-            val listAllCategories = repositoryCategory.getAllCategories()
+            val listAllCategories = repositoryCategory.getAllCategoriesFull()
             val listMorePopular = repositoryPublication.getMorePopularPublicationsRemote()
             val listLastPublished = repositoryPublication.getLastPublishedPublicationsRemote()
 

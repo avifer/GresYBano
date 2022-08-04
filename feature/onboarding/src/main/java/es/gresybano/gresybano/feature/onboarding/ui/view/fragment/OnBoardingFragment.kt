@@ -33,15 +33,15 @@ class OnBoardingFragment : BaseFragment() {
 
     private val actionSaveFavorites = {
         with(viewModel) {
-            viewModelShared.categoriesFavoritesSelected.value?.let {
-                saveFavoriteCategories(it)
+            viewModelShared.categoriesFavoritesSelected.value?.let { listCategories ->
+                saveFavoriteCategories(listCategories.filter { it.isFavorite == true })
 
             } ?: kotlin.run { postDefaultError() }
         }
     }
 
     override fun onViewReady(savedInstanceState: Bundle?) {
-        getListTopCategories()
+        saveListTopCategories()
         initPageIndicator()
         getBindingCast()?.initActionButtons(actionSaveFavorites)
         initViewPager()
@@ -88,8 +88,8 @@ class OnBoardingFragment : BaseFragment() {
         }
     }
 
-    private fun getListTopCategories() {
-        viewModelShared.saveListCategories(arguments?.getString(KEY_LIST_CATEGORIES))
+    private fun saveListTopCategories() {
+        viewModelShared.saveListTopCategories(arguments?.getString(KEY_LIST_CATEGORIES))
     }
 
     private fun FragmentOnBoardingBinding.firstPage() {

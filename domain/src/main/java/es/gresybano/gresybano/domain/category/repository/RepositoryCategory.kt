@@ -11,6 +11,8 @@ interface RepositoryCategory {
 
     suspend fun getAllCategories(): Response<List<CategoryBo>>
 
+    suspend fun getAllCategoriesFull(): Response<List<CategoryBo>>
+
     suspend fun getAllCategoriesFavorites(): Response<List<CategoryBo>>
 
     suspend fun saveCategoriesFavorites(list: List<CategoryBo>): Response<List<Long>>

@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface PublicationApi {
 
-    @GET("7c97d153-96f5-4f10-9dbf-596e25237675")        //TODO Cambiar por url final
+    @GET("4aea9194-55c0-49e9-ac0e-3b2b28df4bc1")        //TODO Cambiar por url final
     suspend fun getPublicationsCategory(): List<PublicationDto?>?
 
     @GET("b4ce78df-7390-4885-a26d-3d350b83728e")        //TODO Cambiar por url final

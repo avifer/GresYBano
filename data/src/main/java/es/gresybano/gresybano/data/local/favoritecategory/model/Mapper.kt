@@ -6,12 +6,12 @@ fun FavoriteCategoryDbo.toBo() = CategoryBo(
     id = id,
     name = name,
     mainImage = mainImage,
-    isFavorite = isFavorite,
+    isFavorite = true,
 )
 
 fun CategoryBo.toDbo() = FavoriteCategoryDbo(
     id = id,
+    tag = tag,
     name = name,
     mainImage = mainImage,
-    isFavorite = isFavorite ?: false
 )

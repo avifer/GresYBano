@@ -8,7 +8,7 @@ import es.gresybano.gresybano.common.viewmodel.BaseViewModel
 import es.gresybano.gresybano.common.viewmodel.executeWithListeners
 import es.gresybano.gresybano.domain.category.entity.CategoryBo
 import es.gresybano.gresybano.domain.response.ExceptionInfo
-import es.gresybano.gresybano.feature.splash.domain.GetAllCategoriesUseCase
+import es.gresybano.gresybano.feature.splash.usecases.GetAllCategoriesUseCase
 import es.gresybano.gresybano.feature.splash.ui.view.fragment.SplashFragmentDirections
 import javax.inject.Inject
 

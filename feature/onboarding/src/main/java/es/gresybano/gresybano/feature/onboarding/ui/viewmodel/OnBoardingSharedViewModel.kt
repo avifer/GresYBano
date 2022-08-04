@@ -11,7 +11,7 @@ class OnBoardingSharedViewModel : BaseViewModel() {
 
     val categoriesFavoritesSelected = MutableLiveData<List<CategoryBo>>(listOf())
 
-    fun saveListCategories(listInJson: String?) {
+    fun saveListTopCategories(listInJson: String?) {
         listCategories = parseJSON(listInJson, Array<CategoryBo>::class.java)?.toList()
     }
 
