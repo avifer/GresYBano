@@ -32,6 +32,12 @@ class RepositoryCategoryImpl(
         }
     }
 
+    override suspend fun getAllCategoriesFull(): Response<List<CategoryBo>> {
+        return categoryRemoteDataSource.getAllCategoriesFull().defaultResponse { listCategories ->
+            listCategories?.mapNotNull { category -> category?.toBo() } ?: listOf()
+        }
+    }
+
     override suspend fun saveCategoriesFavorites(list: List<CategoryBo>): Response<List<Long>> {
         return favoriteCategoryLocalDataSource.insertListCategories(list.map { it.toDbo() })
             .defaultResponse { it?.filterNotNull() ?: listOf() }

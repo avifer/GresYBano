@@ -30,6 +30,7 @@ dependencies {
     implementation(Dependencies.Androidx.FRAGMENT)
 
     implementation(Dependencies.Google.FIREBASE_CONFIG)
+    implementation(Dependencies.Google.FIREBASE_MESSAGING)
 
     implementation(Dependencies.Airbnb.LOTTIE)
 

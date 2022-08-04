@@ -11,4 +11,6 @@ interface CategoryRemoteDataSource {
 
     suspend fun getAllCategories(): Response<List<CategoryDto?>?>
 
+    suspend fun getAllCategoriesFull(): Response<List<CategoryDto?>?>
+
 }

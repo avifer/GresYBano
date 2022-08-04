@@ -5,13 +5,16 @@ import retrofit2.http.GET
 
 interface CategoryApi {
 
-    @GET("18e97f42-f44c-4bdc-910f-7bd6fd439169")    //TODO Cambiar por url final
-    suspend fun getCategory(id: Long): CategoryDto?
+    @GET("c7c919a6-909b-4157-bc0f-68eeb7434ea7")    //TODO Cambiar por url final
+    suspend fun getCategory(): CategoryDto?
 
-    @GET("57e11ef5-4e24-48e9-a72f-1e58220f7263")    //TODO Cambiar por url final
+    @GET("98c5788a-ad66-4c17-8fc8-4a451d9c9f4d")    //TODO Cambiar por url final
     suspend fun getTopCategories(): List<CategoryDto?>?
 
-    @GET("11bef40a-f554-4a1c-9e8c-89f3386bd1b5")    //TODO Cambiar por url final
+    @GET("98c5788a-ad66-4c17-8fc8-4a451d9c9f4d")    //TODO Cambiar por url final
     suspend fun getAllCategories(): List<CategoryDto?>?
+
+    @GET("47e4c009-7b5c-4c4f-a839-1194a1edb45f")    //TODO Cambiar por url final
+    suspend fun getAllCategoriesFull(): List<CategoryDto?>?
 
 }

@@ -4,6 +4,7 @@ import es.gresybano.gresybano.domain.category.entity.CategoryBo
 
 data class FavoriteCategoryVo(
     val id: Long,
+    val tag: String?,
     val mainImage: String,
     val name: String,
     var selected: Boolean,
@@ -11,6 +12,7 @@ data class FavoriteCategoryVo(
 
 fun CategoryBo.toVo() = FavoriteCategoryVo(
     id = id,
+    tag = tag,
     name = name,
     mainImage = mainImage,
     selected = false
@@ -18,6 +20,7 @@ fun CategoryBo.toVo() = FavoriteCategoryVo(
 
 fun FavoriteCategoryVo.toBo() = CategoryBo(
     id = id,
+    tag = tag,
     name = name,
     mainImage = mainImage,
     isFavorite = selected,

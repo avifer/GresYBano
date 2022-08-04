@@ -1,7 +1,7 @@
-package es.gresybano.gresybano.domain.category.usecases
+package es.gresybano.gresybano.feature.onboarding.domain
 
-import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
 import es.gresybano.gresybano.domain.category.entity.CategoryBo
+import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
 import es.gresybano.gresybano.domain.response.Response
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

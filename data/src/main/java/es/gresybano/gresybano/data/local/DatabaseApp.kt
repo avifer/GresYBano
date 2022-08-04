@@ -16,9 +16,9 @@ abstract class DatabaseApp : RoomDatabase() {
         //Categories
         const val TABLE_FAVORITES_CATEGORIES_DBO = "favoriteCategories"
         const val KEY_CATEGORY_DBO = "id"
+        const val TAG_CATEGORY_DBO = "tag"
         const val NAME_CATEGORY_DBO = "name"
         const val URL_CATEGORY_DBO = "mainImage"
-        const val FAVORITE_CATEGORY_DBO = "isFavorite"
 
     }
 }

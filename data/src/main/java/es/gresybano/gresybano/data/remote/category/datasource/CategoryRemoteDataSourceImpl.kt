@@ -11,7 +11,7 @@ class CategoryRemoteDataSourceImpl(
 ) : CategoryRemoteDataSource, BaseRepository() {
 
     override suspend fun getCategory(id: Long): Response<CategoryDto?> {
-        return safeRemoteCall { categoryApi.getCategory(id) }
+        return safeRemoteCall { categoryApi.getCategory() }   //TODO Añadir parametro cuando este la url
     }
 
     override suspend fun getTopCategories(): Response<List<CategoryDto?>?> {
@@ -20,6 +20,10 @@ class CategoryRemoteDataSourceImpl(
 
     override suspend fun getAllCategories(): Response<List<CategoryDto?>?> {
         return safeRemoteCall { categoryApi.getAllCategories() }
+    }
+
+    override suspend fun getAllCategoriesFull(): Response<List<CategoryDto?>?> {
+        return safeRemoteCall { categoryApi.getAllCategoriesFull() }
     }
 
 }

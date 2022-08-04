@@ -97,9 +97,9 @@ class HomeFragment : BaseFragment() {
     private fun setDataInLists(homeListElementsVo: HomeListElementsVo) {
         getBindingCast()?.let {
             with(it) {
-                fragmentHomeListCategories.visible(!homeListElementsVo.listCategories.isNullOrEmpty())
-                fragmentHomeListMorePopulars.visible(!homeListElementsVo.listMorePopularPublications.isNullOrEmpty())
-                fragmentHomeListLastPublished.visible(!homeListElementsVo.listLastPublished.isNullOrEmpty())
+                fragmentHomeListCategories.visible(homeListElementsVo.listCategories.isNotEmpty())
+                fragmentHomeListMorePopulars.visible(homeListElementsVo.listMorePopularPublications.isNotEmpty())
+                fragmentHomeListLastPublished.visible(homeListElementsVo.listLastPublished.isNotEmpty())
             }
         }
         adapterListCategories.submitList(homeListElementsVo.listCategories)
