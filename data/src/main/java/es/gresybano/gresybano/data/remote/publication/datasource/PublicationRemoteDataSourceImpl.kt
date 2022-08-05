@@ -10,23 +10,27 @@ class PublicationRemoteDataSourceImpl(
     private val publicationApi: PublicationApi
 ) : PublicationRemoteDataSource, BaseRepository() {
 
-    override suspend fun getPublicationsOfCategory(idCategory: Long): Response<List<PublicationDto>> {
+    override suspend fun getPublicationsOfCategory(idCategory: Long): Response<List<PublicationDto?>?> {
         return safeRemoteCall {
             publicationApi.getPublicationsCategory()?.filterNotNull()
                 ?: listOf()   //TODO Añadir parametro cuando este la url
         }
     }
 
-    override suspend fun getLastPublished(): Response<List<PublicationDto>> {
+    override suspend fun getLastPublished(): Response<List<PublicationDto?>?> {
         return safeRemoteCall { publicationApi.getLastPublished()?.filterNotNull() ?: listOf() }
     }
 
-    override suspend fun getMorePopular(): Response<List<PublicationDto>> {
+    override suspend fun getMorePopular(): Response<List<PublicationDto?>?> {
         return safeRemoteCall { publicationApi.getMorePopular()?.filterNotNull() ?: listOf() }
     }
 
     override suspend fun getPublication(idPublication: Long): Response<PublicationDto?> {
         return safeRemoteCall { publicationApi.getPublication() }   //TODO Añadir parametro cuando este la url
+    }
+
+    override suspend fun getAllPublications(): Response<List<PublicationDto?>?> {
+        return safeRemoteCall { publicationApi.getAllPublications()?.filterNotNull() ?: listOf() }
     }
 
 }

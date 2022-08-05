@@ -1,11 +1,12 @@
 package es.gresybano.gresybano.domain.publication.entity
 
+import es.gresybano.gresybano.domain.category.entity.CategoryBo
 import java.util.*
 
 data class PublicationBo(
     val id: Long,
     val publishDate: Date = Date(),
-    val category: List<Long>,
+    val category: List<CategoryBo>,
     val listImages: List<String>,
-    val favorite: Boolean = false,
+    var favorite: Boolean = false,
 )

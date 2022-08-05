@@ -14,6 +14,8 @@ interface RepositoryPublication {
 
     suspend fun getPublication(idPublication: Long): Response<PublicationBo?>
 
+    suspend fun getAllPublications(): Response<List<PublicationBo>>
+
     suspend fun getAllPublicationsFavorites(): Response<List<FavoritePublicationBo>>
 
     suspend fun savePublicationsFavorites(list: List<PublicationBo>): Response<List<Long>>

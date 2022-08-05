@@ -21,25 +21,32 @@ class RepositoryPublicationImpl(
     override suspend fun getPublicationsOfCategory(idCategory: Long): Response<List<PublicationBo>> {
         return publicationRemoteDataSource.getPublicationsOfCategory(idCategory)
             .defaultResponse { listPublication ->
-                listPublication?.map { it.toBo() } ?: listOf()
+                listPublication?.mapNotNull { it?.toBo() } ?: listOf()
             }
     }
 
     override suspend fun getMorePopularPublications(): Response<List<PublicationBo>> {
         return publicationRemoteDataSource.getMorePopular().defaultResponse { listPublication ->
-            listPublication?.map { it.toBo() } ?: listOf()
+            listPublication?.mapNotNull { it?.toBo() } ?: listOf()
         }
     }
 
     override suspend fun getLastPublishedPublications(): Response<List<PublicationBo>> {
         return publicationRemoteDataSource.getLastPublished().defaultResponse { listPublication ->
-            listPublication?.map { it.toBo() } ?: listOf()
+            listPublication?.mapNotNull { it?.toBo() } ?: listOf()
         }
     }
 
     override suspend fun getPublication(idPublication: Long): Response<PublicationBo?> {
         return publicationRemoteDataSource.getPublication(idPublication)
             .defaultResponse { it?.toBo() }
+    }
+
+    override suspend fun getAllPublications(): Response<List<PublicationBo>> {
+        return publicationRemoteDataSource.getAllPublications()
+            .defaultResponse { listPublications ->
+                listPublications?.mapNotNull { it?.toBo() } ?: listOf()
+            }
     }
 
     override suspend fun getAllPublicationsFavorites(): Response<List<FavoritePublicationBo>> {
