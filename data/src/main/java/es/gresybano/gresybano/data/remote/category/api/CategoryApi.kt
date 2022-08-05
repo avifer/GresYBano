@@ -14,7 +14,7 @@ interface CategoryApi {
     @GET("98c5788a-ad66-4c17-8fc8-4a451d9c9f4d")    //TODO Cambiar por url final
     suspend fun getAllCategories(): List<CategoryDto?>?
 
-    @GET("47e4c009-7b5c-4c4f-a839-1194a1edb45f")    //TODO Cambiar por url final
+    @GET("997b3055-314e-4a24-b1c5-a701bd048a9f")    //TODO Cambiar por url final
     suspend fun getAllCategoriesFull(): List<CategoryDto?>?
 
 }

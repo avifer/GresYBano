@@ -5,12 +5,14 @@ import es.gresybano.gresybano.domain.response.Response
 
 interface PublicationRemoteDataSource {
 
-    suspend fun getPublicationsOfCategory(idCategory: Long): Response<List<PublicationDto>>
+    suspend fun getPublicationsOfCategory(idCategory: Long): Response<List<PublicationDto?>?>
 
-    suspend fun getLastPublished(): Response<List<PublicationDto>>
+    suspend fun getLastPublished(): Response<List<PublicationDto?>?>
 
-    suspend fun getMorePopular(): Response<List<PublicationDto>>
+    suspend fun getMorePopular(): Response<List<PublicationDto?>?>
 
     suspend fun getPublication(idPublication: Long): Response<PublicationDto?>
+
+    suspend fun getAllPublications(): Response<List<PublicationDto?>?>
 
 }
