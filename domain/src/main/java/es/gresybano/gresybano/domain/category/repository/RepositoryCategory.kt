@@ -1,6 +1,7 @@
 package es.gresybano.gresybano.domain.category.repository
 
 import es.gresybano.gresybano.domain.category.entity.CategoryBo
+import es.gresybano.gresybano.domain.category.entity.FavoriteCategoryBo
 import es.gresybano.gresybano.domain.response.Response
 
 interface RepositoryCategory {
@@ -13,8 +14,10 @@ interface RepositoryCategory {
 
     suspend fun getAllCategoriesFull(): Response<List<CategoryBo>>
 
-    suspend fun getAllCategoriesFavorites(): Response<List<CategoryBo>>
+    suspend fun getAllCategoriesFavorites(): Response<List<FavoriteCategoryBo>>
 
     suspend fun saveCategoriesFavorites(list: List<CategoryBo>): Response<List<Long>>
+
+    suspend fun removeCategoriesFavorites(list: List<CategoryBo>): Response<Int>
 
 }

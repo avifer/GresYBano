@@ -1,13 +1,15 @@
 package es.gresybano.gresybano.data.repository
 
+import es.gresybano.gresybano.common.util.ZERO
 import es.gresybano.gresybano.data.local.favoritecategory.datasource.FavoriteCategoryLocalDataSource
 import es.gresybano.gresybano.data.local.favoritecategory.model.toBo
-import es.gresybano.gresybano.data.local.favoritecategory.model.toDbo
+import es.gresybano.gresybano.data.local.favoritecategory.model.toFavoriteCategoryDbo
 import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteDataSource
 import es.gresybano.gresybano.data.remote.category.model.toBo
 import es.gresybano.gresybano.data.utils.BaseRepository
-import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
 import es.gresybano.gresybano.domain.category.entity.CategoryBo
+import es.gresybano.gresybano.domain.category.entity.FavoriteCategoryBo
+import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
 import es.gresybano.gresybano.domain.response.Response
 import es.gresybano.gresybano.domain.response.defaultResponse
 
@@ -38,15 +40,20 @@ class RepositoryCategoryImpl(
         }
     }
 
-    override suspend fun saveCategoriesFavorites(list: List<CategoryBo>): Response<List<Long>> {
-        return favoriteCategoryLocalDataSource.insertListCategories(list.map { it.toDbo() })
-            .defaultResponse { it?.filterNotNull() ?: listOf() }
-    }
-
-    override suspend fun getAllCategoriesFavorites(): Response<List<CategoryBo>> {
+    override suspend fun getAllCategoriesFavorites(): Response<List<FavoriteCategoryBo>> {
         return favoriteCategoryLocalDataSource.getCategories().defaultResponse { listCategories ->
             listCategories?.mapNotNull { category -> category?.toBo() } ?: listOf()
         }
+    }
+
+    override suspend fun saveCategoriesFavorites(list: List<CategoryBo>): Response<List<Long>> {
+        return favoriteCategoryLocalDataSource.insertListCategories(list.map { it.toFavoriteCategoryDbo() })
+            .defaultResponse { it?.filterNotNull() ?: listOf() }
+    }
+
+    override suspend fun removeCategoriesFavorites(list: List<CategoryBo>): Response<Int> {
+        return favoriteCategoryLocalDataSource.deleteCategories(list.map { it.toFavoriteCategoryDbo() })
+            .defaultResponse { it ?: ZERO }
     }
 
 }

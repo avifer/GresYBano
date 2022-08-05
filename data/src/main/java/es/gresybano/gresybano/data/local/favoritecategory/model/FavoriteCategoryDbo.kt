@@ -12,8 +12,4 @@ data class FavoriteCategoryDbo(
     val id: Long,
     @ColumnInfo(name = DatabaseApp.TAG_CATEGORY_DBO)
     val tag: String?,
-    @ColumnInfo(name = DatabaseApp.NAME_CATEGORY_DBO)
-    val name: String,
-    @ColumnInfo(name = DatabaseApp.URL_CATEGORY_DBO)
-    val mainImage: String,
 )

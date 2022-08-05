@@ -1,6 +1,5 @@
 package es.gresybano.gresybano.data.local.favoritecategory.datasource
 
-import es.gresybano.gresybano.common.util.ZERO
 import es.gresybano.gresybano.data.local.favoritecategory.dao.FavoriteCategoryDao
 import es.gresybano.gresybano.data.local.favoritecategory.model.FavoriteCategoryDbo
 import es.gresybano.gresybano.data.utils.safeLocalCall
@@ -19,13 +18,11 @@ class FavoriteCategoryLocalDataSourceImpl(
     }
 
     override suspend fun insertListCategories(list: List<FavoriteCategoryDbo>): Response<List<Long?>?> {
-        return safeLocalCall {
-            favoriteCategoryDao.insert(*list.toTypedArray())?.filterNotNull() ?: listOf()
-        }
+        return safeLocalCall { favoriteCategoryDao.insert(*list.toTypedArray()) }
     }
 
-    override suspend fun deleteCategories(list: List<FavoriteCategoryDbo>): Response<Int> {
-        return safeLocalCall { favoriteCategoryDao.delete(*list.toTypedArray()) ?: ZERO }
+    override suspend fun deleteCategories(list: List<FavoriteCategoryDbo>): Response<Int?> {
+        return safeLocalCall { favoriteCategoryDao.delete(*list.toTypedArray()) }
     }
 
 }
