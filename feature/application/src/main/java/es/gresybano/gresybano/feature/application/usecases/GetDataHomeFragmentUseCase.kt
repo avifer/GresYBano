@@ -17,8 +17,8 @@ class GetDataHomeFragmentUseCase @Inject constructor(
         return flow {
             emit(Response.Loading())
             val listAllCategories = repositoryCategory.getAllCategoriesFull()
-            val listMorePopular = repositoryPublication.getMorePopularPublicationsRemote()
-            val listLastPublished = repositoryPublication.getLastPublishedPublicationsRemote()
+            val listMorePopular = repositoryPublication.getMorePopularPublications()
+            val listLastPublished = repositoryPublication.getLastPublishedPublications()
 
             if (listAllCategories.isSuccessful()
                 || listMorePopular.isSuccessful()

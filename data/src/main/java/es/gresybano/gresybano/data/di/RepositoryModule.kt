@@ -9,6 +9,9 @@ import dagger.hilt.components.SingletonComponent
 import es.gresybano.gresybano.data.local.favoritecategory.dao.FavoriteCategoryDao
 import es.gresybano.gresybano.data.local.favoritecategory.datasource.FavoriteCategoryLocalDataSource
 import es.gresybano.gresybano.data.local.favoritecategory.datasource.FavoriteCategoryLocalDataSourceImpl
+import es.gresybano.gresybano.data.local.favoritepublication.dao.FavoritePublicationDao
+import es.gresybano.gresybano.data.local.favoritepublication.datasource.FavoritePublicationLocalDataSource
+import es.gresybano.gresybano.data.local.favoritepublication.datasource.FavoritePublicationLocalDataSourceImpl
 import es.gresybano.gresybano.data.preferences.notification.NotificationPreferencesDataSource
 import es.gresybano.gresybano.data.preferences.notification.NotificationPreferencesDataSourceImpl
 import es.gresybano.gresybano.data.remote.category.api.CategoryApi
@@ -29,13 +32,15 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class RepositoryModule {
 
+    //region CATEGORY
+
     @Provides
     fun getCategoryRemoteDataSource(categoryApi: CategoryApi): CategoryRemoteDataSource {
         return CategoryRemoteDataSourceImpl(categoryApi)
     }
 
     @Provides
-    fun getRepositoryRemoteDataSource(favoriteCategoryDao: FavoriteCategoryDao): FavoriteCategoryLocalDataSource {
+    fun getFavoriteCategoryLocalDataSource(favoriteCategoryDao: FavoriteCategoryDao): FavoriteCategoryLocalDataSource {
         return FavoriteCategoryLocalDataSourceImpl(favoriteCategoryDao)
     }
 
@@ -48,19 +53,35 @@ class RepositoryModule {
         return RepositoryCategoryImpl(categoryRemoteDataSource, favoriteCategoryLocalDataSource)
     }
 
+    //endregion
+
+    //region PUBLICATION
+
     @Provides
     fun getPublicationRemoteDataSource(publicationApi: PublicationApi): PublicationRemoteDataSource {
         return PublicationRemoteDataSourceImpl(publicationApi)
+    }
+
+    @Provides
+    fun getFavoritePublicationLocalDataSource(favoritePublicationDao: FavoritePublicationDao): FavoritePublicationLocalDataSource {
+        return FavoritePublicationLocalDataSourceImpl(favoritePublicationDao)
     }
 
     @Singleton
     @Provides
     fun getRepositoryPublicationImpl(
         publicationRemoteDataSource: PublicationRemoteDataSource,
+        favoritePublicationLocalDataSource: FavoritePublicationLocalDataSource,
     ): RepositoryPublication {
-        return RepositoryPublicationImpl(publicationRemoteDataSource)
+        return RepositoryPublicationImpl(
+            publicationRemoteDataSource,
+            favoritePublicationLocalDataSource
+        )
     }
 
+    //endregion
+
+    //region NOTIFICATION
 
     @Provides
     fun getNotificationPreferencesDataSourceImpl(@ApplicationContext context: Context): NotificationPreferencesDataSource {
@@ -74,5 +95,7 @@ class RepositoryModule {
     ): RepositoryNotification {
         return RepositoryNotificationImpl(notificationPreferencesDataSource)
     }
+
+    //endregion
 
 }

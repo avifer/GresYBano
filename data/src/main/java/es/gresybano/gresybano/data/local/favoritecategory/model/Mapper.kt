@@ -1,17 +1,19 @@
 package es.gresybano.gresybano.data.local.favoritecategory.model
 
 import es.gresybano.gresybano.domain.category.entity.CategoryBo
+import es.gresybano.gresybano.domain.category.entity.FavoriteCategoryBo
 
-fun FavoriteCategoryDbo.toBo() = CategoryBo(
-    id = id,
-    name = name,
-    mainImage = mainImage,
-    isFavorite = true,
-)
-
-fun CategoryBo.toDbo() = FavoriteCategoryDbo(
+fun FavoriteCategoryDbo.toBo() = FavoriteCategoryBo(
     id = id,
     tag = tag,
-    name = name,
-    mainImage = mainImage,
+)
+
+fun FavoriteCategoryBo.toDbo() = FavoriteCategoryDbo(
+    id = id,
+    tag = tag,
+)
+
+fun CategoryBo.toFavoriteCategoryDbo() = FavoriteCategoryDbo(
+    id = id,
+    tag = tag,
 )

@@ -11,6 +11,6 @@ interface FavoriteCategoryLocalDataSource {
 
     suspend fun insertListCategories(list: List<FavoriteCategoryDbo>): Response<List<Long?>?>
 
-    suspend fun deleteCategories(list: List<FavoriteCategoryDbo>): Response<Int>
+    suspend fun deleteCategories(list: List<FavoriteCategoryDbo>): Response<Int?>
 
 }
