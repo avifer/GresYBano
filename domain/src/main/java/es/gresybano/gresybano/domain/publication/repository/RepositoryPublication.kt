@@ -18,6 +18,8 @@ interface RepositoryPublication {
 
     suspend fun getAllPublicationsFavorites(): Response<List<FavoritePublicationBo>>
 
+    suspend fun isPublicationFavorite(idPublication: Long): Response<Boolean>
+
     suspend fun savePublicationsFavorites(list: List<PublicationBo>): Response<List<Long>>
 
     suspend fun removePublicationsFavorites(list: List<PublicationBo>): Response<Int>

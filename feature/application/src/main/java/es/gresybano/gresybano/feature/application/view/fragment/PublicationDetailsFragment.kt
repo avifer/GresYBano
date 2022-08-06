@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
+import dagger.hilt.android.AndroidEntryPoint
 import es.gresybano.gresybano.common.util.DEFAULT_ID_LONG
 import es.gresybano.gresybano.common.view.BaseFragment
 import es.gresybano.gresybano.feature.application.databinding.FragmentPublicationDetailsBinding
 import es.gresybano.gresybano.feature.application.view.adapter.ImagePublicationPageAdapter
 import es.gresybano.gresybano.feature.application.viewmodel.PublicationDetailsViewModel
 
-
+@AndroidEntryPoint
 class PublicationDetailsFragment : BaseFragment() {
 
     override val viewModel by viewModels<PublicationDetailsViewModel>()
@@ -38,18 +39,39 @@ class PublicationDetailsFragment : BaseFragment() {
 
     override fun onViewReady(savedInstanceState: Bundle?) {
         showToolbarGoBack()
-        initListImages()
-        initIdPublication()
+        getInfoPublication()
         initIndicator()
         initImagesPager()
+        initIsFavorite()
+        setClickFavorite()
     }
 
-    private fun initListImages() {
-        viewModel.listImages = arguments?.getStringArray(KEY_LIST_IMAGES)?.toList() ?: listOf()
+    private fun setClickFavorite() {
+        getBindingCast()?.fragmentPublicationDetailsImgFavorite?.setOnClickListener {
+            viewModel.addOrRemovePublicationToFavorite {
+                setIconFavorite(it)
+            }
+        }
     }
 
-    private fun initIdPublication() {
+    private fun initIsFavorite() {
+        viewModel.getIsFavorite {
+            setIconFavorite(it)
+        }
+    }
+
+    private fun setIconFavorite(isFavorite: Boolean) {
+        getBindingCast()?.fragmentPublicationDetailsImgFavorite?.setBackgroundResource(
+            when (isFavorite) {
+                true -> es.gresybano.gresybano.common.R.drawable.icon_favorite_selected
+                false -> es.gresybano.gresybano.common.R.drawable.icon_favorite_unselected
+            }
+        )
+    }
+
+    private fun getInfoPublication() {
         viewModel.idPublication = arguments?.getLong(KEY_ID_PUBLICATION) ?: DEFAULT_ID_LONG
+        viewModel.listImages = arguments?.getStringArray(KEY_LIST_IMAGES)?.toList() ?: listOf()
     }
 
     private fun initIndicator() {

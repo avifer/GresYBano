@@ -38,10 +38,13 @@
     <dimen name="fragment_category_details__label__amount_publications__text_size">24sp</dimen>
     <dimen name="fragment_category_details__list__list_publications__margin_vertical">8dp</dimen>
 
-    <dimen name="fragment_publication_details__view_pager__images__margin_vertical">12dp</dimen>
+    <dimen name="fragment_publication_details__view_pager__images__margin_top">12dp</dimen>
     <dimen name="fragment_publication_details__page_indicator__indicator__margin_horizontal">72dp</dimen>
     <dimen name="fragment_publication_details__page_indicator__indicator__margin_bottom">12dp</dimen>
     <dimen name="fragment_publication_details__page_indicator__indicator__size_indicator">10dp</dimen>
+    <dimen name="fragment_publication_details__img__favorite__size">28dp</dimen>
+    <dimen name="fragment_publication_details__img__favorite__margin">12dp</dimen>
+    <dimen name="fragment_publication_details__view_pager__images__margin_bottom">60dp</dimen>
 
     <dimen name="row_notification__elevation">4dp</dimen>
     <dimen name="row_notification__card__height">80dp</dimen>
@@ -54,4 +57,10 @@
     <dimen name="row_separator_date__elevation">4dp</dimen>
     <dimen name="row_separator_date__label__date__margin">16dp</dimen>
     <dimen name="row_separator_date__label__date__text_size">18sp</dimen>
+
+    <dimen name="fragment_favorite_publications__img__empty_favorite__size">140dp</dimen>
+    <dimen name="fragment_favorite_publications__label__empty_favorite__margin">12dp</dimen>
+    <dimen name="fragment_favorite_publications__label__empty_favorite__padding_horizontal">12dp</dimen>
+    <dimen name="fragment_favorite_publications__label__empty_favorite__text_size">16sp</dimen>
+    <item name="fragment_favorite_publications__img__empty_favorite__bias_vertical" type="dimen" format="float">0.45</item>
 </resources>

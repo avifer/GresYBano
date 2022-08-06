@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,8 +20,10 @@ class FavoritePublicationsFragment : BaseFragment() {
 
     private val adapterFavoritePublications = FavoritePublicationsAdapter(
         {
-            //TODO Implementar
-            Toast.makeText(requireContext(), it.id.toString(), Toast.LENGTH_SHORT).show()
+            viewModel.goToDetailPublication(
+                idPublication = it.id,
+                listImages = it.listImages
+            )
         },
         {
             //TODO Implementar
@@ -41,8 +44,9 @@ class FavoritePublicationsFragment : BaseFragment() {
         viewModel.getListFavorites().observe(viewLifecycleOwner) {
             it?.let {
                 adapterFavoritePublications.setElements(it)
+                getBindingCast()?.listEmpty(it.isEmpty())
 
-            } ?: viewModel.postDefaultError()
+            } ?: kotlin.run { viewModel.postDefaultError() }
         }
     }
 
@@ -56,6 +60,11 @@ class FavoritePublicationsFragment : BaseFragment() {
                 adapter = adapterFavoritePublications
             }
         }
+    }
+
+    private fun FragmentFavoritePublicationsBinding.listEmpty(isEmpty: Boolean) {
+        fragmentFavoritePublicationsLabelEmptyFavorite.isVisible = isEmpty
+        fragmentFavoritePublicationsImgEmptyFavorite.isVisible = isEmpty
     }
 
 }

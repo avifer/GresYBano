@@ -10,11 +10,23 @@
         android:id="@+id/fragment_publication_details__view_pager__images"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginVertical="@dimen/fragment_publication_details__view_pager__images__margin_vertical"
+        android:layout_marginTop="@dimen/fragment_publication_details__view_pager__images__margin_top"
+        android:layout_marginBottom="@dimen/fragment_publication_details__view_pager__images__margin_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/fragment_publication_details__img__favorite"
+        android:layout_width="@dimen/fragment_publication_details__img__favorite__size"
+        android:layout_height="@dimen/fragment_publication_details__img__favorite__size"
+        android:layout_margin="@dimen/fragment_publication_details__img__favorite__margin"
+        android:backgroundTint="@color/color_amount_notifications"
+        android:contentDescription="@string/fragment_publication_details__img__favorite__description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_publication_details__view_pager__images"
+        tools:src="@drawable/icon_favorite_selected" />
 
     <es.avifer.pageindicator.PageIndicator
         android:id="@+id/fragment_publication_details__page_indicator__indicator"
