@@ -56,6 +56,10 @@ class RepositoryPublicationImpl(
             }
     }
 
+    override suspend fun isPublicationFavorite(idPublication: Long): Response<Boolean> {
+        return favoritePublicationLocalDataSource.isPublicationFavorite(idPublication)
+    }
+
     override suspend fun savePublicationsFavorites(list: List<PublicationBo>): Response<List<Long>> {
         return favoritePublicationLocalDataSource.insertFavoritesPublications(list.map { it.toFavoritePublicationDbo() })
             .defaultResponse { it?.filterNotNull() ?: listOf() }
