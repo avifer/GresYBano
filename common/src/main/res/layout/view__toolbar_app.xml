@@ -17,6 +17,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--TODO Quitar gone cuando este desarrollado -->
+
     <TextView
         android:id="@+id/view__toolbar_app__label__title"
         android:layout_width="wrap_content"
@@ -25,9 +27,12 @@
         android:textColor="@color/black"
         android:textSize="@dimen/view__toolbar_app__label__title__text_size"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/view__toolbar_app__img__go_back"
         app:layout_constraintStart_toEndOf="@id/view__toolbar_app__img__go_back"
         app:layout_constraintTop_toTopOf="@id/view__toolbar_app__img__go_back" />
+
+    <!--TODO Quitar gone cuando este desarrollado -->
 
     <View
         android:id="@+id/view__toolbar_app__view__search_bar"
@@ -35,10 +40,13 @@
         android:layout_height="@dimen/view__toolbar_app__view__search_bar__height"
         android:layout_marginStart="@dimen/view__toolbar_app__view__search_bar__margin_horizontal"
         android:background="@drawable/background__view__toolbar_app__view__search_bar"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/view__toolbar_app__guideline__separator_search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!--TODO Quitar gone cuando este desarrollado -->
 
     <ImageView
         android:id="@+id/view__toolbar_app__img__search"
@@ -47,6 +55,7 @@
         android:layout_marginEnd="@dimen/view__toolbar_app__img__search__margin_end"
         android:contentDescription="@string/view__toolbar_app__img__search__description"
         android:src="@drawable/icon_search"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/view__toolbar_app__view__search_bar"
         app:layout_constraintEnd_toEndOf="@id/view__toolbar_app__view__search_bar"
         app:layout_constraintTop_toTopOf="@id/view__toolbar_app__view__search_bar" />

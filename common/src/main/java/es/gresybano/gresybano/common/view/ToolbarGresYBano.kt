@@ -125,8 +125,8 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
 
     private fun hideDefault() {
         typeToolbarShow = TypeToolbarShow.NONE
-        searchView?.hide()
-        iconSearchView?.hide()
+        //searchView?.hide()    //TODO Descomentar cuando este desarrollado
+        //iconSearchView?.hide()    //TODO Descomentar cuando este desarrollado
         //iconScanQR?.hide()    //TODO Descomentar cuando este desarrollado
         iconNotifications?.hide()
         iconAmountNotifications?.hide()
@@ -140,8 +140,8 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
 
     private fun showDefault() {
         typeToolbarShow = TypeToolbarShow.TOOLBAR_DEFAULT
-        searchView?.show()
-        iconSearchView?.show()
+        //searchView?.show()  //TODO Descomentar cuando este desarrollado
+        //iconSearchView?.show()  //TODO Descomentar cuando este desarrollado
         //iconScanQR?.show()   //TODO Descomentar cuando este desarrollado
         iconNotifications?.show()
         iconAmountNotifications?.visible(amountNotifications != ZERO)
