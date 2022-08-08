@@ -103,10 +103,10 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
         showDefault()
     }
 
-    fun showToolbarGoBack(title: String = "") {
+    fun showToolbarGoBack(title: String = "", onlyTitle: Boolean = false) {
         show()
         hideDefault()
-        showGoBack()
+        showGoBack(onlyTitle)
         setTitleToolbar(title)
     }
 
@@ -147,9 +147,11 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
         iconAmountNotifications?.visible(amountNotifications != ZERO)
     }
 
-    private fun showGoBack() {
+    private fun showGoBack(onlyTitle: Boolean = false) {
         typeToolbarShow = TypeToolbarShow.TOOLBAR_GO_BACK
-        iconGoBackToolbar?.show()
+        if (!onlyTitle) {
+            iconGoBackToolbar?.show()
+        }
         titleToolbar?.show()
     }
 
