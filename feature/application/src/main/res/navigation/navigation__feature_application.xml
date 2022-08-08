@@ -112,10 +112,15 @@
             android:defaultValue=""
             app:argType="string" />
 
+        <argument
+            android:name="onlyFavorites"
+            android:defaultValue="false"
+            app:argType="boolean" />
+
     </action>
 
     <action
         android:id="@+id/navigate_to_navigation__feature_application__notifications_fragment"
-        app:destination="@id/navigation__feature_application__notifications_fragment"/>
+        app:destination="@id/navigation__feature_application__notifications_fragment" />
 
 </navigation>

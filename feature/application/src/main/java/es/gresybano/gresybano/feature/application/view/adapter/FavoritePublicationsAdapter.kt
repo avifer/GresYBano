@@ -71,6 +71,7 @@ class FavoritePublicationsAdapter(
                 FavoritePublicationVo(
                     category.id,
                     category.name,
+                    category.mainImage,
                     list.filter { publication ->
                         publication.category.map { it.id }.contains(category.id)
                     }

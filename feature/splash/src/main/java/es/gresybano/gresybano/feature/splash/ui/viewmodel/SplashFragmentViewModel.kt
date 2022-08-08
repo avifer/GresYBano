@@ -5,11 +5,10 @@ import es.gresybano.gresybano.common.util.ZERO_LONG
 import es.gresybano.gresybano.common.util.parseToJSON
 import es.gresybano.gresybano.common.util.runDelayMain
 import es.gresybano.gresybano.common.viewmodel.BaseViewModel
-import es.gresybano.gresybano.common.viewmodel.executeWithListeners
+import es.gresybano.gresybano.common.viewmodel.defaultResponse
 import es.gresybano.gresybano.domain.category.entity.CategoryBo
-import es.gresybano.gresybano.domain.response.ExceptionInfo
-import es.gresybano.gresybano.feature.splash.usecases.GetAllCategoriesUseCase
 import es.gresybano.gresybano.feature.splash.ui.view.fragment.SplashFragmentDirections
+import es.gresybano.gresybano.feature.splash.usecases.GetAllCategoriesUseCase
 import javax.inject.Inject
 
 @HiltViewModel
@@ -36,17 +35,11 @@ class SplashFragmentViewModel @Inject constructor(
         }
     }
 
-    fun getAllCategories(
-        error: suspend (error: ExceptionInfo) -> Unit,
-    ) {
-        executeWithListeners(
-            successful = { goToOnBoarding(it) },
-            error = error,
-            loading = {},
-        ) {
-            getAllCategoriesUseCase()
+    fun getAllCategories() {
+        defaultResponse(getAllCategoriesUseCase()) {
+            goToOnBoarding(it)
+            it
         }
-
     }
 
 }

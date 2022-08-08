@@ -11,11 +11,24 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CategoryDetailsViewModel @Inject constructor(
-    private val getPublicationsOfCategoryUseCase: GetPublicationsOfCategoryUseCase
+    private val getPublicationsOfCategoryUseCase: GetPublicationsOfCategoryUseCase,
 ) : BaseViewModel() {
 
+    private var onlyFavorites = false
+
+    fun saveOnlyFavorites(onlyFavorites: Boolean?) {
+        this.onlyFavorites = onlyFavorites ?: false
+    }
+
     fun getPublicationsOfCategory(idCategory: Long?): LiveData<List<PublicationBo>?> {
-        return defaultResponse { getPublicationsOfCategoryUseCase(idCategory) }
+        return defaultResponse(getPublicationsOfCategoryUseCase(idCategory)) { data ->
+            if (onlyFavorites) {
+                data?.filter { it.favorite }
+
+            } else {
+                data
+            }
+        }
     }
 
     fun goToDetailPublication(idPublication: Long, listImages: List<String>) {

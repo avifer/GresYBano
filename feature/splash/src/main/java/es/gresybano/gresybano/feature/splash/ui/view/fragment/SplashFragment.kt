@@ -7,7 +7,6 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import es.gresybano.gresybano.common.util.PreferencesUtil
 import es.gresybano.gresybano.common.view.BaseFragment
-import es.gresybano.gresybano.common.view.toast
 import es.gresybano.gresybano.feature.splash.databinding.FragmentSplashBinding
 import es.gresybano.gresybano.feature.splash.ui.viewmodel.SplashFragmentViewModel
 import javax.inject.Inject
@@ -37,9 +36,7 @@ class SplashFragment : BaseFragment() {
 
     private fun firstScreen() {
         if (!preferencesUtil.getIsOnBoardingConfig()) {
-            viewModel.getAllCategories {
-                toast(es.gresybano.gresybano.domain.R.string.no_network)
-            }
+            viewModel.getAllCategories()
 
         } else {
             viewModel.goToHome(DELAY_SPLASH)
