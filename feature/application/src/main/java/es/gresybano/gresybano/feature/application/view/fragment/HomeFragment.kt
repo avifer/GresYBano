@@ -9,8 +9,8 @@ import es.avifer.listheaderseemore.ListHeaderSeeMore
 import es.avifer.listheaderseemore.ListHeaderSeeMoreAdapter
 import es.gresybano.gresybano.common.extensions.visible
 import es.gresybano.gresybano.common.view.BaseFragment
-import es.gresybano.gresybano.feature.application.entity.HomeListElementsVo
 import es.gresybano.gresybano.feature.application.databinding.FragmentHomeBinding
+import es.gresybano.gresybano.feature.application.entity.HomeListElementsVo
 import es.gresybano.gresybano.feature.application.view.adapter.HeightCategoryAdapter
 import es.gresybano.gresybano.feature.application.view.adapter.HeightPublicationAdapter
 import es.gresybano.gresybano.feature.application.viewmodel.HomeViewModel
@@ -32,20 +32,26 @@ class HomeFragment : BaseFragment() {
         }
 
     private val adapterListMorePopulars =
-        HeightPublicationAdapter(listenerClickElement = {
-            viewModel.goToDetailPublication(
-                idPublication = it.id,
-                listImages = it.listImages,
-            )
-        })
+        HeightPublicationAdapter(
+            listenerClickElement = {
+                viewModel.goToDetailPublication(
+                    idPublication = it.id,
+                    listImages = it.listImages,
+                )
+            },
+            favoriteEnable = true,
+        )
 
     private val adapterListLastPublications =
-        HeightPublicationAdapter(listenerClickElement = {
-            viewModel.goToDetailPublication(
-                idPublication = it.id,
-                listImages = it.listImages,
-            )
-        })
+        HeightPublicationAdapter(
+            listenerClickElement = {
+                viewModel.goToDetailPublication(
+                    idPublication = it.id,
+                    listImages = it.listImages,
+                )
+            },
+            favoriteEnable = true,
+        )
 
     private val actionSeeMoreCategories = { /*TODO*/ }
 
@@ -61,6 +67,12 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun loadDataLists() {
+        viewModel.getElementsHome().observe(viewLifecycleOwner) {
+            it?.let { setDataInLists(it) }
+        }
+        /*
+        TODO Logica para no repetir llamadas a los servicios
+        //Queda comentada por ahora hasta solucionar bug de los favoritos desde la home
         if (viewModel.getDataSave() != null) {
             viewModel.getDataSave()?.let { setDataInLists(it) }
 
@@ -70,6 +82,7 @@ class HomeFragment : BaseFragment() {
                 viewModel.saveData(it)
             }
         }
+         */
     }
 
     private fun initList() {

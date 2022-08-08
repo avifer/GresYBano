@@ -18,23 +18,12 @@ class GetPublicationsFavoritesUseCase @Inject constructor(
         return flow {
             emit(Response.Loading())
             val allPublications = repositoryPublication.getAllPublications()
-            val publicationsFavorites = repositoryPublication.getAllPublicationsFavorites()
 
-            if (allPublications.isSuccessful()
-                && publicationsFavorites.isSuccessful()
-            ) {
-                val listIdFavorites = publicationsFavorites.getData()?.map { it.id } ?: listOf()
-                val listPublications = allPublications.getData()?.filter {
-                    listIdFavorites.contains(it.id)
-                }
-                listPublications?.forEach { it.favorite = true }
-                emit(Response.Successful(listPublications))
+            if (allPublications.isSuccessful()) {
+                emit(Response.Successful(allPublications.getData()?.filter { it.favorite }))
 
             } else {
                 allPublications.getError()?.let {
-                    emit(Response.Error(it))
-                }
-                publicationsFavorites.getError()?.let {
                     emit(Response.Error(it))
                 }
             }

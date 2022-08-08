@@ -17,10 +17,10 @@
     <dimen name="row__height_publication__card_elevation">2dp</dimen>
     <dimen name="row__height_publication__img__image_publication__size">150dp</dimen>
     <dimen name="row__height_publication__label__name_publication__margin_horizontal">12dp</dimen>
-    <dimen name="row__height_publication__label__name_publication__margin_bottom">4dp</dimen>
+    <dimen name="row__height_publication__label__name_publication__margin_bottom">12dp</dimen>
     <dimen name="row__height_publication__img__amount_publication__size">20dp</dimen>
     <dimen name="row__height_publication__img__amount_publication__margin_start">12dp</dimen>
-    <dimen name="row__height_publication__img__amount_publication__margin_bottom">12dp</dimen>
+    <dimen name="row__height_publication__img__amount_publication__margin_bottom">4dp</dimen>
     <dimen name="row__height_publication__label__amount_publication__margin_start">4dp</dimen>
     <dimen name="row__height_publication__label__amount_publication__margin_end">12dp</dimen>
 

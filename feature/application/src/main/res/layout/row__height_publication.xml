@@ -52,7 +52,7 @@
                 android:maxLines="2"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/row__height_publication__label__amount_publication"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="Cuartos de baños" />
@@ -64,7 +64,7 @@
                 android:layout_marginStart="@dimen/row__height_publication__img__amount_publication__margin_start"
                 android:layout_marginBottom="@dimen/row__height_publication__img__amount_publication__margin_bottom"
                 android:src="@drawable/icon_images"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/row__height_publication__label__name_publication"
                 app:layout_constraintStart_toStartOf="parent"
                 app:tint="@color/white" />
 
@@ -79,7 +79,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/row__height_publication__img__amount_publication"
-                app:layout_constraintEnd_toStartOf="@id/row__height_publication__img__favorite"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/row__height_publication__img__amount_publication"
                 app:layout_constraintTop_toTopOf="@id/row__height_publication__img__amount_publication"
                 tools:text="333" />
@@ -88,12 +88,11 @@
                 android:id="@+id/row__height_publication__img__favorite"
                 android:layout_width="@dimen/row__height_publication__img__amount_publication__size"
                 android:layout_height="@dimen/row__height_publication__img__amount_publication__size"
+                android:layout_marginTop="@dimen/row__height_publication__img__favorite__margin_bottom"
                 android:layout_marginEnd="@dimen/row__height_publication__img__favorite__margin_end"
-                android:layout_marginBottom="@dimen/row__height_publication__img__favorite__margin_bottom"
                 android:src="@drawable/icon_favorite_selected"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:tint="@color/color_amount_notifications" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
