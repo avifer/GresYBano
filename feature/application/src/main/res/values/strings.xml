@@ -16,4 +16,16 @@
     <string name="fragment_favorite_publications__label__empty_favorite__text">Aún no tiene ninguna publicacion en favoritos</string>
 
     <string name="fragment_publication_details__img__favorite__description">Botón guardar favoritos</string>
+
+    <string name="fragment_settings__title_toolbar">Ajustes</string>
+
+    <string name="element_notification_settings__title">Notificaciones</string>
+    <string name="element_notification_settings__description">Configura tus notificaciones a tu gusto</string>
+    <string name="element_rank_us_settings__title">Valoranos</string>
+    <string name="element_rank_us_settings__description">Valora nuestra aplicación</string>
+    <string name="element_share_app_settings__title">Comparte la app</string>
+    <string name="element_share_app_settings__description">¡Comparte la app con amigos y familiares!</string>
+    <string name="element_help_settings__title">Ayuda</string>
+    <string name="element_help_settings__description">Contáctanos, información sobre nosotros</string>
+    <string name="element_version_settings__name">Versión de la aplicación:</string>
 </resources>

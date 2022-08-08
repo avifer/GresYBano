@@ -63,4 +63,21 @@
     <dimen name="fragment_favorite_publications__label__empty_favorite__padding_horizontal">12dp</dimen>
     <dimen name="fragment_favorite_publications__label__empty_favorite__text_size">16sp</dimen>
     <item name="fragment_favorite_publications__img__empty_favorite__bias_vertical" type="dimen" format="float">0.45</item>
+
+    <dimen name="row_element_settings__elevation">4dp</dimen>
+    <dimen name="row_element_settings__card__height">66dp</dimen>
+    <dimen name="row_element_settings__img__notification__size">28dp</dimen>
+    <dimen name="row_element_settings__img__notification__margin_vertical">12dp</dimen>
+    <dimen name="row_element_settings__img__notification__margin_start">24dp</dimen>
+    <dimen name="row_element_settings__linear__margin_start">24dp</dimen>
+    <dimen name="row_element_settings__linear__margin_end">12dp</dimen>
+    <dimen name="row_element_settings__label__title__text_size">18sp</dimen>
+    <dimen name="fragment_settings__list__settings__margin_top">12dp</dimen>
+    <dimen name="row_element_settings__label__subtitle__margin_top">4dp</dimen>
+    <dimen name="row_element_settings__label__subtitle__text_size">14sp</dimen>
+    <dimen name="row_element_settings__padding_vertical">4dp</dimen>
+    <dimen name="row_separator_settings__elevation">4dp</dimen>
+    <dimen name="row_separator_settings__view__separator__height">1dp</dimen>
+    <dimen name="row_separator_settings__view__separator__margin_horizontal">24dp</dimen>
+    <dimen name="row_separator_settings__view__separator__margin_vertical">4dp</dimen>
 </resources>

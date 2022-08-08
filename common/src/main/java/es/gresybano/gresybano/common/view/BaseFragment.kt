@@ -103,8 +103,8 @@ abstract class BaseFragment : Fragment() {
         getHostActivity()?.showToolbarDefault()
     }
 
-    fun showToolbarGoBack(title: String = "") {
-        getHostActivity()?.showToolbarGoBack(title)
+    fun showToolbarGoBack(title: String = "", onlyTitle: Boolean = false) {
+        getHostActivity()?.showToolbarGoBack(title, onlyTitle)
     }
 
     fun setToolbarAmountNotifications(amount: Int) {

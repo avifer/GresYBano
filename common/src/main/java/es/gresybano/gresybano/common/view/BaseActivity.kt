@@ -92,8 +92,8 @@ abstract class BaseActivity : AppCompatActivity() {
         toolbar?.showToolbarDefault()
     }
 
-    fun showToolbarGoBack(title: String = "") {
-        toolbar?.showToolbarGoBack(title)
+    fun showToolbarGoBack(title: String = "", onlyTitle: Boolean = false) {
+        toolbar?.showToolbarGoBack(title, onlyTitle)
     }
 
     fun initToolbarActions(
