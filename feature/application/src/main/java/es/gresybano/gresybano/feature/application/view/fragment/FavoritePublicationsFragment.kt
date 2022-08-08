@@ -26,8 +26,11 @@ class FavoritePublicationsFragment : BaseFragment() {
             )
         },
         {
-            //TODO Implementar
-            Toast.makeText(requireContext(), it.nameCategory, Toast.LENGTH_SHORT).show()
+            viewModel.goToDetailCategory(
+                it.idCategory,
+                it.nameCategory,
+                it.mainImage
+            )
         }
     )
 

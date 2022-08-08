@@ -24,6 +24,7 @@ class CategoryDetailsFragment : BaseFragment() {
         private const val KEY_ID_CATEGORY = "idCategory"
         private const val KEY_NAME_CATEGORY = "nameCategory"
         private const val KEY_PRIMARY_URL_CATEGORY = "primaryUrlCategory"
+        private const val KEY_ONLY_FAVORITES = "onlyFavorites"
     }
 
     private val adapterListPublications =
@@ -47,9 +48,14 @@ class CategoryDetailsFragment : BaseFragment() {
 
     override fun onViewReady(savedInstanceState: Bundle?) {
         showToolbarGoBack(arguments?.getString(KEY_NAME_CATEGORY) ?: EMPTY_STRING)
+        initOnlyFavorites()
         initHeader()
         initList()
         getPublicationsCategory()
+    }
+
+    private fun initOnlyFavorites() {
+        viewModel.saveOnlyFavorites(arguments?.getBoolean(KEY_ONLY_FAVORITES))
     }
 
     private fun getPublicationsCategory() {

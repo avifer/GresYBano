@@ -17,6 +17,17 @@ class FavoritePostsViewModel @Inject constructor(
     fun getListFavorites(): LiveData<List<PublicationBo>?> =
         defaultResponse { getPublicationsFavoritesUseCase() }
 
+    fun goToDetailCategory(idCategory: Long, nameCategory: String, urlPrimary: String) {
+        navigate(
+            FavoritePublicationsFragmentDirections.navigateToNavigationFeatureApplicationCategoryDetailsFragment(
+                idCategory = idCategory,
+                nameCategory = nameCategory,
+                primaryUrlCategory = urlPrimary,
+                onlyFavorites = true
+            )
+        )
+    }
+
     fun goToDetailPublication(idPublication: Long, listImages: List<String>) {
         navigate(
             FavoritePublicationsFragmentDirections.navigateToNavigationFeatureApplicationPublicationDetailsFragment(

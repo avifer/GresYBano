@@ -37,6 +37,29 @@ open class BaseViewModel : ViewModel() {
 }
 
 fun <T> BaseViewModel.defaultResponse(
+    flowObserve: Flow<Response<T>>,
+    block: (data: T?) -> T?,
+): MutableLiveData<T?> {
+    val mutableLiveDataResult = MutableLiveData<T?>()
+    viewModelScope.launch {
+        flowObserve.collect {
+            when (it) {
+                is Response.Error -> {
+                    postError(it.getStringError())
+                }
+                is Response.Successful -> {
+                    postSuccessful(block(it.data), mutableLiveDataResult)
+                }
+                is Response.Loading -> {
+                    postLoading(true)
+                }
+            }
+        }
+    }
+    return mutableLiveDataResult
+}
+
+fun <T> BaseViewModel.defaultResponse(
     block: suspend () -> Flow<Response<T>>
 ): MutableLiveData<T?> {
     val mutableLiveDataResult = MutableLiveData<T?>()
@@ -58,7 +81,7 @@ fun <T> BaseViewModel.defaultResponse(
     return mutableLiveDataResult
 }
 
-fun <T> BaseViewModel.postSuccessful(data: T, mutableLiveDataResult: MutableLiveData<T?>) {
+fun <T> BaseViewModel.postSuccessful(data: T?, mutableLiveDataResult: MutableLiveData<T?>) {
     postLoading(false)
     mutableLiveDataResult.postValue(data)
 }
