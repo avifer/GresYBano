@@ -49,7 +49,7 @@ class HeightPublicationAdapter(
                 IMAGE_SIZE,
                 IMAGE_SIZE
             )
-            //rowHeightPublicationLabelNamePublication.text = publication.category  //TODO Ver como implementar
+            rowHeightPublicationLabelNamePublication.text = publication.category.firstOrNull()?.name
             rowHeightPublicationLabelAmountPublication.text = publication.listImages.size.toString()
             if (favoriteEnable) {
                 rowHeightPublicationImgFavorite.visible(publication.favorite)
@@ -92,12 +92,14 @@ private val diffUtils = object : DiffUtil.ItemCallback<PublicationBo>() {
     override fun areItemsTheSame(
         oldItem: PublicationBo,
         newItem: PublicationBo
-    ) = oldItem.id == newItem.id
+    ) = oldItem.id == newItem.id &&
+            oldItem.favorite == newItem.favorite
 
     override fun areContentsTheSame(
         oldItem: PublicationBo,
         newItem: PublicationBo
-    ) = oldItem.id == newItem.id
-            && oldItem.publishDate == newItem.publishDate
-            && oldItem.listImages == newItem.listImages
+    ) = oldItem.id == newItem.id &&
+            oldItem.publishDate == newItem.publishDate &&
+            oldItem.listImages == newItem.listImages &&
+            oldItem.favorite == newItem.favorite
 }
