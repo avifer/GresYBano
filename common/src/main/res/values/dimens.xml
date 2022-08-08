@@ -19,5 +19,7 @@
     <dimen name="view__toolbar_app__label__title__margin_start">8dp</dimen>
     <dimen name="view__toolbar_app__label__title__text_size">18sp</dimen>
 
-    <item name="view__toolbar_app__guideline__separator_search__percent" format="float" type="dimen">0.75</item>
+    <!--TODO Volver a dejar en 0.75 cuando este desarrollado -->
+
+    <item name="view__toolbar_app__guideline__separator_search__percent" format="float" type="dimen">0.85</item>
 </resources>

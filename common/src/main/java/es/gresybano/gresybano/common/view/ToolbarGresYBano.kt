@@ -127,7 +127,7 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
         typeToolbarShow = TypeToolbarShow.NONE
         searchView?.hide()
         iconSearchView?.hide()
-        iconScanQR?.hide()
+        //iconScanQR?.hide()    //TODO Descomentar cuando este desarrollado
         iconNotifications?.hide()
         iconAmountNotifications?.hide()
     }
@@ -142,7 +142,7 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
         typeToolbarShow = TypeToolbarShow.TOOLBAR_DEFAULT
         searchView?.show()
         iconSearchView?.show()
-        iconScanQR?.show()
+        //iconScanQR?.show()   //TODO Descomentar cuando este desarrollado
         iconNotifications?.show()
         iconAmountNotifications?.visible(amountNotifications != ZERO)
     }
