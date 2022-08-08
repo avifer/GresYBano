@@ -58,11 +58,14 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="@dimen/view__toolbar_app__guideline__separator_search__percent" />
 
+    <!--TODO Quitar gone cuando este desarrollado -->
+
     <ImageView
         android:id="@+id/view__toolbar_app__img__scan_qr"
         android:layout_width="@dimen/view__toolbar_app__img__scan_qr__size"
         android:layout_height="@dimen/view__toolbar_app__img__scan_qr__size"
         android:src="@drawable/icon_qr_scan"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/view__toolbar_app__img__notification"
         app:layout_constraintStart_toStartOf="@id/view__toolbar_app__guideline__separator_search"
