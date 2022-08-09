@@ -21,11 +21,14 @@
 
     <string name="element_notification_settings__title">Notificaciones</string>
     <string name="element_notification_settings__description">Configura tus notificaciones a tu gusto</string>
-    <string name="element_rank_us_settings__title">Valoranos</string>
-    <string name="element_rank_us_settings__description">Valora nuestra aplicación</string>
+    <string name="element_rate_us_settings__title">Valoranos</string>
+    <string name="element_rate_us_settings__description">Valora nuestra aplicación</string>
     <string name="element_share_app_settings__title">Comparte la app</string>
     <string name="element_share_app_settings__description">¡Comparte la app con amigos y familiares!</string>
     <string name="element_help_settings__title">Ayuda</string>
     <string name="element_help_settings__description">Contáctanos, información sobre nosotros</string>
     <string name="element_version_settings__name">Versión de la aplicación:</string>
+
+    <string name="text_share_app">¡Hey! Estoy viendo los trabajos realizados por Gres Y Baño Arahal desde su app. Te invito a descargarla y ver sus publicaciones. https://www.google.es</string>   <!--Cambiar enlace por enlace de la app en play store-->
+    <string name="share_by">Compartir por:</string>
 </resources>
