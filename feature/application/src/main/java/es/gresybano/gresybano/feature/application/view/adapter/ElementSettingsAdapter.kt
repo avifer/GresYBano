@@ -19,7 +19,7 @@ class ElementSettingsAdapter(
     }
 
     enum class IdElementSetting {
-        NOTIFICATIONS, RANK_US, SHARE_APP, HELP, VERSION
+        NOTIFICATIONS, RATE_US, SHARE_APP, HELP, VERSION
     }
 
     sealed class ElementSettingVo {
