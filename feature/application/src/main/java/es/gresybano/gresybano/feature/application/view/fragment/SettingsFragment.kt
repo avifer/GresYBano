@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import es.gresybano.gresybano.common.view.BaseFragment
+import es.gresybano.gresybano.common.view.getPackageName
 import es.gresybano.gresybano.common.view.getVersionName
 import es.gresybano.gresybano.feature.application.R
 import es.gresybano.gresybano.feature.application.databinding.FragmentSettingsBinding
@@ -38,7 +39,10 @@ class SettingsFragment : BaseFragment() {
             saveActionShareApp {
                 Intent().apply {
                     action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT, getString(R.string.text_share_app))
+                    putExtra(
+                        Intent.EXTRA_TEXT,
+                        getString(R.string.text_share_app, getPackageName())
+                    )
                     type = "text/plain"
                     Intent.createChooser(this, getString(R.string.share_by))
                     startActivity(this)

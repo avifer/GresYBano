@@ -141,3 +141,5 @@ fun BaseFragment.toast(
 fun BaseFragment.openAppInGooglePlay() = (requireActivity() as? BaseActivity)?.openAppInGooglePlay()
 
 fun BaseFragment.getVersionName() = (requireActivity() as? BaseActivity)?.versionName ?: ""
+
+fun BaseFragment.getPackageName() = (requireActivity() as? BaseActivity)?.packageName ?: ""
