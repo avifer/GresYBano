@@ -31,4 +31,15 @@
 
     <string name="text_share_app">¡Hey! Estoy viendo los trabajos realizados por Gres Y Baño Arahal desde su app. Te invito a descargarla y ver sus publicaciones. https://play.google.com/store/apps/details?id=%1$s</string>
     <string name="share_by">Compartir por:</string>
+
+    <string name="fragment_configure_notifications__title_toolbar">Notificaciones</string>
+    <string name="fragment_configure_notifications__label__general__text">General:</string>
+    <string name="fragment_configure_notifications__switch__general__text">Notificaciones</string>
+    <string name="fragment_configure_notifications__label__categories__text">Categorias:</string>
+
+    <string name="notifications_is_disable">Las notificaciones estan desactivadas</string>
+    <string name="want_enable_notifications">¿Quiere activar las notificaciones?</string>
+    <string name="cancel">Cancelar</string>
+    <string name="activate">Activar</string>
+
 </resources>

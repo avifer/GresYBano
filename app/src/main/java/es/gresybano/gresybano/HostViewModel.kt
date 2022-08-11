@@ -22,7 +22,7 @@ class HostViewModel @Inject constructor(
 
     fun start() {
         if (BuildConfig.DEBUG) {
-            FirebaseMessaging.getInstance().subscribeToTopic("all")
+            FirebaseMessaging.getInstance().subscribeToTopic("debug")
         }
     }
 

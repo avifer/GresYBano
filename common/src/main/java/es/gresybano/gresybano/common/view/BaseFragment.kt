@@ -9,6 +9,7 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import es.gresybano.gresybano.common.R
 import es.gresybano.gresybano.common.viewmodel.BaseViewModel
 import es.gresybano.gresybano.navigation.Navigation
@@ -143,3 +144,25 @@ fun BaseFragment.openAppInGooglePlay() = (requireActivity() as? BaseActivity)?.o
 fun BaseFragment.getVersionName() = (requireActivity() as? BaseActivity)?.versionName ?: ""
 
 fun BaseFragment.getPackageName() = (requireActivity() as? BaseActivity)?.packageName ?: ""
+
+fun BaseFragment.showAlertDialog(
+    @StringRes title: Int,
+    @StringRes message: Int,
+    @StringRes positiveButton: Int,
+    @StringRes negativeButton: Int,
+    @StringRes actionPositive: () -> Unit,
+    @StringRes actionNegative: () -> Unit,
+    cancelable: Boolean = false,
+) {
+    MaterialAlertDialogBuilder(requireContext())
+        .setTitle(resources.getString(title))
+        .setMessage(resources.getString(message))
+        .setCancelable(cancelable)
+        .setNegativeButton(resources.getString(negativeButton)) { _, _ ->
+            actionNegative()
+        }
+        .setPositiveButton(resources.getString(positiveButton)) { _, _ ->
+            actionPositive()
+        }
+        .show()
+}

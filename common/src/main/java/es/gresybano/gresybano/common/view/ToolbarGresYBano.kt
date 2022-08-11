@@ -151,6 +151,9 @@ class ToolbarGresYBano(context: Context, attributeSet: AttributeSet) :
         typeToolbarShow = TypeToolbarShow.TOOLBAR_GO_BACK
         if (!onlyTitle) {
             iconGoBackToolbar?.show()
+
+        } else {
+            iconGoBackToolbar?.hide()
         }
         titleToolbar?.show()
     }
