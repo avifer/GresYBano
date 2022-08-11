@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import es.gresybano.gresybano.common.view.BaseFragment
 import es.gresybano.gresybano.common.view.getPackageName
 import es.gresybano.gresybano.common.view.getVersionName
+import es.gresybano.gresybano.common.view.openAppInGooglePlay
 import es.gresybano.gresybano.feature.application.R
 import es.gresybano.gresybano.feature.application.databinding.FragmentSettingsBinding
 import es.gresybano.gresybano.feature.application.view.adapter.ElementSettingsAdapter
@@ -48,6 +49,7 @@ class SettingsFragment : BaseFragment() {
                     startActivity(this)
                 }
             }
+            saveActionRateApp { openAppInGooglePlay() }
         }
     }
 

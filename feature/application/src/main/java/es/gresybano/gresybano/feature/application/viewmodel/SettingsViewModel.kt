@@ -13,7 +13,13 @@ class SettingsViewModel : BaseViewModel() {
 
     private var actionShareApp: (() -> Unit)? = null
 
-    fun saveActionShareApp(actionShareApp: (() -> Unit)) {
+    private var actionRateApp: (() -> Unit)? = null
+
+    fun saveActionRateApp(actionRateApp: (() -> Unit)) {
+        this.actionRateApp = actionRateApp
+    }
+
+    fun saveActionShareApp(actionShareApp: () -> Unit) {
         this.actionShareApp = actionShareApp
     }
 
@@ -22,7 +28,9 @@ class SettingsViewModel : BaseViewModel() {
             is ElementSettingVo.ElementVo -> {
                 when (elementClicked.id) {
                     IdElementSetting.NOTIFICATIONS -> {}    //TODO Navegar hacia la pantalla de configuracion de notificaciones
-                    IdElementSetting.RATE_US -> {}          //TODO Navegar hacia google play para valorar la app
+                    IdElementSetting.RATE_US -> {
+                        actionRateApp?.invoke()
+                    }
                     IdElementSetting.SHARE_APP -> {
                         actionShareApp?.invoke()
                     }
