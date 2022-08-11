@@ -6,6 +6,7 @@ import es.gresybano.gresybano.common.viewmodel.BaseViewModel
 import es.gresybano.gresybano.feature.application.R
 import es.gresybano.gresybano.feature.application.view.adapter.ElementSettingsAdapter.ElementSettingVo
 import es.gresybano.gresybano.feature.application.view.adapter.ElementSettingsAdapter.IdElementSetting
+import es.gresybano.gresybano.feature.application.view.fragment.SettingsFragmentDirections
 
 class SettingsViewModel : BaseViewModel() {
 
@@ -19,7 +20,7 @@ class SettingsViewModel : BaseViewModel() {
         this.actionRateApp = actionRateApp
     }
 
-    fun saveActionShareApp(actionShareApp: () -> Unit) {
+    fun saveActionShareApp(actionShareApp: (() -> Unit)) {
         this.actionShareApp = actionShareApp
     }
 
@@ -27,7 +28,9 @@ class SettingsViewModel : BaseViewModel() {
         when (elementClicked) {
             is ElementSettingVo.ElementVo -> {
                 when (elementClicked.id) {
-                    IdElementSetting.NOTIFICATIONS -> {}    //TODO Navegar hacia la pantalla de configuracion de notificaciones
+                    IdElementSetting.NOTIFICATIONS -> {
+                        navigate(SettingsFragmentDirections.navigateToNavigationFeatureApplicationConfigureNotificationsFragmentFromSettingsFragment())
+                    }
                     IdElementSetting.RATE_US -> {
                         actionRateApp?.invoke()
                     }

@@ -13,4 +13,6 @@ interface FavoriteCategoryLocalDataSource {
 
     suspend fun deleteCategories(list: List<FavoriteCategoryDbo>): Response<Int?>
 
+    suspend fun existCategoryTag(tagCategory: String): Response<Boolean>
+
 }

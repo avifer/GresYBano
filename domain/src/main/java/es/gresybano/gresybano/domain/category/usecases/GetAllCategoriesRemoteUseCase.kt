@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetAllCategoriesRemote @Inject constructor(
+class GetAllCategoriesRemoteUseCase @Inject constructor(
     private val repositoryCategory: RepositoryCategory
 ) {
 

@@ -20,4 +20,6 @@ interface RepositoryCategory {
 
     suspend fun removeCategoriesFavorites(list: List<CategoryBo>): Response<Int>
 
+    suspend fun existCategoryTag(tagCategory: String): Response<Boolean>
+
 }

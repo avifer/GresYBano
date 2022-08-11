@@ -25,4 +25,8 @@ class FavoriteCategoryLocalDataSourceImpl(
         return safeLocalCall { favoriteCategoryDao.delete(*list.toTypedArray()) }
     }
 
+    override suspend fun existCategoryTag(tagCategory: String): Response<Boolean> {
+        return safeLocalCall { favoriteCategoryDao.existTag(tagCategory) != null }
+    }
+
 }

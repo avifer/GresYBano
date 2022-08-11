@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.ConfigureNotificationsFragment">
+
+    <TextView
+        android:id="@+id/fragment_configure_notifications__label__general"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/fragment_configure_notifications__label__general__margin_start"
+        android:layout_marginTop="@dimen/fragment_configure_notifications__label__general__margin_top"
+        android:text="@string/fragment_configure_notifications__label__general__text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/fragment_configure_notifications__label__general__text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/fragment_configure_notifications__switch__general"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/fragment_configure_notifications__switch__general__margin_start"
+        android:layout_marginTop="@dimen/fragment_configure_notifications__switch__general__margin_top"
+        android:layout_marginEnd="@dimen/fragment_configure_notifications__switch__general__margin_end"
+        android:gravity="center_vertical"
+        android:text="@string/fragment_configure_notifications__switch__general__text"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/fragment_configure_notifications__switch__general__text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/fragment_configure_notifications__label__general"
+        app:layout_constraintTop_toBottomOf="@id/fragment_configure_notifications__label__general" />
+
+    <View
+        android:id="@+id/fragment_configure_notifications__view__separator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fragment_configure_notifications__view__separator__height"
+        android:layout_marginHorizontal="@dimen/fragment_configure_notifications__view__separator__margin_horizontal"
+        android:layout_marginTop="@dimen/fragment_configure_notifications__view__separator__margin_top"
+        android:alpha="0.2"
+        android:background="@color/grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_configure_notifications__switch__general" />
+
+    <TextView
+        android:id="@+id/fragment_configure_notifications__label__categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/fragment_configure_notifications__label__categories__margin_start"
+        android:layout_marginTop="@dimen/fragment_configure_notifications__label__categories__margin_top"
+        android:text="@string/fragment_configure_notifications__label__categories__text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/fragment_configure_notifications__label__categories__text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_configure_notifications__view__separator" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_configure_notifications__list__categories"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/fragment_configure_notifications__list__categories__margin_horizontal"
+        android:layout_marginBottom="@dimen/fragment_configure_notifications__list__categories__margin_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_configure_notifications__label__categories" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

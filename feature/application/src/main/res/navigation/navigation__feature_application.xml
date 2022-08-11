@@ -21,7 +21,13 @@
         android:id="@+id/navigation__feature_application__settings_fragment"
         android:name="es.gresybano.gresybano.feature.application.view.fragment.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+
+        <action
+            android:id="@+id/navigate_to_navigation__feature_application__configure_notifications_fragment__from_settings_fragment"
+            app:destination="@id/navigation__feature_application__configure_notifications_fragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation__feature_application__favorite_posts_fragment"
@@ -122,5 +128,11 @@
     <action
         android:id="@+id/navigate_to_navigation__feature_application__notifications_fragment"
         app:destination="@id/navigation__feature_application__notifications_fragment" />
+
+    <fragment
+        android:id="@+id/navigation__feature_application__configure_notifications_fragment"
+        android:name="es.gresybano.gresybano.feature.application.view.fragment.ConfigureNotificationsFragment"
+        android:label="fragment_configure_notifications"
+        tools:layout="@layout/fragment_configure_notifications" />
 
 </navigation>

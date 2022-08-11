@@ -19,4 +19,7 @@ interface FavoriteCategoryDao {
     @Delete
     suspend fun delete(vararg favoriteCategories: FavoriteCategoryDbo): Int?
 
+    @Query("SELECT * FROM ${DatabaseApp.TABLE_FAVORITES_CATEGORIES_DBO} WHERE ${DatabaseApp.TAG_CATEGORY_DBO} = :tag")
+    suspend fun existTag(tag: String): FavoriteCategoryDbo?
+
 }
