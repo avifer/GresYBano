@@ -58,6 +58,12 @@
     <dimen name="row_separator_date__label__date__margin">16dp</dimen>
     <dimen name="row_separator_date__label__date__text_size">18sp</dimen>
 
+    <dimen name="fragment_notifications__img__empty_favorite__size">140dp</dimen>
+    <dimen name="fragment_notifications__label__empty_favorite__margin">12dp</dimen>
+    <dimen name="fragment_notifications__label__empty_favorite__padding_horizontal">20dp</dimen>
+    <dimen name="fragment_notifications__label__empty_favorite__text_size">16sp</dimen>
+    <item name="fragment_notifications__img__empty_favorite__bias_vertical" type="dimen" format="float">0.45</item>
+
     <dimen name="fragment_favorite_publications__img__empty_favorite__size">140dp</dimen>
     <dimen name="fragment_favorite_publications__label__empty_favorite__margin">12dp</dimen>
     <dimen name="fragment_favorite_publications__label__empty_favorite__padding_horizontal">12dp</dimen>
