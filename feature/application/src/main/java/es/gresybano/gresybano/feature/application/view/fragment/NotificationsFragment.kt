@@ -3,6 +3,7 @@ package es.gresybano.gresybano.feature.application.view.fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,7 +57,11 @@ class NotificationsFragment : BaseFragment() {
 
     private fun loadDataLists() {
         viewModel.getAllNotifications().observe(viewLifecycleOwner) {
-            it?.let { adapterListNotifications.addElements(it) }
+            it?.let {
+                getBindingCast()?.fragmentNotificationsImgEmptyFavorite?.isVisible = it.isEmpty()
+                getBindingCast()?.fragmentNotificationsLabelEmptyFavorite?.isVisible = it.isEmpty()
+                adapterListNotifications.addElements(it)
+            }
         }
     }
 

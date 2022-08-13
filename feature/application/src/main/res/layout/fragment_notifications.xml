@@ -15,4 +15,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/fragment_notifications__img__empty_favorite"
+        android:layout_width="@dimen/fragment_notifications__img__empty_favorite__size"
+        android:layout_height="@dimen/fragment_notifications__img__empty_favorite__size"
+        android:alpha="0.2"
+        android:importantForAccessibility="no"
+        android:src="@drawable/icon_notification_off"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="@dimen/fragment_notifications__img__empty_favorite__bias_vertical" />
+
+    <TextView
+        android:id="@+id/fragment_notifications__label__empty_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fragment_notifications__label__empty_favorite__margin"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/fragment_notifications__label__empty_favorite__padding_horizontal"
+        android:text="@string/fragment_notifications__label__empty_notifications__text"
+        android:textSize="@dimen/fragment_notifications__label__empty_favorite__text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_notifications__img__empty_favorite" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

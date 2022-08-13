@@ -13,6 +13,8 @@
 
     <string name="fragment_notifications__title_toolbar">Notificaciones</string>
 
+    <string name="fragment_notifications__label__empty_notifications__text">Aún no tiene ninguna notificación. Las notificaciones que reciba apareceran aquí</string>
+
     <string name="fragment_favorite_publications__label__empty_favorite__text">Aún no tiene ninguna publicacion en favoritos</string>
 
     <string name="fragment_publication_details__img__favorite__description">Botón guardar favoritos</string>
