@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import dagger.hilt.android.AndroidEntryPoint
-import es.gresybano.gresybano.common.util.DEFAULT_ID_LONG
+import es.gresybano.gresybano.common.util.EMPTY_STRING
 import es.gresybano.gresybano.common.view.BaseFragment
 import es.gresybano.gresybano.feature.application.databinding.FragmentPublicationDetailsBinding
 import es.gresybano.gresybano.feature.application.view.adapter.ImagePublicationPageAdapter
@@ -70,7 +70,7 @@ class PublicationDetailsFragment : BaseFragment() {
     }
 
     private fun getInfoPublication() {
-        viewModel.idPublication = arguments?.getLong(KEY_ID_PUBLICATION) ?: DEFAULT_ID_LONG
+        viewModel.idPublication = arguments?.getString(KEY_ID_PUBLICATION) ?: EMPTY_STRING
         viewModel.listImages = arguments?.getStringArray(KEY_LIST_IMAGES)?.toList() ?: listOf()
     }
 

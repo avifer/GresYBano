@@ -2,7 +2,7 @@ package es.gresybano.gresybano.feature.application.viewmodel
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.gresybano.gresybano.common.extensions.isUpperToZero
-import es.gresybano.gresybano.common.util.DEFAULT_ID_LONG
+import es.gresybano.gresybano.common.util.EMPTY_STRING
 import es.gresybano.gresybano.common.viewmodel.BaseViewModel
 import es.gresybano.gresybano.common.viewmodel.executeWithListeners
 import es.gresybano.gresybano.domain.publication.entity.PublicationBo
@@ -23,7 +23,7 @@ class PublicationDetailsViewModel @Inject constructor(
     private val isPublicationFavoriteUseCase: IsPublicationFavoriteUseCase,
 ) : BaseViewModel() {
 
-    var idPublication: Long = DEFAULT_ID_LONG
+    var idPublication: String = EMPTY_STRING
     var listImages: List<String> = listOf()
 
     private var isFavorite = false

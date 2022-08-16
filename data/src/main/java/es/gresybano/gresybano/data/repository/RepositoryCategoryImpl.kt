@@ -19,7 +19,7 @@ class RepositoryCategoryImpl(
     private val favoriteCategoryLocalDataSource: FavoriteCategoryLocalDataSource,
 ) : RepositoryCategory, BaseRepository() {
 
-    override suspend fun getCategory(id: Long): Response<CategoryBo?> {
+    override suspend fun getCategory(id: String): Response<CategoryBo?> {
         return categoryRemoteDataSource.getCategory(id).defaultResponse {
             putFavoritesInCategory(it)
         }

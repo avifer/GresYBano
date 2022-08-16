@@ -6,7 +6,7 @@ import es.gresybano.gresybano.domain.response.Response
 
 interface RepositoryCategory {
 
-    suspend fun getCategory(id: Long): Response<CategoryBo?>
+    suspend fun getCategory(id: String): Response<CategoryBo?>
 
     suspend fun getTopCategories(): Response<List<CategoryBo>>
 

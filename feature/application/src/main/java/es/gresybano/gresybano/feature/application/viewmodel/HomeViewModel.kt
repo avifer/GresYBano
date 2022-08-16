@@ -26,7 +26,7 @@ class HomeViewModel @Inject constructor(
         return defaultResponse { getDataHomeFragmentUseCase() }
     }
 
-    fun goToDetailCategory(idCategory: Long, nameCategory: String, urlPrimary: String) {
+    fun goToDetailCategory(idCategory: String, nameCategory: String, urlPrimary: String) {
         navigate(
             HomeFragmentDirections.navigateToNavigationFeatureApplicationCategoryDetailsFragment(
                 idCategory = idCategory,
@@ -36,7 +36,7 @@ class HomeViewModel @Inject constructor(
         )
     }
 
-    fun goToDetailPublication(idPublication: Long, listImages: List<String>) {
+    fun goToDetailPublication(idPublication: String, listImages: List<String>) {
         navigate(
             HomeFragmentDirections.navigateToNavigationFeatureApplicationPublicationDetailsFragment(
                 idPublication = idPublication,

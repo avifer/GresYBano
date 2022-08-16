@@ -10,7 +10,7 @@ class IsPublicationFavoriteUseCase @Inject constructor(
     private val repositoryPublication: RepositoryPublication
 ) {
 
-    operator fun invoke(idPublication: Long): Flow<Response<Boolean>> {
+    operator fun invoke(idPublication: String): Flow<Response<Boolean>> {
         return flow {
             emit(Response.Loading())
             emit(repositoryPublication.isPublicationFavorite(idPublication))

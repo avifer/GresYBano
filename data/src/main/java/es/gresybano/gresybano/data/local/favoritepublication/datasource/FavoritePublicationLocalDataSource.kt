@@ -7,7 +7,7 @@ interface FavoritePublicationLocalDataSource {
 
     suspend fun getFavoritesPublications(): Response<List<FavoritePublicationDbo?>?>
 
-    suspend fun isPublicationFavorite(idPublication: Long): Response<Boolean>
+    suspend fun isPublicationFavorite(idPublication: String): Response<Boolean>
 
     suspend fun insertFavoritesPublications(list: List<FavoritePublicationDbo>): Response<List<Long?>?>
 

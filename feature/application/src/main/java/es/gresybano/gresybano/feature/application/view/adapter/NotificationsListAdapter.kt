@@ -30,7 +30,7 @@ class NotificationsListAdapter(
             val title: String,
             val subtitle: String,
             var isOpened: Boolean,
-            val id: Long,
+            val id: String,
             val mainImage: String,
             override val dateReceived: Date,
         ) : MessageNotificationVo(dateReceived)

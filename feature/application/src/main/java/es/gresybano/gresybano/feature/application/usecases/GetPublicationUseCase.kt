@@ -13,7 +13,7 @@ class GetPublicationUseCase @Inject constructor(
     private val repositoryPublication: RepositoryPublication,
 ) {
 
-    operator fun invoke(idPublication: Long?): Flow<Response<PublicationBo?>> {
+    operator fun invoke(idPublication: String?): Flow<Response<PublicationBo?>> {
         return flow {
             idPublication?.let {
                 emit(Response.Loading())

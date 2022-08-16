@@ -8,7 +8,7 @@ import es.gresybano.gresybano.data.local.favoritepublication.model.FavoritePubli
 interface FavoritePublicationDao {
 
     @Query("SELECT * FROM ${DatabaseApp.TABLE_FAVORITES_PUBLICATIONS_DBO} WHERE ${DatabaseApp.KEY_PUBLICATION_DBO} = :id")
-    suspend fun getPublication(id: Long): FavoritePublicationDbo?
+    suspend fun getPublication(id: String): FavoritePublicationDbo?
 
     @Query("SELECT * FROM ${DatabaseApp.TABLE_FAVORITES_PUBLICATIONS_DBO}")
     suspend fun getAll(): List<FavoritePublicationDbo?>?

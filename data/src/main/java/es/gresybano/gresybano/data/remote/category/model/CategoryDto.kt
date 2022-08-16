@@ -5,7 +5,7 @@ import es.gresybano.gresybano.data.remote.publication.model.PublicationDto
 
 data class CategoryDto(
     @SerializedName("id")
-    val id: Long?,
+    val id: String?,
     @SerializedName("tag")
     val tag: String?,
     @SerializedName("name")

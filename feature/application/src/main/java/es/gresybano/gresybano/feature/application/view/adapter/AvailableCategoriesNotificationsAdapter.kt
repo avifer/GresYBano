@@ -59,7 +59,7 @@ class AvailableCategoriesNotificationsAdapter(
         notifyItemRangeChanged(ZERO, currentList.size)
     }
 
-    fun disableCategory(id: Long) {
+    fun disableCategory(id: String) {
         currentList.find { it.id == id }?.isFavorite = false
         notifyItemRangeChanged(ZERO, currentList.size)
     }

@@ -22,7 +22,7 @@ class SaveTagToFavoriteUseCase @Inject constructor(
                 repositoryCategory.saveCategoriesFavorites(
                     listOf(
                         CategoryBo(
-                            -1,
+                            EMPTY_STRING,
                             TAG_ALL_FIREBASE,
                             EMPTY_STRING,
                             EMPTY_STRING

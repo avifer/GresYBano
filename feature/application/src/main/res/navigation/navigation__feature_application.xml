@@ -53,8 +53,8 @@
 
             <argument
                 android:name="idPublication"
-                android:defaultValue="-1L"
-                app:argType="long" />
+                android:defaultValue=""
+                app:argType="string" />
 
             <argument
                 android:name="listImages"
@@ -71,8 +71,8 @@
 
         <argument
             android:name="idPublication"
-            android:defaultValue="-1L"
-            app:argType="long" />
+            android:defaultValue=""
+            app:argType="string" />
 
         <argument
             android:name="listImages"
@@ -105,8 +105,8 @@
 
         <argument
             android:name="idCategory"
-            android:defaultValue="-1L"
-            app:argType="long" />
+            android:defaultValue=""
+            app:argType="string" />
 
         <argument
             android:name="nameCategory"
