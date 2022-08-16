@@ -59,7 +59,7 @@ class CategoryDetailsFragment : BaseFragment() {
     }
 
     private fun getPublicationsCategory() {
-        viewModel.getPublicationsOfCategory(idCategory = arguments?.getLong(KEY_ID_CATEGORY))
+        viewModel.getPublicationsOfCategory(idCategory = arguments?.getString(KEY_ID_CATEGORY))
             .observe(viewLifecycleOwner) {
                 adapterListPublications.submitList(it)
                 getBindingCast()?.loadAmountPublications(it?.size ?: ZERO)

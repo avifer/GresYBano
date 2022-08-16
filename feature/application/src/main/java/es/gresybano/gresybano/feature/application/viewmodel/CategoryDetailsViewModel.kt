@@ -20,7 +20,7 @@ class CategoryDetailsViewModel @Inject constructor(
         this.onlyFavorites = onlyFavorites ?: false
     }
 
-    fun getPublicationsOfCategory(idCategory: Long?): LiveData<List<PublicationBo>?> {
+    fun getPublicationsOfCategory(idCategory: String?): LiveData<List<PublicationBo>?> {
         return defaultResponse(getPublicationsOfCategoryUseCase(idCategory)) { data ->
             if (onlyFavorites) {
                 data?.filter { it.favorite }
@@ -31,7 +31,7 @@ class CategoryDetailsViewModel @Inject constructor(
         }
     }
 
-    fun goToDetailPublication(idPublication: Long, listImages: List<String>) {
+    fun goToDetailPublication(idPublication: String, listImages: List<String>) {
         navigate(
             CategoryDetailsFragmentDirections.navigateToNavigationFeatureApplicationPublicationDetailsFragment(
                 idPublication = idPublication,

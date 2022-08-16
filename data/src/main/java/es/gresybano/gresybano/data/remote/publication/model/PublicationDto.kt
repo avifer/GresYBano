@@ -5,9 +5,9 @@ import es.gresybano.gresybano.domain.category.entity.CategoryBo
 
 data class PublicationDto(
     @SerializedName("id")
-    val id: Long?,
+    val id: String?,
     @SerializedName("publishDate")
-    val publishDate: String?,
+    val publishDate: Long?,
     @SerializedName("listCategories")
     val listCategories: List<CategoryBo?>?,
     @SerializedName("listImages")

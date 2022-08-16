@@ -5,7 +5,7 @@ import es.gresybano.gresybano.domain.response.Response
 
 interface CategoryRemoteDataSource {
 
-    suspend fun getCategory(id: Long): Response<CategoryDto?>
+    suspend fun getCategory(id: String): Response<CategoryDto?>
 
     suspend fun getTopCategories(): Response<List<CategoryDto?>?>
 

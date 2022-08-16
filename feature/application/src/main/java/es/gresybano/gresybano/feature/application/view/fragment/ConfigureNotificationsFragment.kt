@@ -25,7 +25,7 @@ class ConfigureNotificationsFragment : BaseFragment() {
         viewModel.addOrRemoveCategoryFavorite(it)
     }
 
-    private val actionNegative: (id: Long) -> Unit = {
+    private val actionNegative: (id: String) -> Unit = {
         adapterCategories.disableCategory(it)
     }
 

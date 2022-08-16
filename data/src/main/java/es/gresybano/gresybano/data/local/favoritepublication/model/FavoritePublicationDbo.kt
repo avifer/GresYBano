@@ -9,5 +9,5 @@ import es.gresybano.gresybano.data.local.DatabaseApp
 data class FavoritePublicationDbo(
     @PrimaryKey
     @ColumnInfo(name = DatabaseApp.KEY_PUBLICATION_DBO)
-    val id: Long,
+    val id: String,
 )

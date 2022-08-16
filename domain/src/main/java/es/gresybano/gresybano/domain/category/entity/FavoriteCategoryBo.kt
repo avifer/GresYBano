@@ -1,6 +1,6 @@
 package es.gresybano.gresybano.domain.category.entity
 
 data class FavoriteCategoryBo(
-    val id: Long,
+    val id: String,
     val tag: String?,
 )

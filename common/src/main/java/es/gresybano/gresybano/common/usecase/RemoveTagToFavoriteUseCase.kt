@@ -22,7 +22,7 @@ class RemoveTagToFavoriteUseCase @Inject constructor(
                 repositoryCategory.removeCategoriesFavorites(
                     listOf(
                         CategoryBo(
-                            -1,
+                            EMPTY_STRING,
                             TAG_ALL_FIREBASE,
                             EMPTY_STRING,
                             EMPTY_STRING

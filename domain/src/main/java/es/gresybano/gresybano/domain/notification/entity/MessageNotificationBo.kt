@@ -40,7 +40,7 @@ sealed class MessageNotificationBo(
         override val subtitle: String,
         override var isOpened: Boolean = false,
         override var dateReceived: Date,
-        val id: Long,
+        val id: String,
         val mainImage: String,
     ) : MessageNotificationBo(
         idNotification = idNotification,
@@ -89,7 +89,7 @@ sealed class MessageNotificationBo(
                     title = data.getString(KEY_TITLE_PUBLICATION),
                     subtitle = data.getString(KEY_SUBTITLE_PUBLICATION),
                     isOpened = false,
-                    id = data.getLong(KEY_ID_PUBLICATION),
+                    id = data.getString(KEY_ID_PUBLICATION),
                     mainImage = data.getString(KEY_MAIN_IMAGE_PUBLICATION),
                     dateReceived = Date(),
                 )
@@ -113,7 +113,7 @@ sealed class MessageNotificationBo(
                     title = jsonObject.getString(KEY_TITLE_PUBLICATION),
                     subtitle = jsonObject.getString(KEY_SUBTITLE_PUBLICATION),
                     isOpened = jsonObject.getBoolean(KEY_IS_OPENED_PUBLICATION),
-                    id = jsonObject.getLong(KEY_ID_PUBLICATION),
+                    id = jsonObject.getString(KEY_ID_PUBLICATION),
                     mainImage = jsonObject.getString(KEY_MAIN_IMAGE_PUBLICATION),
                     dateReceived = jsonObject.getString(KEY_DATE_RECEIVED_NOTIFICATION)
                         .parseStringToDate(),

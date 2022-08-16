@@ -13,7 +13,7 @@ class FavoritePublicationLocalDataSourceImpl(
         return safeLocalCall { favoritePublicationDao.getAll() }
     }
 
-    override suspend fun isPublicationFavorite(idPublication: Long): Response<Boolean> {
+    override suspend fun isPublicationFavorite(idPublication: String): Response<Boolean> {
         return safeLocalCall { favoritePublicationDao.getPublication(idPublication) != null }
     }
 

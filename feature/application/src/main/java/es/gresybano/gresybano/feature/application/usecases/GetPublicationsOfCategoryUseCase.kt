@@ -13,7 +13,7 @@ class GetPublicationsOfCategoryUseCase @Inject constructor(
     private val repositoryPublication: RepositoryPublication,
 ) {
 
-    operator fun invoke(idCategory: Long?): Flow<Response<List<PublicationBo>>> {
+    operator fun invoke(idCategory: String?): Flow<Response<List<PublicationBo>>> {
         return flow {
             idCategory?.let {
                 emit(Response.Loading())

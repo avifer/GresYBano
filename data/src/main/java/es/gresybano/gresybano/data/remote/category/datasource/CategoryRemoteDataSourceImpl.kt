@@ -10,8 +10,8 @@ class CategoryRemoteDataSourceImpl(
     private val categoryApi: CategoryApi
 ) : CategoryRemoteDataSource, BaseRepository() {
 
-    override suspend fun getCategory(id: Long): Response<CategoryDto?> {
-        return safeRemoteCall { categoryApi.getCategory() }   //TODO Añadir parametro cuando este la url
+    override suspend fun getCategory(id: String): Response<CategoryDto?> {
+        return safeRemoteCall { categoryApi.getCategory(id) }
     }
 
     override suspend fun getTopCategories(): Response<List<CategoryDto?>?> {

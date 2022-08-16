@@ -19,7 +19,8 @@ class RemoteDataModule {
 
     companion object {
         private const val REQUEST_TIMEOUT = 10L
-        private const val BASE_URL_FIREBASE = "https://mocki.io/v1/"    //TODO Cambiar por la final
+        private const val BASE_URL_FIREBASE =
+            "https://us-central1-gresybano-5c4f4.cloudfunctions.net/app/api/"
     }
 
     @Provides

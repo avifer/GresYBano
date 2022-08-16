@@ -19,7 +19,7 @@ class RepositoryPublicationImpl(
     private val favoritePublicationLocalDataSource: FavoritePublicationLocalDataSource,
 ) : RepositoryPublication, BaseRepository() {
 
-    override suspend fun getPublicationsOfCategory(idCategory: Long): Response<List<PublicationBo>> {
+    override suspend fun getPublicationsOfCategory(idCategory: String): Response<List<PublicationBo>> {
         return publicationRemoteDataSource.getPublicationsOfCategory(idCategory).defaultResponse {
             putFavoritesInList(it)
         }
@@ -37,7 +37,7 @@ class RepositoryPublicationImpl(
         }
     }
 
-    override suspend fun getPublication(idPublication: Long): Response<PublicationBo?> {
+    override suspend fun getPublication(idPublication: String): Response<PublicationBo?> {
         return publicationRemoteDataSource.getPublication(idPublication).defaultResponse {
             putFavoritesInPublication(it)
         }
@@ -57,7 +57,7 @@ class RepositoryPublicationImpl(
         }
     }
 
-    override suspend fun isPublicationFavorite(idPublication: Long): Response<Boolean> {
+    override suspend fun isPublicationFavorite(idPublication: String): Response<Boolean> {
         return favoritePublicationLocalDataSource.isPublicationFavorite(idPublication)
     }
 
