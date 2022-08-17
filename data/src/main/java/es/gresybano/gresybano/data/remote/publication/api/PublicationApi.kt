@@ -9,7 +9,7 @@ interface PublicationApi {
     @GET("publications")        //TODO Cambiar por url final
     suspend fun getPublicationsCategory(): List<PublicationDto?>?
 
-    @GET("publications")        //TODO Cambiar por url final
+    @GET("lastPublications")
     suspend fun getLastPublished(): List<PublicationDto?>?
 
     @GET("publications")        //TODO Cambiar por url final
