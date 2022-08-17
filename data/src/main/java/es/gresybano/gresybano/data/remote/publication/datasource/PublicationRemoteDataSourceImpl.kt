@@ -12,8 +12,7 @@ class PublicationRemoteDataSourceImpl(
 
     override suspend fun getPublicationsOfCategory(idCategory: String): Response<List<PublicationDto?>?> {
         return safeRemoteCall {
-            publicationApi.getPublicationsCategory()?.filterNotNull()
-                ?: listOf()   //TODO Añadir parametro cuando este la url
+            publicationApi.getPublicationsOfCategory(idCategory)?.filterNotNull() ?: listOf()
         }
     }
 

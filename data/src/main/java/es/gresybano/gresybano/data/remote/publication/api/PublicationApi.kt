@@ -6,8 +6,8 @@ import retrofit2.http.Path
 
 interface PublicationApi {
 
-    @GET("publications")        //TODO Cambiar por url final
-    suspend fun getPublicationsCategory(): List<PublicationDto?>?
+    @GET("publicationsOfCategory/{idCategory}")
+    suspend fun getPublicationsOfCategory(@Path("idCategory") idCategory: String): List<PublicationDto?>?
 
     @GET("lastPublications")
     suspend fun getLastPublished(): List<PublicationDto?>?
@@ -15,8 +15,8 @@ interface PublicationApi {
     @GET("publications")        //TODO Cambiar por url final
     suspend fun getMorePopular(): List<PublicationDto?>?
 
-    @GET("publications/{id}")
-    suspend fun getPublication(@Path("id") idCategory: String): PublicationDto?
+    @GET("publications/{idPublication}")
+    suspend fun getPublication(@Path("idPublication") idCategory: String): PublicationDto?
 
     @GET("publications")
     suspend fun getAllPublications(): List<PublicationDto?>?
