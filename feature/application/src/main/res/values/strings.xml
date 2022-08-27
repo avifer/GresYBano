@@ -44,4 +44,11 @@
     <string name="cancel">Cancelar</string>
     <string name="activate">Activar</string>
 
+    <string name="fragment_help__title_toolbar">Ayuda</string>
+
+    <string name="element_help_call_me__title">¡Llamanos!</string>
+    <string name="element_help_call_me__subtitle">Contacta con nosotros</string>
+    <string name="element_help_find_me__title">Ven a vernos</string>
+    <string name="element_help_find_me__subtitle">Encuentra nuestra tienda</string>
+
 </resources>

@@ -27,7 +27,17 @@
             android:id="@+id/navigate_to_navigation__feature_application__configure_notifications_fragment__from_settings_fragment"
             app:destination="@id/navigation__feature_application__configure_notifications_fragment" />
 
+        <action
+            android:id="@+id/navigate_to_navigation__feature_application__help_fragment__from_settings_fragment"
+            app:destination="@id/navigation__feature_application__help_fragment" />
+
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation__feature_application__help_fragment"
+        android:name="es.gresybano.gresybano.feature.application.view.fragment.HelpFragment"
+        android:label="fragment_help"
+        tools:layout="@layout/fragment_help" />
 
     <fragment
         android:id="@+id/navigation__feature_application__favorite_posts_fragment"

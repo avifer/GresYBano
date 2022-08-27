@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="@dimen/row_element_settings__elevation"
-    android:paddingVertical="@dimen/row_element_settings__padding_vertical">
+    android:elevation="@dimen/row_element_help__elevation"
+    android:paddingVertical="@dimen/row_element_help__padding_vertical">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/row_element_settings__card"
+        android:id="@+id/row_element_help__card"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/row_element_settings__card__height"
+        android:layout_height="@dimen/row_element_help__card__height"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,11 +20,11 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/row_element_settings__img__setting"
-                android:layout_width="@dimen/row_element_settings__img__setting__size"
-                android:layout_height="@dimen/row_element_settings__img__setting__size"
-                android:layout_marginVertical="@dimen/row_element_settings__img__setting__margin_vertical"
-                android:layout_marginStart="@dimen/row_element_settings__img__setting__margin_start"
+                android:id="@+id/row_element_help__img__element"
+                android:layout_width="@dimen/row_element_help__img__element__size"
+                android:layout_height="@dimen/row_element_help__img__element__size"
+                android:layout_marginVertical="@dimen/row_element_help__img__element__margin_vertical"
+                android:layout_marginStart="@dimen/row_element_help__img__element__margin_start"
                 android:backgroundTint="@color/grey"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -33,35 +33,35 @@
                 tools:src="@drawable/icon_notification_off" />
 
             <LinearLayout
-                android:id="@+id/row_element_settings__linear"
+                android:id="@+id/row_element_help__linear"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/row_element_settings__linear__margin_start"
-                android:layout_marginEnd="@dimen/row_element_settings__linear__margin_end"
+                android:layout_marginStart="@dimen/row_element_help__linear__margin_start"
+                android:layout_marginEnd="@dimen/row_element_help__linear__margin_end"
                 android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="@id/row_element_settings__img__setting"
+                app:layout_constraintBottom_toBottomOf="@id/row_element_help__img__element"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/row_element_settings__img__setting"
-                app:layout_constraintTop_toTopOf="@id/row_element_settings__img__setting">
+                app:layout_constraintStart_toEndOf="@id/row_element_help__img__element"
+                app:layout_constraintTop_toTopOf="@id/row_element_help__img__element">
 
                 <TextView
-                    android:id="@+id/row_element_settings__label__title"
+                    android:id="@+id/row_element_help__label__title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/row_element_settings__label__title__text_size"
+                    android:textSize="@dimen/row_element_help__label__title__text_size"
                     android:textStyle="bold"
                     tools:text="Notificaciones" />
 
                 <TextView
-                    android:id="@+id/row_element_settings__label__subtitle"
+                    android:id="@+id/row_element_help__label__subtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/row_element_settings__label__subtitle__margin_top"
+                    android:layout_marginTop="@dimen/row_element_help__label__subtitle__margin_top"
                     android:maxLines="1"
                     android:textColor="@color/grey"
-                    android:textSize="@dimen/row_element_settings__label__subtitle__text_size"
+                    android:textSize="@dimen/row_element_help__label__subtitle__text_size"
                     tools:text="Configura tus notificaciones a tu gusto" />
 
             </LinearLayout>
