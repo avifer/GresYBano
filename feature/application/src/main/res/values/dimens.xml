@@ -72,9 +72,9 @@
 
     <dimen name="row_element_settings__elevation">4dp</dimen>
     <dimen name="row_element_settings__card__height">66dp</dimen>
-    <dimen name="row_element_settings__img__notification__size">28dp</dimen>
-    <dimen name="row_element_settings__img__notification__margin_vertical">12dp</dimen>
-    <dimen name="row_element_settings__img__notification__margin_start">24dp</dimen>
+    <dimen name="row_element_settings__img__setting__size">28dp</dimen>
+    <dimen name="row_element_settings__img__setting__margin_vertical">12dp</dimen>
+    <dimen name="row_element_settings__img__setting__margin_start">24dp</dimen>
     <dimen name="row_element_settings__linear__margin_start">24dp</dimen>
     <dimen name="row_element_settings__linear__margin_end">12dp</dimen>
     <dimen name="row_element_settings__label__title__text_size">18sp</dimen>
@@ -108,4 +108,23 @@
     <dimen name="fragment_configure_notifications__label__categories__text_size">18sp</dimen>
     <dimen name="fragment_configure_notifications__list__categories__margin_horizontal">12dp</dimen>
     <dimen name="fragment_configure_notifications__list__categories__margin_bottom">12dp</dimen>
+
+    <dimen name="fragment_help__list__settings__margin_top">12dp</dimen>
+
+    <dimen name="row_element_help__elevation">4dp</dimen>
+    <dimen name="row_element_help__padding_vertical">4dp</dimen>
+    <dimen name="row_element_help__card__height">66dp</dimen>
+    <dimen name="row_element_help__img__element__size">28dp</dimen>
+    <dimen name="row_element_help__img__element__margin_vertical">12dp</dimen>
+    <dimen name="row_element_help__img__element__margin_start">24dp</dimen>
+    <dimen name="row_element_help__linear__margin_start">24dp</dimen>
+    <dimen name="row_element_help__linear__margin_end">12dp</dimen>
+    <dimen name="row_element_help__label__title__text_size">18sp</dimen>
+    <dimen name="row_element_help__label__subtitle__margin_top">4dp</dimen>
+    <dimen name="row_element_help__label__subtitle__text_size">14sp</dimen>
+
+    <dimen name="row_separator_help__elevation">4dp</dimen>
+    <dimen name="row_separator_help__view__separator__height">1dp</dimen>
+    <dimen name="row_separator_help__view__separator__margin_horizontal">24dp</dimen>
+    <dimen name="row_separator_help__view__separator__margin_vertical">4dp</dimen>
 </resources>

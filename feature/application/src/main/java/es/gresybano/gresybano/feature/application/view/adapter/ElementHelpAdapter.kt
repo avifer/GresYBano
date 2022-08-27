@@ -6,35 +6,37 @@ import androidx.annotation.IdRes
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import es.gresybano.gresybano.feature.application.databinding.RowElementSettingsBinding
-import es.gresybano.gresybano.feature.application.databinding.RowSeparatorSettingsBinding
+import es.gresybano.gresybano.common.extensions.visible
+import es.gresybano.gresybano.feature.application.databinding.RowElementHelpBinding
+import es.gresybano.gresybano.feature.application.databinding.RowSeparatorHelpBinding
 
-class ElementSettingsAdapter(
-    private val listenerClickElement: (notification: ElementSettingVo) -> Unit,
-) : ListAdapter<ElementSettingsAdapter.ElementSettingVo, RecyclerView.ViewHolder>(diffUtils) {
+
+class ElementHelpAdapter(
+    private val listenerClickElement: (notification: ElementHelpVo) -> Unit,
+) : ListAdapter<ElementHelpAdapter.ElementHelpVo, RecyclerView.ViewHolder>(diffUtils) {
 
     companion object {
-        private const val TYPE_SETTING_ELEMENT = 0
+        private const val TYPE_HELP_ELEMENT = 0
         private const val TYPE_SEPARATOR = 1
     }
 
-    enum class IdElementSetting {
-        NOTIFICATIONS, RATE_US, SHARE_APP, HELP, VERSION
+    enum class IdElementHelp {
+        CALL_ME, FIND_ME
     }
 
-    sealed class ElementSettingVo {
+    sealed class ElementHelpVo {
 
         data class ElementVo(
-            val id: IdElementSetting,
+            val id: IdElementHelp,
             @IdRes val icon: Int? = null,
             val name: String,
-            val description: String
-        ) : ElementSettingVo()
+            val description: String? = null
+        ) : ElementHelpVo()
 
 
-        object SeparatorVo : ElementSettingVo()
+        object SeparatorVo : ElementHelpVo()
 
-        fun isEquals(message: ElementSettingVo): Boolean {
+        fun isEquals(message: ElementHelpVo): Boolean {
             return if (this.javaClass == message.javaClass) {
                 when (this) {
                     is ElementVo -> {
@@ -60,35 +62,36 @@ class ElementSettingsAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return when (currentList[position]) {
-            is ElementSettingVo.ElementVo -> TYPE_SETTING_ELEMENT
-            ElementSettingVo.SeparatorVo -> TYPE_SEPARATOR
+            is ElementHelpVo.ElementVo -> TYPE_HELP_ELEMENT
+            ElementHelpVo.SeparatorVo -> TYPE_SEPARATOR
         }
     }
 
     inner class ViewHolderElement(
-        private val viewBinding: RowElementSettingsBinding,
+        private val viewBinding: RowElementHelpBinding,
     ) : RecyclerView.ViewHolder(viewBinding.root) {
 
         init {
-            viewBinding.rowElementSettingsCard.setOnClickListener {
+            viewBinding.rowElementHelpCard.setOnClickListener {
                 listenerClickElement(currentList[adapterPosition])
             }
         }
 
-        fun bind(element: ElementSettingVo.ElementVo) {
+        fun bind(element: ElementHelpVo.ElementVo) {
             with(element) {
                 icon?.let {
-                    viewBinding.rowElementSettingsImgSetting.setBackgroundResource(it)
+                    viewBinding.rowElementHelpImgElement.setBackgroundResource(it)
                 }
-                viewBinding.rowElementSettingsLabelTitle.text = name
-                viewBinding.rowElementSettingsLabelSubtitle.text = description
+                viewBinding.rowElementHelpLabelTitle.text = name
+                viewBinding.rowElementHelpLabelSubtitle.text = description
+                viewBinding.rowElementHelpLabelSubtitle.visible(description != null)
             }
         }
 
     }
 
     inner class ViewHolderSeparator(
-        viewBinding: RowSeparatorSettingsBinding,
+        viewBinding: RowSeparatorHelpBinding,
     ) : RecyclerView.ViewHolder(viewBinding.root) {
 
         fun bind() {}
@@ -97,12 +100,12 @@ class ElementSettingsAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (currentList[position]) {
-            is ElementSettingVo.ElementVo -> {
+            is ElementHelpVo.ElementVo -> {
                 (holder as? ViewHolderElement)?.bind(
-                    currentList[position] as ElementSettingVo.ElementVo
+                    currentList[position] as ElementHelpVo.ElementVo
                 )
             }
-            is ElementSettingVo.SeparatorVo -> {
+            is ElementHelpVo.SeparatorVo -> {
                 (holder as? ViewHolderSeparator)?.bind()
             }
         }
@@ -110,15 +113,15 @@ class ElementSettingsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            TYPE_SETTING_ELEMENT -> ViewHolderElement(
-                RowElementSettingsBinding.inflate(
+            TYPE_HELP_ELEMENT -> ViewHolderElement(
+                RowElementHelpBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
                 )
             )
             else -> ViewHolderSeparator(
-                RowSeparatorSettingsBinding.inflate(
+                RowSeparatorHelpBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
@@ -130,15 +133,15 @@ class ElementSettingsAdapter(
 }
 
 private val diffUtils =
-    object : DiffUtil.ItemCallback<ElementSettingsAdapter.ElementSettingVo>() {
+    object : DiffUtil.ItemCallback<ElementHelpAdapter.ElementHelpVo>() {
         override fun areItemsTheSame(
-            oldItem: ElementSettingsAdapter.ElementSettingVo,
-            newItem: ElementSettingsAdapter.ElementSettingVo
+            oldItem: ElementHelpAdapter.ElementHelpVo,
+            newItem: ElementHelpAdapter.ElementHelpVo
         ) = oldItem.isEquals(newItem)
 
         override fun areContentsTheSame(
-            oldItem: ElementSettingsAdapter.ElementSettingVo,
-            newItem: ElementSettingsAdapter.ElementSettingVo
+            oldItem: ElementHelpAdapter.ElementHelpVo,
+            newItem: ElementHelpAdapter.ElementHelpVo
         ) = oldItem.isEquals(newItem)
 
     }

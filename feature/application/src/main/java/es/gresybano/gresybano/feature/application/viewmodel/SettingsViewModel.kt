@@ -37,7 +37,9 @@ class SettingsViewModel : BaseViewModel() {
                     IdElementSetting.SHARE_APP -> {
                         actionShareApp?.invoke()
                     }
-                    IdElementSetting.HELP -> {}             //TODO Navegar hacia la pantalla de ayuda
+                    IdElementSetting.HELP -> {
+                        navigate(SettingsFragmentDirections.navigateToNavigationFeatureApplicationHelpFragmentFromSettingsFragment())
+                    }
                     IdElementSetting.VERSION -> {}          //TODO Implementar pantalla de versión
                 }
             }
