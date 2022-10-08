@@ -10,14 +10,14 @@ import es.gresybano.gresybano.data.remote.category.model.toBo
 import es.gresybano.gresybano.data.utils.BaseRepository
 import es.gresybano.gresybano.domain.category.entity.CategoryBo
 import es.gresybano.gresybano.domain.category.entity.FavoriteCategoryBo
-import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
+import es.gresybano.gresybano.domain.category.repository.CategoryRepository
 import es.gresybano.gresybano.domain.response.Response
 import es.gresybano.gresybano.domain.response.defaultResponse
 
-class RepositoryCategoryImpl(
+class CategoryRepositoryImpl(
     private val categoryRemoteDataSource: CategoryRemoteDataSource,
     private val favoriteCategoryLocalDataSource: FavoriteCategoryLocalDataSource,
-) : RepositoryCategory, BaseRepository() {
+) : CategoryRepository, BaseRepository() {
 
     override suspend fun getCategory(id: String): Response<CategoryBo?> {
         return categoryRemoteDataSource.getCategory(id).defaultResponse {

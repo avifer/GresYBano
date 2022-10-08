@@ -1,16 +1,16 @@
 package es.gresybano.gresybano.feature.application.usecases
 
-import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
+import es.gresybano.gresybano.domain.category.repository.CategoryRepository
 import es.gresybano.gresybano.feature.application.entity.HomeListElementsVo
 import es.gresybano.gresybano.domain.response.*
-import es.gresybano.gresybano.domain.publication.repository.RepositoryPublication
+import es.gresybano.gresybano.domain.publication.repository.PublicationRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class GetDataHomeFragmentUseCase @Inject constructor(
-    private val repositoryCategory: RepositoryCategory,
-    private val repositoryPublication: RepositoryPublication,
+    private val repositoryCategory: CategoryRepository,
+    private val repositoryPublication: PublicationRepository,
 ) {
 
     operator fun invoke(): Flow<Response<HomeListElementsVo>> {

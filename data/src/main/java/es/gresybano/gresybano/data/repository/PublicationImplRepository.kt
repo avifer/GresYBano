@@ -10,14 +10,14 @@ import es.gresybano.gresybano.data.remote.publication.model.toBo
 import es.gresybano.gresybano.data.utils.BaseRepository
 import es.gresybano.gresybano.domain.publication.entity.FavoritePublicationBo
 import es.gresybano.gresybano.domain.publication.entity.PublicationBo
-import es.gresybano.gresybano.domain.publication.repository.RepositoryPublication
+import es.gresybano.gresybano.domain.publication.repository.PublicationRepository
 import es.gresybano.gresybano.domain.response.Response
 import es.gresybano.gresybano.domain.response.defaultResponse
 
-class RepositoryPublicationImpl(
+class PublicationImplRepository(
     private val publicationRemoteDataSource: PublicationRemoteDataSource,
     private val favoritePublicationLocalDataSource: FavoritePublicationLocalDataSource,
-) : RepositoryPublication, BaseRepository() {
+) : PublicationRepository, BaseRepository() {
 
     override suspend fun getPublicationsOfCategory(idCategory: String): Response<List<PublicationBo>> {
         return publicationRemoteDataSource.getPublicationsOfCategory(idCategory).defaultResponse {

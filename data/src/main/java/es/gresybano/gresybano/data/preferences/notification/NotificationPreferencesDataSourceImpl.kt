@@ -1,30 +1,27 @@
 package es.gresybano.gresybano.data.preferences.notification
 
-import android.content.Context
+import es.gresybano.gresybano.common.util.EMPTY_STRING
+import es.gresybano.gresybano.data.preferences.PreferencesManager
 import es.gresybano.gresybano.data.utils.safeLocalCall
 import es.gresybano.gresybano.domain.response.Response
 
 class NotificationPreferencesDataSourceImpl(
-    private val context: Context
+    private val preferencesManager: PreferencesManager
 ) : NotificationPreferencesDataSource {
 
     companion object {
-        private const val KEY_PREFERENCES = "PREFERENCES_GRES_Y_BANO_NOTIFICATION"
         private const val KEY_LIST_NOTIFICATIONS = "KEY_LIST_NOTIFICATIONS"
     }
 
     override suspend fun getAllNotifications(): Response<String> {
         return safeLocalCall {
-            context.getSharedPreferences(KEY_PREFERENCES, Context.MODE_PRIVATE)
-                ?.getString(KEY_LIST_NOTIFICATIONS, "") ?: ""
+            preferencesManager.getValue(KEY_LIST_NOTIFICATIONS, EMPTY_STRING)
         }
     }
 
     override suspend fun setAllNotifications(listNotifications: String): Response<Boolean> {
         return safeLocalCall {
-            context.getSharedPreferences(KEY_PREFERENCES, Context.MODE_PRIVATE)
-                ?.edit()?.putString(KEY_LIST_NOTIFICATIONS, listNotifications)?.apply()
-            true
+            preferencesManager.setValue(KEY_LIST_NOTIFICATIONS, listNotifications)
         }
     }
 

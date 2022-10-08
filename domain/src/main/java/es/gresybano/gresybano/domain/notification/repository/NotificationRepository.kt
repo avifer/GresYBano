@@ -3,7 +3,7 @@ package es.gresybano.gresybano.domain.notification.repository
 import es.gresybano.gresybano.domain.notification.entity.MessageNotificationBo
 import es.gresybano.gresybano.domain.response.Response
 
-interface RepositoryNotification {
+interface NotificationRepository {
 
     suspend fun getAllNotifications(): Response<List<MessageNotificationBo>>
 
