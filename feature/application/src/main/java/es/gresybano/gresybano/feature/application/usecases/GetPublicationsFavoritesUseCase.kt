@@ -1,7 +1,7 @@
 package es.gresybano.gresybano.feature.application.usecases
 
 import es.gresybano.gresybano.domain.publication.entity.PublicationBo
-import es.gresybano.gresybano.domain.publication.repository.RepositoryPublication
+import es.gresybano.gresybano.domain.publication.repository.PublicationRepository
 import es.gresybano.gresybano.domain.response.Response
 import es.gresybano.gresybano.domain.response.getData
 import es.gresybano.gresybano.domain.response.getError
@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class GetPublicationsFavoritesUseCase @Inject constructor(
-    private val repositoryPublication: RepositoryPublication
+    private val repositoryPublication: PublicationRepository
 ) {
 
     operator fun invoke(): Flow<Response<List<PublicationBo>>> {

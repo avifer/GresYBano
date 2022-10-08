@@ -38,6 +38,7 @@ open class BaseViewModel : ViewModel() {
 
 fun <T> BaseViewModel.defaultResponse(
     flowObserve: Flow<Response<T>>,
+    enableDefaultLoading: Boolean = true,
     block: (data: T?) -> T?,
 ): MutableLiveData<T?> {
     val mutableLiveDataResult = MutableLiveData<T?>()
@@ -51,7 +52,9 @@ fun <T> BaseViewModel.defaultResponse(
                     postSuccessful(block(it.data), mutableLiveDataResult)
                 }
                 is Response.Loading -> {
-                    postLoading(true)
+                    if (enableDefaultLoading) {
+                        postLoading(true)
+                    }
                 }
             }
         }

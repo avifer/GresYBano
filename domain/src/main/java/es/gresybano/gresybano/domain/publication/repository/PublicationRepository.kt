@@ -4,7 +4,7 @@ import es.gresybano.gresybano.domain.publication.entity.FavoritePublicationBo
 import es.gresybano.gresybano.domain.publication.entity.PublicationBo
 import es.gresybano.gresybano.domain.response.Response
 
-interface RepositoryPublication {
+interface PublicationRepository {
 
     suspend fun getPublicationsOfCategory(idCategory: String): Response<List<PublicationBo>>
 

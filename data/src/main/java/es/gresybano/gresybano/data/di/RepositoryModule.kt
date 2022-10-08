@@ -1,10 +1,8 @@
 package es.gresybano.gresybano.data.di
 
-import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import es.gresybano.gresybano.data.local.favoritecategory.dao.FavoriteCategoryDao
 import es.gresybano.gresybano.data.local.favoritecategory.datasource.FavoriteCategoryLocalDataSource
@@ -12,20 +10,25 @@ import es.gresybano.gresybano.data.local.favoritecategory.datasource.FavoriteCat
 import es.gresybano.gresybano.data.local.favoritepublication.dao.FavoritePublicationDao
 import es.gresybano.gresybano.data.local.favoritepublication.datasource.FavoritePublicationLocalDataSource
 import es.gresybano.gresybano.data.local.favoritepublication.datasource.FavoritePublicationLocalDataSourceImpl
+import es.gresybano.gresybano.data.preferences.PreferencesManager
 import es.gresybano.gresybano.data.preferences.notification.NotificationPreferencesDataSource
 import es.gresybano.gresybano.data.preferences.notification.NotificationPreferencesDataSourceImpl
+import es.gresybano.gresybano.data.preferences.splash.SplashPreferencesDataSource
+import es.gresybano.gresybano.data.preferences.splash.SplashPreferencesDataSourceImpl
 import es.gresybano.gresybano.data.remote.category.api.CategoryApi
 import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteDataSource
 import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteDataSourceImpl
 import es.gresybano.gresybano.data.remote.publication.api.PublicationApi
 import es.gresybano.gresybano.data.remote.publication.datasource.PublicationRemoteDataSource
 import es.gresybano.gresybano.data.remote.publication.datasource.PublicationRemoteDataSourceImpl
-import es.gresybano.gresybano.data.repository.RepositoryCategoryImpl
-import es.gresybano.gresybano.data.repository.RepositoryNotificationImpl
-import es.gresybano.gresybano.data.repository.RepositoryPublicationImpl
-import es.gresybano.gresybano.domain.category.repository.RepositoryCategory
-import es.gresybano.gresybano.domain.notification.repository.RepositoryNotification
-import es.gresybano.gresybano.domain.publication.repository.RepositoryPublication
+import es.gresybano.gresybano.data.repository.CategoryRepositoryImpl
+import es.gresybano.gresybano.data.repository.NotificationRepositoryImpl
+import es.gresybano.gresybano.data.repository.PublicationImplRepository
+import es.gresybano.gresybano.data.repository.SplashRepositoryImpl
+import es.gresybano.gresybano.domain.category.repository.CategoryRepository
+import es.gresybano.gresybano.domain.notification.repository.NotificationRepository
+import es.gresybano.gresybano.domain.publication.repository.PublicationRepository
+import es.gresybano.gresybano.domain.splash.repository.SplashRepository
 import javax.inject.Singleton
 
 @Module
@@ -46,11 +49,11 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun getRepositoryCategoryImpl(
+    fun getCategoryRepository(
         categoryRemoteDataSource: CategoryRemoteDataSource,
         favoriteCategoryLocalDataSource: FavoriteCategoryLocalDataSource,
-    ): RepositoryCategory {
-        return RepositoryCategoryImpl(categoryRemoteDataSource, favoriteCategoryLocalDataSource)
+    ): CategoryRepository {
+        return CategoryRepositoryImpl(categoryRemoteDataSource, favoriteCategoryLocalDataSource)
     }
 
     //endregion
@@ -69,11 +72,11 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun getRepositoryPublicationImpl(
+    fun getPublicationRepository(
         publicationRemoteDataSource: PublicationRemoteDataSource,
         favoritePublicationLocalDataSource: FavoritePublicationLocalDataSource,
-    ): RepositoryPublication {
-        return RepositoryPublicationImpl(
+    ): PublicationRepository {
+        return PublicationImplRepository(
             publicationRemoteDataSource,
             favoritePublicationLocalDataSource
         )
@@ -84,16 +87,33 @@ class RepositoryModule {
     //region NOTIFICATION
 
     @Provides
-    fun getNotificationPreferencesDataSourceImpl(@ApplicationContext context: Context): NotificationPreferencesDataSource {
-        return NotificationPreferencesDataSourceImpl(context)
+    fun getNotificationPreferencesDataSource(preferencesManager: PreferencesManager): NotificationPreferencesDataSource {
+        return NotificationPreferencesDataSourceImpl(preferencesManager)
     }
 
     @Singleton
     @Provides
-    fun getRepositoryNotificationImpl(
+    fun getNotificationRepository(
         notificationPreferencesDataSource: NotificationPreferencesDataSource,
-    ): RepositoryNotification {
-        return RepositoryNotificationImpl(notificationPreferencesDataSource)
+    ): NotificationRepository {
+        return NotificationRepositoryImpl(notificationPreferencesDataSource)
+    }
+
+    //endregion
+
+    //region SPLASH
+
+    @Provides
+    fun getSplashPreferencesDataSource(preferencesManager: PreferencesManager): SplashPreferencesDataSource {
+        return SplashPreferencesDataSourceImpl(preferencesManager)
+    }
+
+    @Singleton
+    @Provides
+    fun getSplashRepository(
+        splashPreferencesDataSource: SplashPreferencesDataSource,
+    ): SplashRepository {
+        return SplashRepositoryImpl(splashPreferencesDataSource)
     }
 
     //endregion
