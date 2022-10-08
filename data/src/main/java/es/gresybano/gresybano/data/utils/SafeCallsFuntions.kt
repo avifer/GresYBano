@@ -11,6 +11,7 @@ import java.net.UnknownHostException
 suspend fun <T> safeRemoteCall(block: suspend () -> T): Response<T> {
     return try {
         Response.Successful(block())
+
     } catch (e: Exception) {
         return Response.Error(
             ExceptionInfo(
@@ -40,6 +41,7 @@ suspend fun <T> safeRemoteCall(block: suspend () -> T): Response<T> {
 suspend fun <T> safeLocalCall(block: suspend () -> T): Response<T> {
     return try {
         Response.Successful(block())
+
     } catch (e: Exception) {
         return Response.Error(
             ExceptionInfo(

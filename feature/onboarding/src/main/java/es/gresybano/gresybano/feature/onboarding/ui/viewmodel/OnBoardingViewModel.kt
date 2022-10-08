@@ -4,11 +4,12 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.gresybano.gresybano.common.usecase.AddCategoriesToFavoriteUseCase
 import es.gresybano.gresybano.common.usecase.SaveTagToFavoriteUseCase
-import es.gresybano.gresybano.common.util.PreferencesUtil
 import es.gresybano.gresybano.common.util.TAG_ALL_FIREBASE
+import es.gresybano.gresybano.common.util.runInMain
 import es.gresybano.gresybano.common.viewmodel.BaseViewModel
 import es.gresybano.gresybano.domain.category.entity.CategoryBo
 import es.gresybano.gresybano.feature.onboarding.ui.view.fragment.OnBoardingFragmentDirections
+import es.gresybano.gresybano.feature.onboarding.usecases.SetOnBoardingConfigUseCase
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,7 +18,7 @@ import javax.inject.Inject
 class OnBoardingViewModel @Inject constructor(
     private val saveCategoriesLocal: AddCategoriesToFavoriteUseCase,
     private val saveTagToFavoriteUseCase: SaveTagToFavoriteUseCase,
-    private val preferencesUtil: PreferencesUtil
+    private val setOnBoardingConfigUseCase: SetOnBoardingConfigUseCase
 ) : BaseViewModel() {
 
     fun saveFavoriteCategories(list: List<CategoryBo>) {
@@ -25,7 +26,6 @@ class OnBoardingViewModel @Inject constructor(
             saveTagToFavoriteUseCase(TAG_ALL_FIREBASE).collect { /*noop*/ }
             saveCategoriesLocal(list).collect {
                 onboardFinished()
-                navigateToHome()
             }
         }
     }
@@ -35,7 +35,11 @@ class OnBoardingViewModel @Inject constructor(
     }
 
     private fun onboardFinished() {
-        preferencesUtil.setIsOnBoardingConfig()
+        viewModelScope.launch {
+            setOnBoardingConfigUseCase().collect {
+                runInMain { navigateToHome() }
+            }
+        }
     }
 
 }

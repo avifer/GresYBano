@@ -9,19 +9,18 @@ import es.gresybano.gresybano.domain.notification.entity.MessageNotificationBo.N
 import es.gresybano.gresybano.domain.notification.entity.TypeMessageNotification.Companion.parseTypeMessage
 import es.gresybano.gresybano.domain.notification.entity.TypeMessageNotification.ERROR_TYPE
 import es.gresybano.gresybano.domain.notification.entity.TypeMessageNotification.NEW_PUBLICATION
-import es.gresybano.gresybano.domain.notification.repository.RepositoryNotification
+import es.gresybano.gresybano.domain.notification.repository.NotificationRepository
 import es.gresybano.gresybano.domain.response.*
 import org.json.JSONArray
 
-class RepositoryNotificationImpl(
+class NotificationRepositoryImpl(
     private val notificationPreferencesDataSource: NotificationPreferencesDataSource
-) : RepositoryNotification, BaseRepository() {
+) : NotificationRepository, BaseRepository() {
 
     override suspend fun getAllNotifications(): Response<List<MessageNotificationBo>> {
         return notificationPreferencesDataSource.getAllNotifications().defaultResponse {
             it?.let {
                 parseStringToListNotifications(it)
-
                 //Nunca deberia llegar null la respuesta. Coloco listOf mejor que usar !!
             } ?: listOf()
         }
@@ -64,8 +63,7 @@ class RepositoryNotificationImpl(
     }
 
     override suspend fun markNotificationOpened(idNotification: Long): Response<Boolean> {
-        return notificationPreferencesDataSource.getAllNotifications().getData()
-            ?.let { listInString ->
+        return notificationPreferencesDataSource.getAllNotifications().getData()?.let { listInString ->
 
                 notificationPreferencesDataSource.setAllNotifications(
                     parseStringToListNotifications(listInString).map {

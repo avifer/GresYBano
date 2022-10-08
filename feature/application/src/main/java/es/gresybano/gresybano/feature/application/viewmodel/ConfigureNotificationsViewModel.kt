@@ -8,7 +8,7 @@ import es.gresybano.gresybano.common.util.TAG_ALL_FIREBASE
 import es.gresybano.gresybano.common.viewmodel.BaseViewModel
 import es.gresybano.gresybano.common.viewmodel.defaultResponse
 import es.gresybano.gresybano.domain.category.entity.CategoryBo
-import es.gresybano.gresybano.domain.category.usecases.GetAllCategoriesRemoteUseCase
+import es.gresybano.gresybano.feature.application.usecases.GetAllCategoriesRemoteUseCase
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject

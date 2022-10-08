@@ -4,7 +4,7 @@ import es.gresybano.gresybano.domain.category.entity.CategoryBo
 import es.gresybano.gresybano.domain.category.entity.FavoriteCategoryBo
 import es.gresybano.gresybano.domain.response.Response
 
-interface RepositoryCategory {
+interface CategoryRepository {
 
     suspend fun getCategory(id: String): Response<CategoryBo?>
 
