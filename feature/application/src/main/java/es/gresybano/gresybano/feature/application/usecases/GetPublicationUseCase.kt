@@ -18,6 +18,7 @@ class GetPublicationUseCase @Inject constructor(
             idPublication?.let {
                 emit(Response.Loading())
                 emit(repositoryPublication.getPublication(idPublication))
+
             } ?: kotlin.run { emit(Response.Error(ExceptionInfo(CodeExceptions.UNKNOWN))) }
         }
     }

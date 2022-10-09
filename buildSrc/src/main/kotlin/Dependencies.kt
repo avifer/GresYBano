@@ -23,6 +23,10 @@ object Dependencies {
         const val MATERIAL = "com.google.android.material:material:${Versions.Material.MATERIAL}"
     }
 
+    object Kotlin{
+        const val KOTLIN_COROUTINES_PLAY_SERVICES = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.Kotlin.KOTLIN_COROUTINES_PLAY_SERVICES}"
+    }
+
     object Squareup{
         const val RETROFIT2 = "com.squareup.retrofit2:retrofit:${Versions.Squareup.RETROFIT2}"
         const val CONVERTER_GSON = "com.squareup.retrofit2:converter-gson:${Versions.Squareup.CONVERTER_GSON}"

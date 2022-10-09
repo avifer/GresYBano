@@ -28,6 +28,9 @@ suspend fun <T> safeRemoteCall(block: suspend () -> T): Response<T> {
                     is HttpException -> {
                         CodeExceptions.UNKNOWN_NETWORK_EXCEPTION
                     }
+                    is CustomException -> {
+                        e.codeExceptions
+                    }
                     else -> {
                         CodeExceptions.UNKNOWN_NETWORK_EXCEPTION
                     }
