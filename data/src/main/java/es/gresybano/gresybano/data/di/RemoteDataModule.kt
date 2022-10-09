@@ -1,5 +1,7 @@
 package es.gresybano.gresybano.data.di
 
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.remoteconfig.ktx.remoteConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -74,5 +76,9 @@ class RemoteDataModule {
             .build()
             .create(PublicationApi::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun provideFirebaseConfig() = Firebase.remoteConfig
 
 }

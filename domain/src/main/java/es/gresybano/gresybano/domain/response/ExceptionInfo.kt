@@ -15,6 +15,8 @@ fun ExceptionInfo.getStringError(): Int {
         CodeExceptions.UNKNOWN_NETWORK_EXCEPTION -> R.string.unknown_network_error
         CodeExceptions.DATABASE_ROOM_ERROR -> R.string.unknown_network_error
         CodeExceptions.UNKNOWN -> R.string.unknown_error
+        CodeExceptions.NOT_FIND_DATA_VERSION_CONTROL -> R.string.unknown_network_error
+        CodeExceptions.DATA_NULL_IN_SUCCESSFUL -> R.string.unknown_network_error
         null -> R.string.unknown_network_error
     }
 }

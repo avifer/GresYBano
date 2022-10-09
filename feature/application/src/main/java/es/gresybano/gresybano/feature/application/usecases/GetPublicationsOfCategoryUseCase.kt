@@ -18,6 +18,7 @@ class GetPublicationsOfCategoryUseCase @Inject constructor(
             idCategory?.let {
                 emit(Response.Loading())
                 emit(repositoryPublication.getPublicationsOfCategory(idCategory))
+
             } ?: kotlin.run { emit(Response.Error(ExceptionInfo(CodeExceptions.UNKNOWN))) }
         }
     }

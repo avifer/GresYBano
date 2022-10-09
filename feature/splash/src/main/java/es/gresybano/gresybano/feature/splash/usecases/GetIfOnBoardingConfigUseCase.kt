@@ -13,18 +13,7 @@ class GetIfOnBoardingConfigUseCase @Inject constructor(
     operator fun invoke(): Flow<Response<Boolean>> {
         return flow {
             emit(Response.Loading())
-            with(repositorySplash.getIfOnBoardingConfig()) {
-                emit(
-                    if (isSuccessful() &&
-                        getData() != null
-                    ) {
-                        this
-
-                    } else {
-                        Response.Error(getError() ?: ExceptionInfo(CodeExceptions.UNKNOWN))
-                    }
-                )
-            }
+            emit(repositorySplash.getIfOnBoardingConfig())
         }
     }
 

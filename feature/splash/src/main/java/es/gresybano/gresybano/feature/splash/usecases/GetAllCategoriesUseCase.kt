@@ -14,16 +14,7 @@ class GetAllCategoriesUseCase @Inject constructor(
     operator fun invoke(): Flow<Response<List<CategoryBo>>> {
         return flow {
             emit(Response.Loading())
-            with(repositoryCategory.getAllCategories()) {
-                emit(
-                    if (isSuccessful() && getData() != null) {
-                        this
-
-                    } else {
-                        Response.Error(getError() ?: ExceptionInfo(CodeExceptions.UNKNOWN))
-                    }
-                )
-            }
+            emit(repositoryCategory.getAllCategories())
         }
     }
 

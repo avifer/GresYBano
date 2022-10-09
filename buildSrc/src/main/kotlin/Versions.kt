@@ -23,6 +23,10 @@ object Versions {
         const val MATERIAL = "1.5.0"
     }
 
+    object Kotlin{
+        const val KOTLIN_COROUTINES_PLAY_SERVICES = "1.6.4"
+    }
+
     object Squareup {
         const val RETROFIT2 = "2.9.0"
         const val CONVERTER_GSON = "2.1.0"
