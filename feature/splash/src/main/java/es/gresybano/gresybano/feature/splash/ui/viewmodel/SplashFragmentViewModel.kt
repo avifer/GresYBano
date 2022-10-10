@@ -86,7 +86,7 @@ class SplashFragmentViewModel @Inject constructor(
             }
         }
     }
-
+    
     fun navigateToFirstScreen() {
         defaultResponse(getIfOnBoardingConfigUseCase(), false) {
             if (it == false) {
