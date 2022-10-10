@@ -31,7 +31,6 @@ dependencies {
     implementation(Dependencies.Androidx.CONSTRAINT_LAYOUT)
 
     implementation(Dependencies.Androidx.FRAGMENT)
-    implementation(Dependencies.Google.FIREBASE_CONFIG)
 
     implementation(Dependencies.Androidx.NAVIGATION_FRAGMENT_KOTLIN)
     implementation(Dependencies.Androidx.NAVIGATION_UI_KOTLIN)

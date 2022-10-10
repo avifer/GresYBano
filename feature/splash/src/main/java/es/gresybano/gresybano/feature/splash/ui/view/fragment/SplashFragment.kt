@@ -6,11 +6,23 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import es.gresybano.gresybano.common.view.BaseFragment
+import es.gresybano.gresybano.common.view.getVersionName
+import es.gresybano.gresybano.common.view.openAppInGooglePlay
+import es.gresybano.gresybano.domain.splash.entity.VersionControlBo
 import es.gresybano.gresybano.feature.splash.databinding.FragmentSplashBinding
+import es.gresybano.gresybano.feature.splash.ui.view.custom.DialogVersionControl
 import es.gresybano.gresybano.feature.splash.ui.viewmodel.SplashFragmentViewModel
 
 @AndroidEntryPoint
 class SplashFragment : BaseFragment() {
+
+    private fun showPopUpControlVersion(versionControlBo: VersionControlBo) =
+        DialogVersionControl(
+            context = requireContext(),
+            versionControlBo = versionControlBo,
+            actionAccept = { openAppInGooglePlay() },
+            actionCancel = { viewModel.navigateToFirstScreen() },
+        ).show()
 
     override val viewModel by viewModels<SplashFragmentViewModel>()
 
@@ -22,7 +34,19 @@ class SplashFragment : BaseFragment() {
     override fun onViewReady(savedInstanceState: Bundle?) {
         hideToolbar()
         hideBottomNavigationBar()
-        viewModel.navigateToFirstScreen()
+        initObservers()
+        viewModel.checkVersionControl(getVersionName())
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getVersionControlGetter()?.let {
+            showPopUpControlVersion(it)
+        }
+    }
+
+    private fun initObservers() {
+        viewModel.getShowPopUpLiveData().observe(viewLifecycleOwner) { showPopUpControlVersion(it) }
     }
 
 }

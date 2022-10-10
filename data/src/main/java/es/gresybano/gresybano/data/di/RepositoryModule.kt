@@ -1,5 +1,6 @@
 package es.gresybano.gresybano.data.di
 
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,6 +22,8 @@ import es.gresybano.gresybano.data.remote.category.datasource.CategoryRemoteData
 import es.gresybano.gresybano.data.remote.publication.api.PublicationApi
 import es.gresybano.gresybano.data.remote.publication.datasource.PublicationRemoteDataSource
 import es.gresybano.gresybano.data.remote.publication.datasource.PublicationRemoteDataSourceImpl
+import es.gresybano.gresybano.data.remote.splash.datasource.SplashRemoteDataSource
+import es.gresybano.gresybano.data.remote.splash.datasource.SplashRemoteDataSourceImpl
 import es.gresybano.gresybano.data.repository.CategoryRepositoryImpl
 import es.gresybano.gresybano.data.repository.NotificationRepositoryImpl
 import es.gresybano.gresybano.data.repository.PublicationImplRepository
@@ -108,12 +111,18 @@ class RepositoryModule {
         return SplashPreferencesDataSourceImpl(preferencesManager)
     }
 
+    @Provides
+    fun getSplashRemoteDataSource(firebaseRemoteConfig: FirebaseRemoteConfig): SplashRemoteDataSource {
+        return SplashRemoteDataSourceImpl(firebaseRemoteConfig)
+    }
+
     @Singleton
     @Provides
     fun getSplashRepository(
         splashPreferencesDataSource: SplashPreferencesDataSource,
+        splashRemoteDataSource: SplashRemoteDataSource,
     ): SplashRepository {
-        return SplashRepositoryImpl(splashPreferencesDataSource)
+        return SplashRepositoryImpl(splashPreferencesDataSource, splashRemoteDataSource)
     }
 
     //endregion

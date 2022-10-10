@@ -26,6 +26,10 @@ dependencies {
     implementation(Dependencies.Androidx.ROOM_KTX)
     kapt(Dependencies.Androidx.ROOM_COMPILER)
 
+    implementation(Dependencies.Google.FIREBASE_CONFIG)
+
+    implementation(Dependencies.Kotlin.KOTLIN_COROUTINES_PLAY_SERVICES)
+
     implementation(Dependencies.Squareup.RETROFIT2)
     implementation(Dependencies.Google.GSON)
     implementation(Dependencies.Squareup.CONVERTER_GSON)

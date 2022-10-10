@@ -33,3 +33,17 @@ suspend fun <T, O> Response<T>.defaultResponse(block: suspend (int: T?) -> O): R
         }
     }
 }
+
+suspend fun <T, O> Response<T>.defaultResponseSuccessful(block: (int: T?) -> Response<O>): Response<O> {
+    return when (this) {
+        is Response.Successful -> {
+            block(this.data)
+        }
+        is Response.Error -> {
+            Response.Error(this.error)
+        }
+        is Response.Loading -> {
+            Response.Loading(this.loading)
+        }
+    }
+}

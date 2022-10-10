@@ -5,9 +5,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import dagger.hilt.android.HiltAndroidApp
-import es.gresybano.gresybano.common.extensions.getDefaultValues
 import java.util.concurrent.TimeUnit.MINUTES
-
 
 @HiltAndroidApp
 class MainApplication : Application() {
@@ -30,7 +28,6 @@ class MainApplication : Application() {
                     }
                 )
             }
-            setDefaultsAsync(getDefaultValues())
         }
     }
 
