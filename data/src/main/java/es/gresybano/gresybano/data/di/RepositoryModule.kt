@@ -123,7 +123,7 @@ class RepositoryModule {
         splashRemoteDataSource: SplashRemoteDataSource,
     ): SplashRepository {
         return SplashRepositoryImpl(splashPreferencesDataSource, splashRemoteDataSource)
-    )
+    }
 
     //endregion
 
